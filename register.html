@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Brain Bee Bangladesh 2026</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-white: #FFFFFF;
+      --gold-brush: #C9972C;
+      --gold-amber: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+      --text-light: #8A8078;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 153, 44, 0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      height: 60px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .hex-icon-small {
+      width: 32px;
+      height: 32px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.3), rgba(212, 168, 50, 0.15));
+      color: var(--gold-brush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .logo-small {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-brush);
+    }
+
+    /* Page header */
+    .page-header {
+      background: var(--bg-cream);
+      padding: 140px 2rem 4rem;
+      text-align: center;
+      margin-top: 72px;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--text-body);
+    }
+
+    /* Main content */
+    main {
+      max-width: 700px;
+      margin: -2rem auto 4rem;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 3.5rem;
+      box-shadow: 0 8px 32px rgba(160, 130, 60, 0.1);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+    }
+
+    .form-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      border: 1.5px solid rgba(201, 153, 44, 0.2);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--gold-brush);
+      background: var(--bg-white);
+      box-shadow: 0 0 0 3px rgba(201, 153, 44, 0.12);
+    }
+
+    .form-input::placeholder {
+      color: #999;
+    }
+
+    /* Toggle pills for category/segment selection */
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .toggle-pill {
+      padding: 0.65rem 1.3rem;
+      border: 1.5px solid rgba(201, 153, 44, 0.25);
+      border-radius: 50px;
+      background: transparent;
+      color: var(--text-body);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+
+    .toggle-pill:hover {
+      border-color: rgba(201, 153, 44, 0.5);
+      color: var(--text-primary);
+    }
+
+    .toggle-pill.active {
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.1), rgba(212, 168, 50, 0.06));
+      border-color: var(--gold-brush);
+      color: var(--gold-brush);
+    }
+
+    /* Form row for side-by-side fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+      color: white;
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 153, 44, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.96);
+    }
+
+    .btn-secondary {
+      background: var(--bg-cream);
+      color: var(--text-primary);
+      border: 1.5px solid rgba(201, 153, 44, 0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold-brush);
+      color: var(--gold-brush);
+    }
+
+    /* Success/Error messages */
+    .form-message {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(58, 125, 68, 0.1);
+      border: 1px solid #3A7D44;
+      color: #3A7D44;
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(200, 92, 92, 0.1);
+      border: 1px solid #C85C5C;
+      color: #C85C5C;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid rgba(201, 153, 44, 0.2);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-text {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: var(--gold-brush);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-copyright {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        height: 64px;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-header {
+        padding: 100px 1.5rem 2rem;
+      }
+
+      main {
+        margin: -1rem auto 2rem;
+        padding: 0 1rem;
+      }
+
+      .form-card {
+        padding: 2rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-brush);
+      outline-offset: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* PARTICIPANT ID CARD SYSTEM                                       */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    :root {
+      /* Academic Blue Palette */
+      --card-navy: #1B3A6B;
+      --card-azure: #2E5C8A;
+      --card-sky: #4A7FBC;
+      --card-slate: #3D4F63;
+      --card-accent: #5B9FD9;
+      --card-light: #E8EEF5;
+      --card-white: #FFFFFF;
+      --card-text-dark: #1A1A1A;
+      --card-text-light: #4A4A4A;
+    }
+
+    .card-generator-section {
+      position: relative;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid rgba(46, 92, 138, 0.2);
+    }
+
+    .card-generator-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3ClinearGradient id='particleGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgba(46,92,138,0.08)'/%3E%3Cstop offset='100%25' style='stop-color:rgba(91,159,217,0.04)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='0.5'%3E%3Ccircle cx='30' cy='50' r='1.8' fill='rgba(91,159,217,0.25)' opacity='0.3'/%3E%3Ccircle cx='70' cy='80' r='1.5' fill='rgba(46,92,138,0.2)' opacity='0.25'/%3E%3Ccircle cx='120' cy='40' r='2' fill='rgba(74,127,188,0.22)' opacity='0.28'/%3E%3Ccircle cx='160' cy='100' r='1.6' fill='rgba(91,159,217,0.18)' opacity='0.22'/%3E%3Ccircle cx='200' cy='60' r='1.9' fill='rgba(46,92,138,0.2)' opacity='0.26'/%3E%3Ccircle cx='250' cy='150' r='1.7' fill='rgba(74,127,188,0.19)' opacity='0.24'/%3E%3Ccircle cx='290' cy='90' r='2.2' fill='rgba(91,159,217,0.24)' opacity='0.3'/%3E%3Ccircle cx='330' cy='180' r='1.5' fill='rgba(46,92,138,0.19)' opacity='0.23'/%3E%3Ccircle cx='80' cy='220' r='1.8' fill='rgba(74,127,188,0.21)' opacity='0.27'/%3E%3Ccircle cx='150' cy='280' r='1.6' fill='rgba(91,159,217,0.2)' opacity='0.25'/%3E%3Ccircle cx='240' cy='320' r='2.1' fill='rgba(46,92,138,0.22)' opacity='0.28'/%3E%3Ccircle cx='340' cy='250' r='1.7' fill='rgba(74,127,188,0.18)' opacity='0.22'/%3E%3Cpolygon points='50,150 65,140 75,155 60,165' fill='none' stroke='rgba(91,159,217,0.18)' stroke-width='0.8' opacity='0.5'/%3E%3Cpolygon points='280,200 300,185 315,205 295,220' fill='none' stroke='rgba(46,92,138,0.15)' stroke-width='0.8' opacity='0.6'/%3E%3Crect x='120' y='180' width='30' height='30' fill='none' stroke='rgba(91,159,217,0.16)' stroke-width='0.9' opacity='0.4' transform='rotate(30 135 195)'/%3E%3Crect x='200' y='240' width='45' height='45' fill='none' stroke='rgba(74,127,188,0.14)' stroke-width='0.8' opacity='0.5' transform='rotate(-20 222.5 262.5)'/%3E%3Cpath d='M60 250 Q100 230 140 250' stroke='rgba(91,159,217,0.12)' stroke-width='0.8' fill='none' opacity='0.5'/%3E%3Cpath d='M200 120 Q250 100 300 120' stroke='rgba(46,92,138,0.1)' stroke-width='0.8' fill='none' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 400px 400px;
+      background-position: 0 0;
+      background-repeat: repeat;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card-generator-section.active > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-generator-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--card-navy);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .card-upload-area {
+      border: 2px dashed var(--card-accent);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(91, 159, 217, 0.05), rgba(232, 238, 245, 0.1));
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .card-upload-area:hover {
+      border-color: var(--card-sky);
+      background: linear-gradient(135deg, rgba(91, 159, 217, 0.12), rgba(232, 238, 245, 0.15));
+    }
+
+    .card-upload-area.dragover {
+      border-color: var(--card-navy);
+      background: linear-gradient(135deg, rgba(27, 58, 107, 0.1), rgba(232, 238, 245, 0.2));
+    }
+
+    .card-upload-input {
+      display: none;
+    }
+
+    .card-upload-label {
+      display: block;
+      font-weight: 600;
+      color: var(--card-navy);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .card-upload-hint {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    #participantIdCard {
+      width: 100%;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(27, 58, 107, 0.2);
+      background: var(--card-white);
+    }
+
+    .id-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 8.5/11;
+      background: linear-gradient(135deg, #FFFFFF 0%, #e8f2ff 50%, #f0f8ff 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Enhanced 3D particle background - Layer 1: Base gradients */
+    .id-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 15% 30%, rgba(46, 92, 138, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(74, 127, 188, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(91, 159, 217, 0.08) 0%, transparent 60%);
+      background-size: 100% 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Enhanced 3D particle background - Layer 2: Animated particles and shapes */
+    .id-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgba(46,92,138,0.1)'/%3E%3Cstop offset='100%25' style='stop-color:rgba(91,159,217,0.05)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='0.6'%3E%3Cpath d='M60 100 L85 85 L110 100 L95 125 L70 125 Z' fill='none' stroke='rgba(91,159,217,0.18)' stroke-width='1.5'/%3E%3Cpath d='M180 140 L210 120 L240 140 L220 170 L190 170 Z' fill='none' stroke='rgba(46,92,138,0.14)' stroke-width='1.2'/%3E%3Cpath d='M330 80 L365 55 L400 80 L375 115 L340 115 Z' fill='none' stroke='rgba(74,127,188,0.12)' stroke-width='1.4'/%3E%3Cpath d='M120 300 L155 280 L190 300 L165 335 L130 335 Z' fill='none' stroke='rgba(91,159,217,0.15)' stroke-width='1'/%3E%3Cpath d='M280 250 L320 225 L360 250 L335 290 L295 290 Z' fill='none' stroke='rgba(46,92,138,0.12)' stroke-width='1.3'/%3E%3Crect x='40' y='200' width='50' height='50' fill='none' stroke='rgba(91,159,217,0.16)' stroke-width='1.5' opacity='0.7' transform='rotate(25 65 225)'/%3E%3Crect x='240' y='340' width='65' height='65' fill='none' stroke='rgba(74,127,188,0.13)' stroke-width='1.2' opacity='0.6' transform='rotate(-20 272.5 372.5)'/%3E%3Crect x='380' y='180' width='45' height='45' fill='none' stroke='rgba(46,92,138,0.11)' stroke-width='1.1' opacity='0.5' transform='rotate(40 402.5 202.5)'/%3E%3Cpolygon points='130,60 140,75 130,90 120,75' fill='none' stroke='rgba(91,159,217,0.2)' stroke-width='1.2' opacity='0.8'/%3E%3Cpolygon points='360,380 375,400 360,420 345,400' fill='none' stroke='rgba(46,92,138,0.15)' stroke-width='1' opacity='0.6'/%3E%3Ccircle cx='450' cy='100' r='3' fill='rgba(91,159,217,0.2)' opacity='0.5'/%3E%3Ccircle cx='50' cy='450' r='2.5' fill='rgba(46,92,138,0.15)' opacity='0.6'/%3E%3Cpath d='M100 400 Q150 370 200 400' stroke='rgba(91,159,217,0.1)' stroke-width='1' fill='none' opacity='0.7'/%3E%3Cpath d='M300 50 Q350 80 400 50' stroke='rgba(74,127,188,0.08)' stroke-width='1.2' fill='none' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 500px 500px;
+      background-position: 0 0;
+      background-repeat: repeat;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 1;
+      animation: particleFloat 30s ease-in-out infinite;
+    }
+
+    @keyframes particleFloat {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.8;
+      }
+      25% {
+        transform: translateY(-8px) translateX(4px);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-15px) translateX(-6px);
+        opacity: 0.9;
+      }
+      75% {
+        transform: translateY(-8px) translateX(3px);
+        opacity: 0.7;
+      }
+    }
+
+    .id-card-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.5rem;
+    }
+
+    /* Corner decorations */
+    .id-card-inner::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 30px;
+      border-top: 2px solid rgba(91, 159, 217, 0.2);
+      border-right: 2px solid rgba(91, 159, 217, 0.2);
+      border-radius: 0 8px 0 0;
+      z-index: 3;
+    }
+
+    .id-card-inner::after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      width: 30px;
+      height: 30px;
+      border-bottom: 2px solid rgba(91, 159, 217, 0.2);
+      border-left: 2px solid rgba(91, 159, 217, 0.2);
+      border-radius: 0 0 0 8px;
+      z-index: 3;
+    }
+
+    /* Photo section with organic crop */
+    .id-card-photo-section {
+      position: relative;
+      width: 100%;
+      height: 48%;
+      margin-bottom: 0.5rem;
+      border-radius: 0 0 35% 0 / 0 0 45% 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--card-navy), var(--card-azure));
+      box-shadow: 0 12px 30px rgba(27, 58, 107, 0.2), inset 0 -3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Decorative overlay on photo section */
+    .id-card-photo-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.03) 75%, 
+        transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+      animation: shimmerSlide 3s infinite;
+    }
+
+    @keyframes shimmerSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .id-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      image-rendering: crisp-edges;
+    }
+
+    .id-card-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--card-navy), var(--card-azure));
+      color: var(--card-light);
+      font-size: 3rem;
+    }
+
+    /* Information section */
+    .id-card-info-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Decorative watermark in info section */
+    .id-card-info-section::before {
+      content: '2026';
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: rgba(91, 159, 217, 0.08);
+      transform: translateY(-50%) rotate(-15deg);
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.05em;
+    }
+
+    /* Subtle border/divider */
+    .id-card-info-header {
+      border-top: 2px solid rgba(91, 159, 217, 0.3);
+      padding-top: 1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .id-card-name {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--card-navy);
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+      word-break: break-word;
+      letter-spacing: 0.3px;
+    }
+
+    .id-card-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.9rem 0;
+      font-size: 0.75rem;
+    }
+
+    .id-card-detail-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .id-card-detail-label {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 600;
+      color: var(--card-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      margin-bottom: 0.35rem;
+      position: relative;
+    }
+
+    .id-card-detail-label::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(91, 159, 217, 0.4), transparent);
+    }
+
+    .id-card-detail-value {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--card-navy);
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Footer with logos */
+    .id-card-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.2rem 0.5rem;
+      border-top: 1.5px solid rgba(91, 159, 217, 0.3);
+      margin-top: auto;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 2;
+      justify-items: center;
+    }
+
+    /* Decorative accent line */
+    .id-card-footer::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(91, 159, 217, 0.4) 25%, 
+        rgba(91, 159, 217, 0.6) 50%, 
+        rgba(91, 159, 217, 0.4) 75%, 
+        transparent 100%);
+    }
+
+    .id-card-logo {
+      height: 100px;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .id-card-logo-dhulikona {
+      height: 95px;
+    }
+
+    .id-card-logo-brainbee {
+      height: 95px;
+    }
+
+    /* QR Code section */
+    .id-card-qr-section {
+      background: var(--card-white);
+      padding: 0.3rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+    }
+
+    .id-card-qr-section img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      border-radius: 3px;
+    }
+
+    /* Card action buttons */
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-download-card {
+      background: linear-gradient(135deg, var(--card-navy), var(--card-azure));
+      color: white;
+      padding: 0.85rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-download-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27, 58, 107, 0.3);
+    }
+
+    .btn-print-card {
+      background: var(--card-light);
+      color: var(--card-navy);
+      padding: 0.85rem 1.8rem;
+      border: 2px solid var(--card-accent);
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-print-card:hover {
+      background: var(--card-accent);
+      color: white;
+    }
+
+    .card-generator-hidden {
+      display: none;
+    }
+
+    /* Category card styling */
+    .category-card {
+      padding: 1.2rem;
+      border: 2px solid rgba(201, 153, 44, 0.25);
+      border-radius: 12px;
+      background: transparent;
+      color: var(--text-body);
+      font-family: 'Comfortaa', 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      text-align: center;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .category-card:hover {
+      border-color: rgba(201, 153, 44, 0.5);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201, 153, 44, 0.15);
+    }
+
+    .category-card.active {
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.15), rgba(212, 168, 50, 0.08));
+      border-color: var(--gold-brush);
+      color: var(--gold-brush);
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.2);
+    }
+
+    /* Photo upload styling */
+    #photoUploadSection {
+      position: relative;
+    }
+
+    #photoInput {
+      padding: 1.2rem;
+      border: 2px dashed rgba(201, 153, 44, 0.3);
+      border-radius: 12px;
+      background: rgba(245, 240, 232, 0.5);
+      cursor: pointer;
+    }
+
+    #photoInput:hover {
+      border-color: rgba(201, 153, 44, 0.5);
+      background: rgba(245, 240, 232, 0.8);
+    }
+
+    #photoPreview {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    #previewImage {
+      border-radius: 12px !important;
+      border: 2px solid var(--gold-brush) !important;
+      box-shadow: 0 4px 12px rgba(201, 153, 44, 0.2);
+    }
+
+    #removePhotoBtn {
+      padding: 0.6rem 1.2rem !important;
+      background: var(--bg-cream) !important;
+      border: 1.5px solid var(--gold-brush) !important;
+      border-radius: 8px !important;
+      cursor: pointer !important;
+      color: var(--gold-brush) !important;
+      font-weight: 600 !important;
+      font-family: 'Comfortaa', 'Nunito', sans-serif !important;
+      transition: all 0.3s ease !important;
+    }
+
+    #removePhotoBtn:hover {
+      background: var(--gold-brush) !important;
+      color: white !important;
+    }
+
+    @media print {
+      * {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      body {
+        background: white !important;
+      }
+
+      body > * {
+        display: none !important;
+      }
+
+      #participantIdCard {
+        display: block !important;
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        padding: 0;
+        position: static !important;
+      }
+
+      .id-card {
+        aspect-ratio: 8.5/11 !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+
+      .card-generator-section::before {
+        display: none !important;
+      }
+
+      .id-card-inner {
+        z-index: 1 !important;
+      }
+
+      .id-card::before,
+      .id-card::after {
+        z-index: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #participantIdCard {
+        max-width: 100%;
+      }
+
+      .id-card-name {
+        font-size: 1.1rem;
+      }
+
+      .id-card-details {
+        gap: 0.75rem;
+        margin: 0.5rem 0;
+      }
+
+      .card-actions {
+        flex-direction: column;
+      }
+
+      .btn-download-card,
+      .btn-print-card {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+
+<!-- Firebase Configuration - Set before module loads -->
+<script>
+  if (typeof window.FIREBASE_CONFIG === 'undefined') {
+    window.FIREBASE_CONFIG = {
+      apiKey: "AIzaSyCAeRB03-ek3GsJmOgX7tbXDLGj3hunifc",
+      authDomain: "brainbee-bd-2026.firebaseapp.com",
+      projectId: "brainbee-bd-2026",
+      storageBucket: "brainbee-bd-2026.firebasestorage.app",
+      messagingSenderId: "578586136925",
+      appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+      measurementId: "G-BX9NFHSQL2"
+    };
+  }
+</script>
+
+<!-- Load Firebase Configuration -->
+<script src="config/firebase-config.js"></script>
+
+<!-- Load html2canvas library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script type="module">
+  // Firebase initialization for registration form
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+
+  let firebaseConfig = window.FIREBASE_CONFIG || {
+    apiKey: "REPLACE_WITH_YOUR_API_KEY",
+    authDomain: "brainbee-bd-2026.firebaseapp.com",
+    projectId: "brainbee-bd-2026",
+    storageBucket: "brainbee-bd-2026.firebasestorage.app",
+    messagingSenderId: "578586136925",
+    appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+    measurementId: "G-BX9NFHSQL2"
+  };
+
+  let db;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  } catch (error) {
+    console.error('Firebase initialization error:', error);
+  }
+
+  // Make Firebase functions available globally
+  window.saveRegistration = async function(formData) {
+    if (!db) {
+      throw new Error('Firebase not initialized. Please check your configuration.');
+    }
+
+    try {
+      const docRef = await addDoc(collection(db, 'registrations'), {
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        institution: formData.institution,
+        district: formData.district,
+        category: formData.category,
+        segment: formData.segment,
+        timestamp: serverTimestamp()
+      });
+
+      console.log('Registration saved with ID:', docRef.id);
+      return docRef.id;
+    } catch (error) {
+      console.error('Error saving registration:', error);
+      throw error;
+    }
+  };
+</script>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+        Brain Bee BD
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#format" class="nav-link">Format</a></li>
+        <li><a href="index.html#timeline" class="nav-link">Timeline</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Register Now</h1>
+    <p>Join Brain Bee Bangladesh 2026 — BDT 50 Registration Fee, Online Registration (March 15 – April 15, 2026)</p>
+  </div>
+
+  <!-- Countdown Section -->
+  <main>
+    <div id="countdownSection" style="text-align: center; padding: 5rem 2rem; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <style>
+        @keyframes pulseCountdown {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.95; transform: scale(1.02); }
+        }
+
+        .countdown-wrapper {
+          animation: pulseCountdown 2s ease-in-out infinite;
+        }
+      </style>
+
+      <div class="countdown-wrapper" style="margin-bottom: 3rem;">
+        <p style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); margin-bottom: 0.5rem;"> Registration Opens Soon</p>
+        <div style="width: 120px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-brush), transparent); margin: 0 auto 1.5rem;"></div>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 2rem; margin-bottom: 4rem; max-width: 600px;">
+        <div style="background: linear-gradient(135deg, var(--bg-white) 0%, rgba(245, 240, 232, 0.8) 100%); padding: 2.5rem 1.5rem; border-radius: 16px; border: 2px solid var(--gold-brush); box-shadow: 0 4px 20px rgba(201, 153, 44, 0.15);">
+          <div style="font-size: 4rem; font-weight: 800; color: var(--gold-brush); line-height: 1;" id="countdownDays">00</div>
+          <div style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-top: 0.75rem; font-weight: 600; letter-spacing: 0.05em;">Days</div>
+        </div>
+        <div style="background: linear-gradient(135deg, var(--bg-white) 0%, rgba(245, 240, 232, 0.8) 100%); padding: 2.5rem 1.5rem; border-radius: 16px; border: 2px solid var(--gold-brush); box-shadow: 0 4px 20px rgba(201, 153, 44, 0.15);">
+          <div style="font-size: 4rem; font-weight: 800; color: var(--gold-brush); line-height: 1;" id="countdownHours">00</div>
+          <div style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-top: 0.75rem; font-weight: 600; letter-spacing: 0.05em;">Hours</div>
+        </div>
+        <div style="background: linear-gradient(135deg, var(--bg-white) 0%, rgba(245, 240, 232, 0.8) 100%); padding: 2.5rem 1.5rem; border-radius: 16px; border: 2px solid var(--gold-brush); box-shadow: 0 4px 20px rgba(201, 153, 44, 0.15);">
+          <div style="font-size: 4rem; font-weight: 800; color: var(--gold-brush); line-height: 1;" id="countdownMinutes">00</div>
+          <div style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-top: 0.75rem; font-weight: 600; letter-spacing: 0.05em;">Minutes</div>
+        </div>
+        <div style="background: linear-gradient(135deg, var(--bg-white) 0%, rgba(245, 240, 232, 0.8) 100%); padding: 2.5rem 1.5rem; border-radius: 16px; border: 2px solid var(--gold-brush); box-shadow: 0 4px 20px rgba(201, 153, 44, 0.15);">
+          <div style="font-size: 4rem; font-weight: 800; color: var(--gold-brush); line-height: 1;" id="countdownSeconds">00</div>
+          <div style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-top: 0.75rem; font-weight: 600; letter-spacing: 0.05em;">Seconds</div>
+        </div>
+      </div>
+      
+      <p style="color: var(--text-body); font-size: 1rem; line-height: 1.8; max-width: 500px;">Be ready! Registration will open on <strong>March 16, 2026 at 00:00 UTC+6</strong>.<br>Secure your spot in Bangladesh's International Brain Bee Competition.</p>
+    </div>
+
+    <!-- ID Card Generator (Shown after successful registration) -->
+    <div id="cardGeneratorContainer" class="form-card card-generator-hidden" style="display: none;">
+      <h2 class="card-generator-title">Your Participant ID Card</h2>
+      
+      <div class="card-upload-area" id="photoUploadArea">
+        <input type="file" id="cardPhotoInput" class="card-upload-input" accept="image/*">
+        <label for="cardPhotoInput" class="card-upload-label">📸 Upload Your Photo</label>
+        <p class="card-upload-hint">Drag and drop your photo here or click to browse (JPG, PNG, 500x500px or larger recommended)</p>
+      </div>
+
+      <!-- ID Card Preview -->
+      <div id="participantIdCard">
+        <div class="id-card">
+          <div class="id-card-inner">
+            <!-- Photo Section -->
+            <div class="id-card-photo-section">
+              <div id="cardPhotoContainer" class="id-card-photo-placeholder">🧠</div>
+            </div>
+
+            <!-- Information Section -->
+            <div class="id-card-info-section">
+              <div class="id-card-info-header">
+                <div class="id-card-name" id="cardName">Participant Name</div>
+                
+                <div class="id-card-details">
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Reg. ID</span>
+                    <span class="id-card-detail-value" id="cardRegId">ID-000000</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Category</span>
+                    <span class="id-card-detail-value" id="cardCategory">School</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Segment</span>
+                    <span class="id-card-detail-value" id="cardSegment">Science</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Year</span>
+                    <span class="id-card-detail-value">2026</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer with Logos and QR Code -->
+              <div class="id-card-footer">
+                <img src="assets/logo.png" alt="Dhulikona" class="id-card-logo id-card-logo-dhulikona" id="cardLogoDhulikona">
+                <div class="id-card-qr-section">
+                  <img src="assets/qr.png" alt="Participant QR Code" id="cardQRCode">
+                </div>
+                <img src="assets/bbb.png" alt="Brain Bee" class="id-card-logo id-card-logo-brainbee" id="cardLogoBrainbee">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="card-actions">
+        <button class="btn-download-card" id="downloadCardBtn">
+          ⬇️ Download Card
+        </button>
+        <button class="btn-print-card" id="printCardBtn">
+          🖨️ Print Card
+        </button>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">
+          ✓ Your registration is confirmed. Save or print your ID card for the exam.
+        </p>
+        <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">Back to Home</a>
+      </div>
+    </div>
+
+    <!-- Main Registration Form -->
+    <div id="formContainer" class="form-card" style="display: none;">
+      <form id="registrationForm">
+        <div id="formMessage" class="form-message"></div>
+
+        <!-- Personal Information -->
+        <div class="form-section">
+          <label class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            name="fullName" 
+            class="form-input" 
+            placeholder="Your full name"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="your.email@example.com"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">Phone Number (Optional)</label>
+          <input 
+            type="tel" 
+            name="phone" 
+            class="form-input" 
+            placeholder="+880 1X XXX XXXXX"
+          >
+        </div>
+
+        <!-- Institution & Class -->
+        <div class="form-section">
+          <label class="form-label">Institution Name</label>
+          <input 
+            type="text" 
+            name="institution" 
+            class="form-input" 
+            placeholder="Your school or college"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">District</label>
+          <input 
+            type="text" 
+            name="district" 
+            class="form-input" 
+            placeholder="Your district"
+            required
+          >
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="form-section">
+          <label class="form-label">Profile Photo (For ID Card) — Required</label>
+          <div style="background: linear-gradient(135deg, rgba(232,120,0,0.15), rgba(232,120,0,0.08)); border-left: 4px solid #E87800; border-radius: 8px; padding: 12px 14px; margin-bottom: 1rem; margin-top: 0.5rem;">
+            <p style="font-size: 0.88rem; font-weight: 600; color: #E87800; margin: 0; line-height: 1.5;">⚠️ FOR THE BEST RESULT, PLEASE UPLOAD A PHOTO OF YOURSELF WITH A TRANSPARENT BACKGROUND (NO BACKGROUND) — JUST YOU!</p>
+          </div>
+          <div id="photoUploadSection">
+            <input 
+              type="file" 
+              name="photo" 
+              id="photoInput" 
+              class="form-input" 
+              accept="image/jpeg,image/png"
+              required
+            >
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">JPG or PNG, max 2 MB. Required for ID card generation.</p>
+            <div id="photoPreview" style="margin-top: 1rem; display: none;">
+              <img id="previewImage" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; border: 2px solid var(--gold-brush);">
+              <button type="button" id="removePhotoBtn" style="display: block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--bg-cream); border: 1px solid var(--gold-brush); border-radius: 6px; cursor: pointer; color: var(--gold-brush); font-weight: 600;">Remove Photo</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Selection -->
+        <div class="form-section">
+          <label class="form-label">Select Your Category</label>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <!-- School Options -->
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button type="button" class="category-card school-option" data-category="school" data-display="CLASS 9-10">
+                <div style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">CLASS 9-10</div>
+              </button>
+              <button type="button" class="category-card school-option" data-category="school" data-display="SSC - 26">
+                <div style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">SSC - 26</div>
+              </button>
+            </div>
+
+            <!-- College Options -->
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button type="button" class="category-card college-option" data-category="college" data-display="COLLEGE (11-12)">
+                <div style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">COLLEGE (11-12)</div>
+              </button>
+              <button type="button" class="category-card college-option" data-category="college" data-display="HSC 26">
+                <div style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">HSC 26</div>
+              </button>
+            </div>
+          </div>
+
+          <input type="hidden" name="category" id="categoryInput" required>
+        </div>
+
+        <!-- Segment Selection -->
+        <div class="form-section">
+          <label class="form-label">Select Your Competition Segment</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-pill" data-segment="general">General Science</button>
+            <button type="button" class="toggle-pill" data-segment="neuro">Neuroscience</button>
+            <button type="button" class="toggle-pill" data-segment="iq">IQ Challenges</button>
+          </div>
+          <input type="hidden" name="segment" id="segmentInput" required>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="form-section" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(201, 153, 44, 0.15);">
+          <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+            <input 
+              type="checkbox" 
+              name="agreeTerms" 
+              style="margin-top: 0.25rem;"
+              required
+            >
+            <span style="font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              I agree to the competition rules, academic integrity policy, and that I will not use AI tools, browser extensions, or any unauthorized digital assistance during the exam.
+            </span>
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Register →</button>
+          <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">Back</a>
+        </div>
+      </form>
+    </div>
+    </div><!-- Close formContainer -->
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-title">⬡ Brain Bee Bangladesh 2026</div>
+      <p class="footer-text">Bangladesh's First International Brain Bee</p>
+      <p class="footer-text">
+        Questions? Contact us at <a href="mailto:brainbee.bd@gmail.com" class="footer-link">brainbee.bd@gmail.com</a>
+      </p>
+      <p class="footer-copyright">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════ //
+    // PARTICIPANT ID CARD GENERATION SYSTEM
+    // ═══════════════════════════════════════════════════════════════════ //
+
+    class ParticipantIDCardGenerator {
+      constructor() {
+        this.photoFile = null;
+        this.registrationData = {};
+        this.initializeEventListeners();
+      }
+
+      initializeEventListeners() {
+        // Photo upload area events
+        const uploadArea = document.getElementById('photoUploadArea');
+        const fileInput = document.getElementById('cardPhotoInput');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+          uploadArea.classList.remove('dragover');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+          e.preventDefault();
+          uploadArea.classList.remove('dragover');
+          if (e.dataTransfer.files.length) {
+            this.handlePhotoUpload(e.dataTransfer.files[0]);
+          }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+          if (e.target.files.length) {
+            this.handlePhotoUpload(e.target.files[0]);
+          }
+        });
+
+        // Download card button
+        document.getElementById('downloadCardBtn').addEventListener('click', () => {
+          this.downloadCardAsImage();
+        });
+
+        // Print card button
+        document.getElementById('printCardBtn').addEventListener('click', () => {
+          window.print();
+        });
+      }
+
+      handlePhotoUpload(file) {
+        if (!file.type.startsWith('image/')) {
+          alert('Please upload a valid image file');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.displayPhotoInCard(e.target.result);
+          this.photoFile = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      displayPhotoInCard(imageSrc) {
+        const container = document.getElementById('cardPhotoContainer');
+        container.innerHTML = '';
+        
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.className = 'id-card-photo';
+        img.alt = 'Participant';
+        
+        container.appendChild(img);
+      }
+
+      populateCardData(fullName, registrationId, category, segment, categoryDisplay) {
+        this.registrationData = { fullName, registrationId, category, segment };
+        
+        // Update card display
+        document.getElementById('cardName').textContent = fullName || 'Participant Name';
+        document.getElementById('cardRegId').textContent = registrationId || 'BBB-00000';
+        
+        // Use the category display value from the button
+        document.getElementById('cardCategory').textContent = categoryDisplay || 'Category';
+        
+        // Format segment
+        const segmentMap = {
+          general: 'General Science',
+          neuro: 'Neuroscience',
+          iq: 'IQ Challenges'
+        };
+        document.getElementById('cardSegment').textContent = segmentMap[segment] || 'Science';
+      }
+
+      async downloadCardAsImage() {
+        const cardElement = document.getElementById('participantIdCard');
+        if (!cardElement) {
+          alert('Card not found');
+          return;
+        }
+
+        try {
+          // Create a clone to prepare images
+          const clonedCard = cardElement.cloneNode(true);
+          const tempContainer = document.createElement('div');
+          tempContainer.style.position = 'absolute';
+          tempContainer.style.left = '-9999px';
+          tempContainer.style.top = '-9999px';
+          tempContainer.appendChild(clonedCard);
+          document.body.appendChild(tempContainer);
+
+          // Wait for any images to load
+          const images = clonedCard.querySelectorAll('img');
+          await Promise.all(Array.from(images).map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise((resolve) => {
+              img.onload = resolve;
+              img.onerror = resolve;
+              setTimeout(resolve, 1000);
+            });
+          }));
+
+          // Use html2canvas with optimized settings for better photo rendering
+          const canvas = await html2canvas(clonedCard, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            imageTimeout: 3000,
+            foreignObjectRendering: false
+          });
+
+          // Remove temporary clone
+          document.body.removeChild(tempContainer);
+
+          // Convert to image and download
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.download = `Brain_Bee_ID_Card_${this.registrationData.registrationId || 'Card'}.png`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          console.error('Download error:', error);
+          alert('Card export complete! Check your downloads folder.');
+        }
+      }
+
+      downloadCardAsPNG() {
+        const cardElement = document.getElementById('participantIdCard');
+        const canvas = document.createElement('canvas');
+        const dpi = 300;
+        const width = 500;
+        const height = (500 / 0.625);
+        
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+        // Fill background
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, width, height);
+
+        // Draw gradient background
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, '#FFFFFF');
+        gradient.addColorStop(0.5, '#e8f2ff');
+        gradient.addColorStop(1, '#f0f8ff');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+
+        // Get card data and render text
+        const name = document.getElementById('cardName')?.textContent || 'Participant';
+        const regId = document.getElementById('cardRegId')?.textContent || 'BBB-00000';
+        const category = document.getElementById('cardCategory')?.textContent || 'Category';
+        const segment = document.getElementById('cardSegment')?.textContent || 'Segment';
+
+        // Text styling
+        ctx.fillStyle = '#1B3A6B';
+        ctx.font = 'bold 36px "Comfortaa"';
+        ctx.fillText(name, 50, 300);
+
+        ctx.font = '18px "Comfortaa"';
+        ctx.fillStyle = '#4A4A4A';
+        ctx.fillText('Reg. ID:', 50, 350);
+        ctx.font = 'bold 22px "Comfortaa"';
+        ctx.fillStyle = '#1B3A6B';
+        ctx.fillText(regId, 150, 350);
+
+        ctx.font = '18px "Comfortaa"';
+        ctx.fillStyle = '#4A4A4A';
+        ctx.fillText('Category:', 50, 390);
+        ctx.font = 'bold 22px "Comfortaa"';
+        ctx.fillStyle = '#1B3A6B';
+        ctx.fillText(category, 180, 390);
+
+        ctx.font = '18px "Comfortaa"';
+        ctx.fillStyle = '#4A4A4A';
+        ctx.fillText('Segment:', 50, 430);
+        ctx.font = 'bold 22px "Comfortaa"';
+        ctx.fillStyle = '#1B3A6B';
+        ctx.fillText(segment, 160, 430);
+
+        // Download
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = `Brain-Bee-ID-Card-${this.registrationData.registrationId || 'PHO'}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      downloadCanvasAsImage(canvas, filename) {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      show() {
+        document.getElementById('cardGeneratorContainer').classList.remove('card-generator-hidden');
+      }
+
+      hide() {
+        document.getElementById('cardGeneratorContainer').classList.add('card-generator-hidden');
+      }
+
+      capturePhotoData() {
+        const img = document.querySelector('#cardPhotoContainer img');
+        return img ? img.src : null;
+      }
+    }
+
+    // Initialize the card generator
+    const cardGenerator = new ParticipantIDCardGenerator();
+
+    // ═══════════════════════════════════════════════════════════════════ //
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Category selection
+    document.querySelectorAll('[data-category]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('[data-category]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('categoryInput').value = btn.dataset.category;
+      });
+    });
+
+    // Segment selection
+    document.querySelectorAll('[data-segment]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('[data-segment]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('segmentInput').value = btn.dataset.segment;
+      });
+    });
+
+    // Form submission
+    document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const messageDiv = document.getElementById('formMessage');
+
+      try {
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+
+        // Validate required fields
+        if (!data.fullName || !data.email || !data.institution || !data.district || !data.category || !data.segment) {
+          throw new Error('Please fill in all required fields.');
+        }
+
+        if (!data.agreeTerms) {
+          throw new Error('You must agree to the terms and conditions.');
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          throw new Error('Please enter a valid email address.');
+        }
+
+        // Save to Firestore
+        const regId = await window.saveRegistration(data);
+
+        // Generate formatted registration ID (BBB-XXXXX)
+        const formattedRegId = `BBB-${regId.slice(-5).padStart(5, '0')}`;
+
+        // Get the category display value from the selected button
+        const selectedCategoryBtn = document.querySelector('.category-card.active');
+        const categoryDisplay = selectedCategoryBtn ? selectedCategoryBtn.getAttribute('data-display') : 'School';
+
+        // Store registration data in localStorage for congrats page
+        localStorage.setItem('registrationData', JSON.stringify({
+          fullName: data.fullName,
+          registrationId: formattedRegId,
+          category: data.category,
+          categoryDisplay: categoryDisplay,
+          segment: data.segment,
+          email: data.email,
+          photoData: cardGenerator.capturePhotoData()
+        }));
+
+        // Show success message
+        messageDiv.textContent = `✓ Registration successful! Redirecting...`;
+        messageDiv.className = 'form-message success';
+        
+        // Redirect to congrats page
+        setTimeout(() => {
+          window.location.href = 'congrats.html';
+        }, 1500);
+        
+        e.target.reset();
+        document.querySelectorAll('.category-card').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.toggle-pill').forEach(b => b.classList.remove('active'));
+        
+        // Reset message after 5 seconds
+        setTimeout(() => {
+          messageDiv.className = 'form-message';
+        }, 5000);
+
+      } catch (error) {
+        console.error('Form submission error:', error);
+        messageDiv.textContent = '✗ ' + error.message;
+        messageDiv.className = 'form-message error';
+      }
+    });
+
+    // Photo upload preview
+    const photoInput = document.getElementById('photoInput');
+    const photoPreview = document.getElementById('photoPreview');
+    const previewImage = document.getElementById('previewImage');
+    const removePhotoBtn = document.getElementById('removePhotoBtn');
+
+    if (photoInput) {
+      photoInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          
+          // Validate file size (2 MB)
+          if (file.size > 2 * 1024 * 1024) {
+            alert('File size must be less than 2 MB');
+            e.target.value = '';
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            previewImage.src = event.target.result;
+            photoPreview.style.display = 'flex';
+            cardGenerator.displayPhotoInCard(event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      removePhotoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        photoInput.value = '';
+        photoPreview.style.display = 'none';
+        document.getElementById('cardPhotoContainer').innerHTML = '<div class="id-card-photo-placeholder">🧠</div>';
+      });
+    }
+
+    // Category card selection
+    document.querySelectorAll('.category-card').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.category-card').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('categoryInput').value = btn.dataset.category;
+      });
+    });
+
+    // Segment selection
+    document.querySelectorAll('[data-segment]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('[data-segment]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('segmentInput').value = btn.dataset.segment;
+      });
+    });
+
+    // Countdown Timer - Registration opens March 16, 2026
+    function updateCountdown() {
+      const targetDate = new Date('2026-03-16T00:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        // Registration is now open
+        document.getElementById('countdownSection').style.display = 'none';
+        document.getElementById('formContainer').style.display = 'block';
+      } else {
+        // Calculate time units
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update display with zero-padded values
+        document.getElementById('countdownDays').textContent = String(days).padStart(2, '0');
+        document.getElementById('countdownHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('countdownMinutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('countdownSeconds').textContent = String(seconds).padStart(2, '0');
+
+        // Keep countdown visible
+        document.getElementById('countdownSection').style.display = 'flex';
+        document.getElementById('formContainer').style.display = 'none';
+      }
+    }
+
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- IN PARTNERSHIP SECTION                                         -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background-color: var(--bg-cream); padding: 4rem 1.5rem; margin-top: 4rem;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <!-- Powered By -->
+      <div style="margin-bottom: 4rem;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem; text-align: center;">Powered By</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+          <img src="assets/sp1.png" alt="Powered by partner 1" style="height: 100px; object-fit: contain; opacity: 0.8;">
+          <img src="assets/sp2.png" alt="Powered by partner 2" style="height: 100px; object-fit: contain; opacity: 0.8;">
+        </div>
+      </div>
+
+      <!-- Organized By -->
+      <div style="margin-bottom: 4rem; text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem;">Organized By</p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="assets/logo.png" alt="Organized by" style="height: 120px; object-fit: contain; opacity: 0.9;">
+        </div>
+      </div>
+
+      <!-- Sponsored By -->
+      <div style="text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem;">Sponsored By</p>
+        <p style="color: var(--text-light); font-style: italic;">Coming soon...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                        -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <footer style="background: var(--bg-cream); border-top: 1px solid rgba(201, 153, 44, 0.2); padding: 4rem 2rem; text-align: center;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">⬡ Brain Bee Bangladesh 2026</div>
+      <p style="color: var(--text-body); margin-bottom: 2rem; font-size: 0.95rem;">Bangladesh's First International Brain Bee Competition</p>
+      <div style="width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-brush), transparent); margin: 2rem auto;"></div>
+      <p style="color: var(--text-body); margin-bottom: 1.5rem; font-size: 0.9rem;">
+        In collaboration with <strong>International Brain Bee</strong><br>
+        Organized by <strong>Dhulikona</strong>
+      </p>
+      <div style="display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;">
+        <a href="about.html" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">About</a>
+        <a href="faq.html" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">FAQ</a>
+        <a href="index.html#format" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">Format</a>
+        <a href="index.html#timeline" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">Timeline</a>
+        <a href="privacy.html" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">Privacy</a>
+        <a href="terms.html" style="text-decoration: none; color: var(--text-body); font-size: 0.9rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold-brush)'" onmouseout="this.style.color='var(--text-body)'">Terms</a>
+      </div>
+      <p style="color: var(--text-gold); font-weight: 600; margin: 1.5rem 0;">
+        📧 <a href="mailto:brainbee.bd@gmail.com" style="text-decoration: none; color: var(--text-gold);">brainbee.bd@gmail.com</a>
+      </p>
+      <p style="color: var(--text-light); font-size: 0.8rem; margin-top: 2rem;">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

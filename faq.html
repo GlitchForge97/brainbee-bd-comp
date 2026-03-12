@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Brain Bee Bangladesh 2026</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-white: #FFFFFF;
+      --gold-brush: #C9972C;
+      --gold-amber: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+      --text-light: #8A8078;
+      --border-light: rgba(201, 153, 44, 0.1);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 16px rgba(201, 153, 44, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-warm-white);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .nav-hex {
+      width: 32px;
+      height: 32px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      padding: 0.6rem 1.2rem;
+      background: var(--bg-cream);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold-brush);
+      color: white;
+    }
+
+    main {
+      margin-top: 72px;
+      padding: 4rem 2rem;
+      background-color: var(--bg-warm-white);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .accordion-category {
+      margin-bottom: 2rem;
+    }
+
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .category-title:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .category-title::after {
+      content: '▼';
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .category-title.expanded::after {
+      transform: rotate(180deg);
+    }
+
+    .questions {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .questions.expanded {
+      max-height: 5000px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      transition: background 0.3s ease;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .question {
+      padding: 1.5rem;
+      background: var(--bg-white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .question:hover {
+      background: var(--bg-cream);
+      color: var(--gold-brush);
+    }
+
+    .question::before {
+      content: '→';
+      margin-right: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .question.expanded::before {
+      transform: rotate(90deg);
+    }
+
+    .answer {
+      display: none;
+      padding: 1.5rem;
+      background: rgba(201, 153, 44, 0.02);
+      border-top: 1px solid var(--border-light);
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+
+    .answer.expanded {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-body);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-brush);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .category-title {
+        font-size: 1.25rem;
+        padding: 1.25rem;
+      }
+
+      .question {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+        Brain Bee Bangladesh
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="register.html" class="nav-btn">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about registration, competition format, and more</p>
+      </div>
+
+      <!-- Registration & Eligibility -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>Registration & Eligibility</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Who can participate?</div>
+            <div class="answer">Students in Classes 9-10 (School category) or Classes 11-12 (College category), including SSC-26 and HSC-26 students across Bangladesh.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Is there a registration fee?</div>
+            <div class="answer">Yes, there is a nominal registration fee of BDT 50 to cover administrative costs. This minimal fee ensures serious participation while keeping the competition accessible to all students.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Can I register for multiple segments?</div>
+            <div class="answer">Yes, you can participate in all three segments: General Science, Neuroscience, and IQ Challenges. You can compete in any combination that interests you.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Requirements -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>Technical Requirements</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What device and internet speed do I need?</div>
+            <div class="answer">A computer or laptop with stable internet (minimum 2 Mbps recommended). Tablets and phones are not recommended for the proctored exam as they may not support all monitoring features.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What happens if my internet disconnects?</div>
+            <div class="answer">You can reconnect and continue, but the timer keeps running. Ensure stable internet connection and backup plans (mobile hotspot) before starting your exam.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Which browsers are supported?</div>
+            <div class="answer">Latest versions of Chrome, Firefox, or Edge are recommended. Ensure your browser is up to date for optimal performance and compatibility with proctoring features.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competition Format -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>Competition Format</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">How does the competition work?</div>
+            <div class="answer">The exam format is currently being finalized. Participants will be notified of the final format, duration, and scoring criteria via email and through our dashboard. Stay tuned for updates!</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Can I retake the exam?</div>
+            <div class="answer">No, you get one attempt per segment. Choose your time wisely and ensure you're fully prepared before starting. Once you begin, you cannot restart.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What topics should I study?</div>
+            <div class="answer">General Science covers physics, chemistry, biology, and earth sciences. Neuroscience focuses on brain function and cognitive science. IQ Challenges test logical reasoning, pattern recognition, and analytical skills.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proctoring & Academic Integrity -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>Proctoring & Academic Integrity</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">How does online monitoring work?</div>
+            <div class="answer">Our system monitors tab switching and detects unauthorized tools. Your exam session is recorded for integrity verification. No webcam is required, but desktop monitoring is active throughout your exam.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What is not allowed during the exam?</div>
+            <div class="answer">AI tools, browser extensions, tab switching, external devices, or any form of external assistance are strictly prohibited. Violations result in immediate disqualification and may affect your academic standing.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What if I accidentally switch tabs?</div>
+            <div class="answer">Occasional accidental switches may be reviewed during our audit process. However, repeated violations will be flagged as potential violations of academic integrity policies. Stay focused on the exam tab.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results & Recognition -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>Results & Recognition</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">When will results be announced?</div>
+            <div class="answer">Results will be announced in mid-March 2026. You'll receive your score, ranking, and certificate via email. Winners will also be announced on our website and social media.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">What do winners receive?</div>
+            <div class="answer">Top 3 in each segment and category receive a crest, medal, and certificate. All participants receive participation certificates recognizing their involvement in Brain Bee Bangladesh 2026.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">How are ties handled?</div>
+            <div class="answer">Speed is the tiebreaker. Among participants with equal accuracy, the fastest completion time wins. General Questions Q: Is this recognized internationally?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- General Questions -->
+      <div class="accordion-category">
+        <div class="category-title" onclick="toggleCategory(this)">
+          <span>General Questions</span>
+        </div>
+        <div class="questions">
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">Is this recognized internationally?</div>
+            <div class="answer">Yes, this is Bangladesh's official collaboration with the International Brain Bee, providing international recognition and networking opportunities with students and scientists worldwide.</div>
+          </div>
+          <div class="faq-item">
+            <div class="question" onclick="toggleQuestion(this)">How do I become a Campus Ambassador?</div>
+            <div class="answer">Contact us at brainbee.bd@gmail.com or through our Facebook page (facebook.com/BangladeshBrainBee) for Campus Ambassador opportunities. We're always looking for passionate advocates to represent Brain Bee in their institutions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+        ⬡ Brain Bee Bangladesh 2026
+      </div>
+      <p style="margin-bottom: 1.5rem;">Still have questions? Email us at brainbee.bd@gmail.com</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="mailto:brainbee.bd@gmail.com">Contact</a>
+      </div>
+      <p style="margin-top: 2rem; color: var(--text-light); border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCategory(element) {
+      const questions = element.nextElementSibling;
+      const isExpanded = questions.classList.contains('expanded');
+      
+      document.querySelectorAll('.questions.expanded').forEach(q => {
+        q.classList.remove('expanded');
+        q.previousElementSibling.classList.remove('expanded');
+      });
+
+      if (!isExpanded) {
+        questions.classList.add('expanded');
+        element.classList.add('expanded');
+      }
+    }
+
+    function toggleQuestion(element) {
+      const answer = element.nextElementSibling;
+      const isExpanded = answer.classList.contains('expanded');
+      
+      document.querySelectorAll('.answer.expanded').forEach(a => {
+        a.classList.remove('expanded');
+        a.previousElementSibling.classList.remove('expanded');
+      });
+
+      if (!isExpanded) {
+        answer.classList.add('expanded');
+        element.classList.add('expanded');
+      }
+    }
+  </script>
+</body>
+</html>

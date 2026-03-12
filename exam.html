@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam - Brain Bee Bangladesh 2026</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-card: #FFFFFF;
+      --gold-primary: #C9972C;
+      --gold-vibrant: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg-warm-white);
+      color: var(--text-primary);
+    }
+
+    h1, h2 { font-family: 'Playfair Display', serif; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 153, 44, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-hex {
+      width: 20px;
+      height: 20px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: var(--gold-primary);
+    }
+    .logo-small {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      object-position: center;
+    }
+    .exam-timer {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+
+    main {
+      margin-top: 72px;
+      min-height: 100vh;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-warm-white) 100%);
+    }
+
+    .exam-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .exam-header {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(160, 130, 60, 0.08);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+      text-align: center;
+    }
+
+    .exam-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .exam-header p {
+      color: var(--text-body);
+      font-size: 1rem;
+    }
+
+    .question-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(160, 130, 60, 0.08);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+    }
+
+    .question-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+    }
+
+    .question-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .answer-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .answer-option {
+      padding: 1rem;
+      border: 2px solid rgba(201, 153, 44, 0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(250, 250, 247, 0.5);
+    }
+
+    .answer-option:hover {
+      border-color: var(--gold-primary);
+      background: rgba(201, 153, 44, 0.05);
+    }
+
+    .answer-option input[type="radio"] {
+      margin-right: 0.75rem;
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+    }
+
+    .answer-option label {
+      cursor: pointer;
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .exam-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-vibrant));
+      color: white;
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 153, 44, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(201, 153, 44, 0.1);
+      color: var(--gold-primary);
+      border: 2px solid var(--gold-primary);
+    }
+
+    .timer-warning {
+      background: rgba(217, 119, 6, 0.1);
+      border: 2px solid #D97706;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      color: #D97706;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+      Brain Bee BD
+    </a>
+    <div class="exam-timer" id="timer">20:00</div>
+  </nav>
+
+  <main>
+    <div class="exam-container">
+      <div class="exam-header">
+        <h1>🧠 Brain Bee Bangladesh 2026</h1>
+        <p>Online Preliminary Round</p>
+      </div>
+
+      <div class="question-card" style="text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(201, 153, 44, 0.05), rgba(212, 168, 50, 0.05));">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">⏳</div>
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.8rem;">To Be Determined</h2>
+        <p style="color: var(--text-body); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;">
+          The online exam format and questions are currently being finalized. 
+          <br><br>
+          Please check back soon for updates or contact us at <strong>brainbee.bd@gmail.com</strong> for more information.
+        </p>
+        <div style="margin-top: 2rem;">
+          <a href="dashboard.html" class="btn btn-primary" style="text-decoration: none; display: inline-block; padding: 1rem 2rem;">Back to Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Exam format TBD - functionality removed
+    console.log('Online exam format coming soon!');
+  </script>
+</body>
+</html>

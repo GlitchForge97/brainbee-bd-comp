@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Brain Bee Bangladesh</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-card: #FFFFFF;
+      --gold-primary: #C9972C;
+      --gold-vibrant: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-warm-white) 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 { font-family: 'Playfair Display', serif; }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .error-icon {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 8px 32px rgba(160, 130, 60, 0.12);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-vibrant));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.3);
+      margin-top: 1.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 153, 44, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="error-icon">🔍</div>
+      <h1>404</h1>
+      <p>Oops! The page you're looking for doesn't exist.</p>
+      <p style="font-size: 1rem; color: var(--text-body); margin-bottom: 2rem;">
+        It might have been moved or the link might be broken. Let's get you back on track!
+      </p>
+      <a href="index.html" class="btn">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Bee Bangladesh 2026 — International Competition</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* RESET & BASE STYLES                                              */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #2C2C2C;
+      line-height: 1.75;
+      background-color: #FAFAF7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* COLOR SYSTEM                                                     */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    :root {
+      /* Backgrounds */
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-ivory: #EDE8DC;
+      --bg-white: #FFFFFF;
+      
+      /* Gold System */
+      --gold-brush: #C9972C;
+      --gold-amber: #D4A832;
+      --gold-deep: #A67C2E;
+      --gold-soft: #E8C87A;
+      --gold-glow: rgba(201, 153, 44, 0.25);
+      --gold-line: rgba(201, 153, 44, 0.12);
+      
+      /* Text */
+      --text-primary: #2C2C2C;
+      --text-secondary: #3D3532;
+      --text-body: #6B6258;
+      --text-light: #8A8078;
+      --text-gold: #C9972C;
+      
+      /* Alert */
+      --alert-amber: #D97706;
+      --alert-bg: rgba(217, 119, 6, 0.06);
+      --alert-red: #DC2626;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* TYPOGRAPHY                                                       */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+
+    .label-uppercase {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-gold);
+    }
+
+    .text-large {
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    .text-small {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* ANIMATIONS                                                       */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    @keyframes hexDrift {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25%      { transform: translateY(-18px) rotate(3deg); }
+      50%      { transform: translateY(-8px) rotate(-2deg); }
+      75%      { transform: translateY(-22px) rotate(1deg); }
+    }
+
+    @keyframes heroFadeScale {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes heroSlideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes timelineShimmer {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 0% 200%; }
+    }
+
+    @keyframes btnGlow {
+      0%, 100% { box-shadow: 0 6px 24px rgba(201, 153, 44, 0.35); }
+      50%      { box-shadow: 0 6px 32px rgba(201, 153, 44, 0.5); }
+    }
+
+    @keyframes warnPulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
+    }
+
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(48px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUpFadeStagger {
+      from {
+        opacity: 0;
+        transform: translateY(48px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered reveal for child elements */
+    .scroll-reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .scroll-reveal-stagger.revealed > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+    .scroll-reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.1s; }
+    .scroll-reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.15s; }
+    .scroll-reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.2s; }
+    .scroll-reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.25s; }
+
+    /* Facebook icon styling */
+    .facebook-icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      fill: var(--text-body);
+      transition: fill 0.3s ease;
+    }
+
+    a:hover .facebook-icon {
+      fill: var(--gold-brush);
+    }
+
+    /* Link styling for partnerships */
+    .partnership-link {
+      color: var(--gold-brush);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+
+    .partnership-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    @keyframes shimmerSweep {
+      0%   { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--left {
+      transform: translateX(-30px);
+    }
+
+    .reveal--left.revealed {
+      transform: translateX(0);
+    }
+
+    .reveal--right {
+      transform: translateX(30px);
+    }
+
+    .reveal--right.revealed {
+      transform: translateX(0);
+    }
+
+    .reveal--scale {
+      transform: scale(0.88);
+      opacity: 0;
+    }
+
+    .reveal--scale.revealed {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.36s; }
+    .reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.48s; }
+    .reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.6s; }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* ACCESSIBILITY                                                    */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    :focus-visible {
+      outline: 2px solid var(--gold-brush);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--gold-brush);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      z-index: 9999;
+    }
+
+    .skip-to-content:focus {
+      top: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* NAVBAR                                                           */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 153, 44, 0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      height: 60px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      color: var(--gold-brush);
+    }
+
+    .logo-small {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .logo-hero {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .hex-icon-small {
+      width: 32px;
+      height: 32px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.3), rgba(212, 168, 50, 0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--gold-brush);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-body);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold-brush);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-brush);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+      color: white;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.3);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 153, 44, 0.4);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* HERO SECTION                                                     */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .hero {
+      min-height: 100vh;
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(232, 200, 122, 0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(212, 168, 50, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(245, 240, 232, 1) 0%, #F5F0E8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Floating hexagons */
+    .hero-hex {
+      position: absolute;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.08), rgba(212, 168, 50, 0.04));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-hex--1 {
+      width: 120px; height: 120px; top: 15%; left: 8%;
+      animation: hexDrift 18s ease-in-out infinite;
+    }
+
+    .hero-hex--2 {
+      width: 80px; height: 80px; top: 60%; right: 12%;
+      animation: hexDrift 24s ease-in-out infinite reverse;
+      animation-delay: -6s;
+    }
+
+    .hero-hex--3 {
+      width: 50px; height: 50px; top: 30%; right: 25%;
+      animation: hexDrift 20s ease-in-out infinite;
+      animation-delay: -10s;
+    }
+
+    .hero-hex--4 {
+      width: 90px; height: 90px; bottom: 20%; left: 20%;
+      animation: hexDrift 22s ease-in-out infinite reverse;
+      animation-delay: -4s;
+    }
+
+    .hero-hex--5 {
+      width: 40px; height: 40px; top: 70%; left: 45%;
+      animation: hexDrift 16s ease-in-out infinite;
+      animation-delay: -8s;
+    }
+
+    /* Hero content */
+    .hero-content {
+      max-width: 700px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.2), rgba(212, 168, 50, 0.1));
+      margin: 0 auto 2rem;
+      animation: heroFadeScale 0.6s ease forwards 0.4s;
+      opacity: 0;
+    }
+
+    .hero-label {
+      display: block;
+      margin-bottom: 1.5rem;
+      animation: heroSlideUp 0.6s ease forwards 0.7s;
+      opacity: 0;
+    }
+
+    .hero-title {
+      margin-bottom: 1rem;
+      animation: heroSlideUp 0.7s ease forwards 1.0s;
+      opacity: 0;
+    }
+
+    .hero-desc {
+      margin-bottom: 2rem;
+      animation: heroFade 0.6s ease forwards 1.3s;
+      opacity: 0;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+      color: white;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 24px rgba(201, 153, 44, 0.35);
+      animation: heroSlideUp 0.6s ease forwards 1.7s;
+      opacity: 0;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmerSweep 0.5s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201, 153, 44, 0.45);
+    }
+
+    .hero-cta:hover::before {
+      animation: shimmerSweep 0.5s ease;
+    }
+
+    .hero-cta:active {
+      transform: translateY(0) scale(0.96);
+      box-shadow: 0 2px 8px rgba(201, 153, 44, 0.3);
+    }
+
+    .hero-partner {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      animation: heroFade 0.5s ease forwards 2.0s;
+      opacity: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* CARD SYSTEM                                                      */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(160, 130, 60, 0.08);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold-brush) 30%, var(--gold-amber) 50%, var(--gold-brush) 70%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(160, 130, 60, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-color: rgba(201, 153, 44, 0.25);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card--featured {
+      border-left: 4px solid var(--gold-brush);
+    }
+
+    .card--cream {
+      background: var(--bg-cream);
+      box-shadow: none;
+      border-color: rgba(201, 153, 44, 0.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* LAYOUT UTILITIES                                                 */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .hex-watermark {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      opacity: 0.04;
+      background: var(--gold-brush);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Accent background pattern */
+    .honeycomb-bg {
+      position: relative;
+    }
+
+    .honeycomb-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgba(201,153,44,0.08)' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgba(201,153,44,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 56px 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .honeycomb-bg > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Grid system */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid--col-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid--col-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid--col-4 {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    @media (max-width: 768px) {
+      .grid--col-2,
+      .grid--col-3,
+      .grid--col-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Split layouts */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .split--40-60 {
+      grid-template-columns: 0.4fr 0.6fr;
+    }
+
+    .split--60-40 {
+      grid-template-columns: 0.6fr 0.4fr;
+    }
+
+    .split--reverse {
+      direction: rtl;
+    }
+
+    .split--reverse > * {
+      direction: ltr;
+    }
+
+    @media (max-width: 768px) {
+      .split,
+      .split--40-60,
+      .split--60-40 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* BUTTON STYLES                                                    */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-amber));
+      color: white;
+      box-shadow: 0 4px 16px rgba(201, 153, 44, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 153, 44, 0.4);
+    }
+
+    .btn-primary--mega {
+      padding: 1.1rem 2.8rem;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 24px rgba(201, 153, 44, 0.35);
+      animation: btnGlow 3s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* SECTION: STATS                                                   */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .stats {
+      background: var(--bg-cream);
+      position: relative;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(160, 130, 60, 0.08);
+      border: 1px solid rgba(201, 153, 44, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(160, 130, 60, 0.15);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--gold-brush);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* SECTION: TIMELINE                                                */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 80px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 26px;
+      top: 52px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold-brush), var(--gold-amber), var(--gold-brush));
+      background-size: 100% 200%;
+      animation: timelineShimmer 3s linear infinite;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-badge {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: var(--bg-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .timeline-badge::before {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.15), rgba(201, 153, 44, 0.05));
+    }
+
+    .timeline-badge span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-brush);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content h4 {
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .timeline-content .date {
+      display: block;
+      color: var(--gold-brush);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* FOOTER                                                           */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid rgba(201, 153, 44, 0.2);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    footer .hex-watermark {
+      opacity: 0.03;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-subtitle {
+      color: var(--text-body);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-partners {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-partner {
+      max-width: 120px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-partner:hover {
+      opacity: 1;
+    }
+
+    .footer-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-brush), transparent);
+      margin: 2rem auto;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--gold-brush);
+    }
+
+    .footer-copyright {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* SECTION: EXECUTIVE LEADERSHIP SHOWCASE (PREMIUM FLUID)            */
+    /* ═══════════════════════════════════════════════════════════════ */
+
+    /* Hexagonal neuroscience pattern background */
+    @keyframes hexDriftLeadership {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-18px) rotate(5deg); }
+      50% { transform: translateY(-8px) rotate(-2deg); }
+      75% { transform: translateY(-22px) rotate(3deg); }
+    }
+
+    /* Floating hexagons */
+    .leadership-hex {
+      position: absolute;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(212, 168, 50, 0.12), rgba(201, 153, 44, 0.08));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .leadership-hex--1 {
+      width: 140px; height: 140px; top: 10%; left: 5%;
+      animation: hexDriftLeadership 22s ease-in-out infinite;
+    }
+
+    .leadership-hex--2 {
+      width: 100px; height: 100px; top: 55%; right: 10%;
+      animation: hexDriftLeadership 26s ease-in-out infinite reverse;
+      animation-delay: -8s;
+    }
+
+    .leadership-hex--3 {
+      width: 60px; height: 60px; top: 25%; right: 20%;
+      animation: hexDriftLeadership 24s ease-in-out infinite;
+      animation-delay: -12s;
+    }
+
+    .leadership-hex--4 {
+      width: 110px; height: 110px; bottom: 15%; left: 15%;
+      animation: hexDriftLeadership 28s ease-in-out infinite reverse;
+      animation-delay: -6s;
+    }
+
+    .leadership-hex--5 {
+      width: 70px; height: 70px; bottom: 30%; right: 25%;
+      animation: hexDriftLeadership 20s ease-in-out infinite;
+      animation-delay: -10s;
+    }
+
+    .leadership-hex--6 {
+      width: 50px; height: 50px; top: 65%; left: 35%;
+      animation: hexDriftLeadership 25s ease-in-out infinite reverse;
+      animation-delay: -4s;
+    }
+
+    .leadership-showcase {
+      position: relative;
+      padding: 6rem 2rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FAFAF7 0%, #F5F0E8 100%);
+    }
+
+    /* Hexagonal honeycomb pattern overlay */
+    .leadership-showcase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Soft golden accent layer */
+    .leadership-showcase::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(201, 153, 44, 0.02) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(212, 168, 50, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .leadership-timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Fluid card layout */
+    .leader-card {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      min-height: 260px;
+    }
+
+    .leader-card:nth-child(even) {
+      direction: rtl;
+    }
+
+    .leader-card:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    /* Portrait section with organic shapes */
+    .leader-portrait-section {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .leader-portrait-frame {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1E3A8A 0%, #1F2937 100%);
+      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.15), inset 0 0 20px rgba(212, 168, 50, 0.05);
+      filter: drop-shadow(0 6px 18px rgba(30, 58, 138, 0.1));
+    }
+
+    /* Organic blob shapes - asymmetric and flowing */
+    .leader-card:nth-child(1) .leader-portrait-frame {
+      clip-path: polygon(
+        30% 0%, 100% 0%,
+        100% 70%, 95% 95%,
+        60% 100%, 20% 95%,
+        0% 75%, 0% 25%
+      );
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .leader-card:nth-child(2) .leader-portrait-frame {
+      clip-path: polygon(
+        0% 30%, 0% 0%,
+        70% 0%, 100% 25%,
+        100% 100%, 70% 100%,
+        25% 95%
+      );
+      transform: perspective(1000px) rotateY(5deg);
+    }
+
+    .leader-card:nth-child(3) .leader-portrait-frame {
+      clip-path: polygon(
+        25% 0%, 100% 5%,
+        100% 85%, 90% 100%,
+        0% 100%, 0% 30%
+      );
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .leader-card:nth-child(4) .leader-portrait-frame {
+      clip-path: polygon(
+        0% 20%, 0% 0%,
+        80% 0%, 100% 40%,
+        100% 100%, 30% 100%,
+        10% 80%
+      );
+      transform: perspective(1000px) rotateY(5deg);
+    }
+
+    .leader-card:nth-child(5) .leader-portrait-frame {
+      clip-path: polygon(
+        35% 0%, 100% 0%,
+        100% 75%, 85% 100%,
+        5% 100%, 0% 50%,
+        10% 10%
+      );
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .leader-card:nth-child(6) .leader-portrait-frame {
+      clip-path: polygon(
+        0% 35%, 10% 5%,
+        100% 0%, 100% 95%,
+        80% 100%, 0% 85%
+      );
+      transform: perspective(1000px) rotateY(5deg);
+    }
+
+    .leader-card:nth-child(7) .leader-portrait-frame {
+      clip-path: polygon(
+        20% 0%, 100% 15%,
+        95% 100%, 5% 100%,
+        0% 60%, 0% 5%
+      );
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .leader-card:nth-child(8) .leader-portrait-frame {
+      clip-path: polygon(
+        0% 10%, 0% 0%,
+        85% 0%, 100% 35%,
+        100% 100%, 15% 100%,
+        5% 70%
+      );
+      transform: perspective(1000px) rotateY(5deg);
+    }
+
+    .leader-card:nth-child(9) .leader-portrait-frame {
+      clip-path: polygon(
+        40% 0%, 100% 5%,
+        100% 85%, 75% 100%,
+        0% 95%, 0% 35%,
+        20% 5%
+      );
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .leader-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .leader-card:hover .leader-portrait-frame img {
+      transform: scale(1.05);
+    }
+
+    .leader-portrait-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 168, 50, 0.08) 0%, transparent 50%, rgba(30, 58, 138, 0.08) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Content section */
+    .leader-content {
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    .leader-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.008em;
+      line-height: 1.25;
+    }
+
+    .leader-role {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #C9972C;
+      margin-bottom: 0.9rem;
+      position: relative;
+      padding-bottom: 0.65rem;
+    }
+
+    .leader-role::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 1.5px;
+      background: linear-gradient(90deg, #D4A832, rgba(212, 168, 50, 0.3));
+    }
+
+    .leader-intro {
+      font-size: 0.92rem;
+      color: #3D3532;
+      margin-bottom: 0.9rem;
+      line-height: 1.65;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .leader-achievement {
+      font-size: 0.83rem;
+      color: #6B6258;
+      line-height: 1.6;
+      padding: 1.1rem 1.1rem 1.1rem 0.95rem;
+      background: transparent;
+      border-left: 2.5px solid #D4A832;
+      border-top: 1px solid rgba(212, 168, 50, 0.15);
+      border-bottom: 1px solid rgba(212, 168, 50, 0.15);
+      border-radius: 0;
+      position: relative;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .leader-achievement::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 3px;
+      background: #D4A832;
+      border-radius: 50%;
+    }
+
+    /* Hover effects */
+    .leader-card {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .leader-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .leader-card:hover .leader-portrait-frame {
+      box-shadow: 0 14px 42px rgba(15, 23, 42, 0.2), inset 0 0 30px rgba(212, 168, 50, 0.08);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .leader-card,
+      .leader-card:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 1.5rem;
+      }
+
+      .leader-card > * {
+        direction: ltr;
+      }
+
+      .leader-portrait-frame {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .leadership-showcase {
+        padding: 4rem 1rem;
+      }
+
+      .leadership-timeline {
+        gap: 3.5rem;
+      }
+
+      .leader-portrait-frame {
+        width: 200px;
+        height: 200px;
+      }
+
+      .leader-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .leader-intro,
+      .leader-achievement {
+        font-size: 0.81rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-to-content">Skip to main content</a>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- NAVBAR                                                        -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+        Brain Bee BD
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#format" class="nav-link">Format</a></li>
+        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+        <li><a href="register.html" class="nav-cta">Register →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- HERO SECTION                                                  -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section class="hero">
+    <div class="hero-hex hero-hex--1"></div>
+    <div class="hero-hex hero-hex--2"></div>
+    <div class="hero-hex hero-hex--3"></div>
+    <div class="hero-hex hero-hex--4"></div>
+    <div class="hero-hex hero-hex--5"></div>
+
+    <div class="hero-content">
+      <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-hero" style="margin: 0 auto 2rem; animation: float 3s ease-in-out infinite; display: block;">
+      <p class="label-uppercase hero-label" style="animation: fadeInDown 0.8s ease 0.2s both;">Bangladesh Brain Bee Competition 2026</p>
+      <p class="hero-partner" style="animation: fadeInUp 0.8s ease 0.3s both; margin-bottom: 1.5rem; font-size: 0.95rem;">In collaboration with <a href="https://www.thebrainbee.org" target="_blank" class="partnership-link">International Brain Bee</a></p>
+      <h1 class="hero-title" style="animation: slideInUp 0.8s ease 0.4s both;">Think. Compete. Excel.</h1>
+      <p class="text-large hero-desc" style="animation: fadeInUp 0.8s ease 0.6s both;">
+        Compete to develop your brain, grow your skills, and make your mark on the international stage
+      </p>
+      <a href="register.html" class="hero-cta" style="animation: slideInUp 0.8s ease 0.8s both; display: inline-block;">Register Now →</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- STATS SECTION                                                 -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section class="stats honeycomb-bg" id="main">
+    <div class="container">
+      <div class="stats-grid reveal-stagger">
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="1000" data-suffix="+">0</div>
+          <div class="stat-label">Target Students</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Competition Segments</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Categories Per Segment</div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- ABOUT SECTION                                                 -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+<section id="about" style="background: var(--bg-warm-white);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">About Brain Bee Bangladesh</p>
+        <h2 class="reveal">Our Mission & Vision</h2>
+      </div>
+      <div class="split reveal-stagger">
+        <div class="reveal reveal--left">
+          <h3>The Story</h3>
+          <p>Bangladesh's inaugural Brain Bee competition, organized by Dhulikona in collaboration with the International Brain Bee. This competition provides students across Bangladesh with the opportunity to challenge their cognitive abilities, develop critical thinking, and gain international recognition. Preliminary rounds are conducted online, with the national final held offline.</p>
+          <p style="margin-top: 1.5rem;">Our goal is simple: make world-class academic competition accessible to every brilliant young mind in Bangladesh.</p>
+        </div>
+        <div class="reveal reveal--right" style="display: flex; align-items: center; justify-content: center;">
+          <img 
+            src="https://i.ibb.co.com/Nd84fQDM/FB-IMG-1772654871234-removebg-preview.png" 
+            alt="Brain Bee Bangladesh" 
+            style="width: 340px; height: 340px; object-fit: contain;"
+          />
+        </div>
+      </div>
+    </div>
+</section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- GOALS SECTION                                                 -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-cream);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Our Goals</p>
+        <h2 class="reveal">What We're Here to Achieve</h2>
+      </div>
+      <div class="grid grid--col-3 reveal-stagger">
+        <div class="card reveal">
+          <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 1rem;">01</div>
+          <h4>Make Brain Bee Accessible</h4>
+          <p>Bangladesh's first international competition opportunity for all students.</p>
+        </div>
+        <div class="card reveal">
+          <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 1rem;">02</div>
+          <h4>Build Global Connections</h4>
+          <p>Connect Bangladeshi youth with the international academic community.</p>
+        </div>
+        <div class="card reveal">
+          <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 1rem;">03</div>
+          <h4>Launch a Successful Platform</h4>
+          <p>Create a premier event for youth intellectual development.</p>
+        </div>
+        <div class="card reveal">
+          <div class="stat-number" style="font-size: 1.8rem; margin-bottom: 1rem;">04</div>
+          <h4>Maintain International Standards</h4>
+          <p>Uphold rigorous academic integrity, evidence-based learning, and global collaboration standards throughout the competition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- OUR TRACK RECORD SECTION                                      -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-white); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Proven Success</p>
+        <h2 class="reveal">Dhulikona's Track Record</h2>
+      </div>
+      <div class="grid grid--col-2 reveal-stagger" style="gap: 2.5rem;">
+        <div class="card reveal" style="border-left: 4px solid var(--gold-brush); padding: 2rem;">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.8rem; color: var(--gold-brush); flex-shrink: 0;">⬡</div>
+            <div>
+              <h4 style="margin-bottom: 0.75rem; color: var(--text-primary);">International Scientific Collaboration</h4>
+              <p style="color: var(--text-body); font-size: 0.95rem;">Partnered with JAXA and JUINVER on citizen science projects, positioning Bangladesh in global scientific networks.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="border-left: 4px solid var(--gold-brush); padding: 2rem;">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.8rem; color: var(--gold-brush); flex-shrink: 0;">⬡</div>
+            <div>
+              <h4 style="margin-bottom: 0.75rem; color: var(--text-primary);">IASC Training & Certification</h4>
+              <p style="color: var(--text-body); font-size: 0.95rem;">Delivered specialized training under International Asteroid Search Collaboration with professional certifications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="border-left: 4px solid var(--gold-brush); padding: 2rem;">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.8rem; color: var(--gold-brush); flex-shrink: 0;">⬡</div>
+            <div>
+              <h4 style="margin-bottom: 0.75rem; color: var(--text-primary);">National Astronomy Leadership</h4>
+              <p style="color: var(--text-body); font-size: 0.95rem;">Served as National Coordinator for Astronomers Without Borders (2024–2025), fostering national excellence.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="border-left: 4px solid var(--gold-brush); padding: 2rem;">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.8rem; color: var(--gold-brush); flex-shrink: 0;">⬡</div>
+            <div>
+              <h4 style="margin-bottom: 0.75rem; color: var(--text-primary);">Successful Flagship Events</h4>
+              <p style="color: var(--text-body); font-size: 0.95rem;">Organized Dhulikona Space Art Competition with 500+ participants through 100 campus ambassadors nationwide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- ABOUT US SECTION                                              -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-white);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">About Us</p>
+        <h2 class="reveal">Who We Are</h2>
+      </div>
+      <div class="grid grid--col-3 reveal-stagger">
+        <div class="card reveal">
+          <h4 style="color: var(--gold-brush); margin-bottom: 1rem;">About Dhulikona</h4>
+          <p>Dhulikona is committed to fostering innovation and leadership through strategic initiatives and community engagement. Founded on principles of integrity, innovation, and inclusivity, we create meaningful impact through professional development and organizational excellence.</p>
+        </div>
+        <div class="card reveal">
+          <h4 style="color: var(--gold-brush); margin-bottom: 1rem;">International Brain Bee</h4>
+          <p>Founded in 1998 by Dr. Norbert Myslinski, the International Brain Bee inspires students worldwide to study neuroscience through a three-tiered competition system. Since its inception, it has motivated thousands of students to pursue careers in neuroscience and related fields.</p>
+        </div>
+        <div class="card reveal">
+          <h4 style="color: var(--gold-brush); margin-bottom: 1rem;">Collaboration with IASC</h4>
+          <p>In partnership with the International Astronomical Search Collaboration (IASC), a leading citizen science program, we bring proven methodologies in analytical thinking and scientific discovery to Brain Bee Bangladesh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- EXECUTIVE LEADERSHIP SHOWCASE                                 -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section class="leadership-showcase">
+    <!-- Floating hexagons -->
+    <div class="leadership-hex leadership-hex--1"></div>
+    <div class="leadership-hex leadership-hex--2"></div>
+    <div class="leadership-hex leadership-hex--3"></div>
+    <div class="leadership-hex leadership-hex--4"></div>
+    <div class="leadership-hex leadership-hex--5"></div>
+    <div class="leadership-hex leadership-hex--6"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="section-header">
+        <p class="label-uppercase reveal" style="color: #C9972C;">Leadership & Vision</p>
+        <h2 class="reveal" style="color: #1a1a1a;">Executive Leadership Showcase</h2>
+        <p style="max-width: 700px; margin: 1.5rem auto 0; color: #6B6258; font-size: 1.02rem; letter-spacing: 0.3px; font-weight: 400;">The visionary leaders and strategic architects directing Brain Bee Bangladesh with international academic excellence, scientific integrity, and unwavering commitment to educational innovation.</p>
+      </div>
+
+      <div class="leadership-timeline reveal-stagger">
+
+        <!-- 1. Chinmoy Paul -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/Q3SSpr3n/Screenshot-2026-02-24-133236.png" alt="Chinmoy Paul">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Chinmoy Paul</div>
+            <div class="leader-role">President, Executive Committee</div>
+            <div class="leader-intro">Visionary leader guiding Dhulikona's strategic mission with international recognition and academic distinction.</div>
+            <div class="leader-achievement">Recognized through multiple awards in computer science, cryptography, atomic science, and global academic competitions, achieving international and national distinctions with consistent excellence.</div>
+          </div>
+        </div>
+
+        <!-- 2. Fahim Khan -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/YBHzDHJ7/Screenshot-2026-02-24-135011.png" alt="Fahim Khan">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Fahim Khan</div>
+            <div class="leader-role">General Secretary, Executive Committee</div>
+            <div class="leader-intro">Organizational force driving coordination and execution with exceptional communication and leadership.</div>
+            <div class="leader-achievement">A multiple-time debate champion distinguished by strong communication, strategic thinking, and proven leadership at national and international platforms.</div>
+          </div>
+        </div>
+
+        <!-- 3. Shorat Kairi -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/N6PXZkR0/Screenshot-2026-02-24-133303.png" alt="Shorat Kairi">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Shorat Kairi</div>
+            <div class="leader-role">Management Director</div>
+            <div class="leader-intro">Leads operational management with clarity, discipline, and strategic clarity.</div>
+            <div class="leader-achievement">Bronze medalist in the Queen's Commonwealth Essay Competition and an active competitive debater, combining analytical excellence with demonstrated leadership.</div>
+          </div>
+        </div>
+
+        <!-- 4. Srestho Shingha -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/d0D8NPRm/Screenshot-2026-02-24-133407.png" alt="Srestho Shingha">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Srestho Shingha</div>
+            <div class="leader-role">Treasurer, Executive Committee</div>
+            <div class="leader-intro">Steward of financial governance and organizational sustainability with precise analytical acumen.</div>
+            <div class="leader-achievement">Top divisional placement in the national mathematics olympiad, demonstrating exceptional quantitative skills and analytical mastery essential for financial stewardship.</div>
+          </div>
+        </div>
+
+        <!-- 5. Mashiya Rahman -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/Y4VZRpd8/Screenshot-2026-02-24-133422.png" alt="Mashiya Rahman">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Mashiya Rahman</div>
+            <div class="leader-role">Marketing Director</div>
+            <div class="leader-intro">Leads branding and outreach initiatives with creative strategy and innovative vision.</div>
+            <div class="leader-achievement">Gold medalist and special award recipient at the World Invention Creativity Exhibition (WICE) 2025, recognized for groundbreaking creative solutions and international distinction.</div>
+          </div>
+        </div>
+
+        <!-- 6. Sharek Abdullah -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/HpYCYX71/ME.jpg" alt="Sharek Abdullah">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Sharek Abdullah</div>
+            <div class="leader-role">IT Secretary</div>
+            <div class="leader-intro">Oversees digital infrastructure and technological innovation with cutting-edge expertise.</div>
+            <div class="leader-achievement">Active in international competitive programming and holder of certifications from Harvard, Google Play Academy, and Microsoft—widely recognized for excellence in software engineering and web development.</div>
+          </div>
+        </div>
+
+        <!-- 7. Meherab Hossan -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/MD3TYg11/Screenshot-2026-02-24-133501.png" alt="Meherab Hossan">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Meherab Hossan</div>
+            <div class="leader-role">Academic Director</div>
+            <div class="leader-intro">Directs academic strategy and intellectual development with real-world business integration.</div>
+            <div class="leader-achievement">Junior Business Engineering Executive at a leading e-commerce company, bridging academic excellence with practical application in technology-driven innovation.</div>
+          </div>
+        </div>
+
+        <!-- 8. Shreoshee Sardar -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/5gyR3JCQ/Screenshot-2026-02-24-133523.png" alt="Shreoshee Sardar">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Shreoshee Sardar</div>
+            <div class="leader-role">Deputy Management Director</div>
+            <div class="leader-intro">Supports executive management with global academic exposure and international perspective.</div>
+            <div class="leader-achievement">Honours Laureate of the Immerse Essay Competition 2026, Gold awardee of the Queen's Commonwealth Essay Competition, and invited participant to the John Locke Summer Camp in London.</div>
+          </div>
+        </div>
+
+        <!-- 9. Rakat Ashraf -->
+        <div class="leader-card reveal">
+          <div class="leader-portrait-section">
+            <div class="leader-portrait-frame">
+              <img src="https://i.ibb.co.com/wZbVytPk/Screenshot-2026-02-24-133328.png" alt="Rakat Ashraf">
+            </div>
+          </div>
+          <div class="leader-content">
+            <div class="leader-name">Rakat Ashraf</div>
+            <div class="leader-role">Advisor</div>
+            <div class="leader-intro">Provides strategic mentorship and institutional guidance with international recognition.</div>
+            <div class="leader-achievement">Recognized in the NASA Space Apps Challenge and multiple HULT Prize podium finishes; certified expertise in software project management, agile systems, and educational development.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- COMPETITION FORMAT SECTION                                    -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section id="format" style="background: var(--bg-warm-white);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">How It Works</p>
+        <h2 class="reveal">Competition Format</h2>
+      </div>
+      <div class="card reveal" style="margin-bottom: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+          <div>
+            <div style="color: var(--gold-brush); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Platform</div>
+            <p style="color: var(--text-primary); font-weight: 600;">Online Preliminary Round</p>
+          </div>
+          <div>
+            <div style="color: var(--gold-brush); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Questions</div>
+            <p style="color: var(--text-primary); font-weight: 600;">TBD</p>
+          </div>
+          <div>
+            <div style="color: var(--gold-brush); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Duration</div>
+            <p style="color: var(--text-primary); font-weight: 600;">20 Minutes</p>
+          </div>
+          <div>
+            <div style="color: var(--gold-brush); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Judging</div>
+            <p style="color: var(--text-primary); font-weight: 600;">Accuracy + Speed</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid--col-3 reveal-stagger">
+        <div class="card reveal">
+          <h4>General Science</h4>
+          <p>Broad scientific knowledge across physics, chemistry, biology, and earth sciences.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Neuroscience</h4>
+          <p>How the brain works and cognitive science fundamentals.</p>
+        </div>
+        <div class="card reveal">
+          <h4>IQ Challenges</h4>
+          <p>Logical reasoning and pattern recognition challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- CATEGORIES SECTION                                            -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-cream);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Two Levels of Competition</p>
+        <h2 class="reveal">Categories</h2>
+      </div>
+      <div class="split split--60-40 reveal-stagger">
+        <div class="reveal reveal--left">
+          <h3 style="margin-bottom: 1.5rem;">School</h3>
+          <p><strong>Classes 9–10</strong></p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">Includes SSC-26 students</p>
+          <p style="margin-top: 1.5rem;"><strong>All 3 Segments Available:</strong></p>
+          <ul style="margin-top: 0.75rem; margin-left: 1.5rem; color: var(--text-body);">
+            <li>General Science</li>
+            <li>Neuroscience</li>
+            <li>IQ Challenges</li>
+          </ul>
+          <h3 style="margin-top: 2rem; margin-bottom: 1.5rem;">College</h3>
+          <p><strong>Classes 11–12</strong></p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">Includes HSC-26 students</p>
+          <p style="margin-top: 1.5rem;"><strong>All 3 Segments Available:</strong></p>
+          <ul style="margin-top: 0.75rem; margin-left: 1.5rem; color: var(--text-body);">
+            <li>General Science</li>
+            <li>Neuroscience</li>
+            <li>IQ Challenges</li>
+          </ul>
+        </div>
+        <div class="reveal reveal--right" style="display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; color: var(--gold-brush); margin-bottom: 1rem;">⬡  ⬡</div>
+            <div style="font-size: 0.9rem; color: var(--text-light);">School &amp; College</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- TIMELINE SECTION                                              -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section id="timeline" style="background: var(--bg-warm-white);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Important Dates</p>
+        <h2 class="reveal">Timeline</h2>
+      </div>
+      <div class="timeline reveal-stagger">
+        <div class="timeline-line"></div>
+        <div class="timeline-item reveal">
+          <div class="timeline-badge"><span>①</span></div>
+          <div class="timeline-content">
+            <h4>Registration Opens</h4>
+            <span class="date">March 15 – April 15, 2026</span>
+            <p>Sign up now and choose your category and segment. Online registration. <strong>Fee: BDT 50</strong></p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-badge"><span>②</span></div>
+          <div class="timeline-content">
+            <h4>Competition Window</h4>
+            <span class="date" style="color: var(--text-light); font-style: italic;">Dates coming soon</span>
+            <p>Online exams + Final round (offline/national). Speed and accuracy both matter.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-badge"><span>③</span></div>
+          <div class="timeline-content">
+            <h4>Results Released</h4>
+            <span class="date" style="color: var(--text-light); font-style: italic;">Schedule TBD</span>
+            <p>See your score and ranking. Top performers announced for recognition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- SECURITY SECTION                                              -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-cream);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Academic Integrity</p>
+        <h2 class="reveal">We Protect Fair Play</h2>
+      </div>
+      <div class="split reveal-stagger">
+        <div class="card reveal" style="background: var(--bg-white); border: 2px solid var(--alert-amber); background: var(--alert-bg); border-left: 4px solid var(--alert-amber);">
+          <div style="font-size: 1.5rem; margin-bottom: 1rem;">⚠</div>
+          <h4 style="color: var(--alert-amber);">Zero Tolerance Policy</h4>
+          <p style="margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">Prohibited:</p>
+          <ul style="margin-top: 0.75rem; margin-left: 1.5rem; font-size: 0.9rem; color: var(--text-body);">
+            <li>AI tools or extensions</li>
+            <li>Tab switching</li>
+            <li>External devices</li>
+            <li>Copy-paste aids</li>
+          </ul>
+          <p style="margin-top: 1rem; font-weight: 600; font-size: 0.9rem;">Consequences:</p>
+          <ul style="margin-top: 0.75rem; margin-left: 1.5rem; font-size: 0.9rem; color: var(--text-body);">
+            <li>Immediate disqualification</li>
+            <li>Future ban from competition</li>
+            <li>Institution notification</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>Our Safeguards</h4>
+          <ul style="margin-top: 1.5rem; list-style: none;">
+            <li style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+              <span style="color: var(--gold-brush); font-weight: 700;">✓</span>
+              <span>Advanced AI detection system</span>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+              <span style="color: var(--gold-brush); font-weight: 700;">✓</span>
+              <span>Real-time screen monitoring</span>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+              <span style="color: var(--gold-brush); font-weight: 700;">✓</span>
+              <span>Pattern analysis & flagging</span>
+            </li>
+            <li style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+              <span style="color: var(--gold-brush); font-weight: 700;">✓</span>
+              <span>Session recording for review</span>
+            </li>
+            <li style="display: flex; gap: 1rem;">
+              <span style="color: var(--gold-brush); font-weight: 700;">✓</span>
+              <span>Fair play guaranteed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- REWARDS SECTION                                               -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-warm-white);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">Recognition & Rewards</p>
+        <h2 class="reveal">Celebrate Excellence</h2>
+      </div>
+      <div class="card reveal" style="margin-bottom: 3rem;">
+        <h3 style="text-align: center; margin-bottom: 1rem;">18 Champions Crowned</h3>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 0.9rem;">3 Segments × 2 Categories × 3 Winners</p>
+        <div class="grid grid--col-3" style="margin-bottom: 2rem;">
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-cream); border-radius: 12px;">
+            <p style="color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">General Science</p>
+            <p style="color: var(--text-primary); font-size: 1.1rem; font-weight: 600;">School · 3 | College · 3</p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-cream); border-radius: 12px;">
+            <p style="color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Neuroscience</p>
+            <p style="color: var(--text-primary); font-size: 1.1rem; font-weight: 600;">School · 3 | College · 3</p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-cream); border-radius: 12px;">
+            <p style="color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">IQ Challenges</p>
+            <p style="color: var(--text-primary); font-size: 1.1rem; font-weight: 600;">School · 3 | College · 3</p>
+          </div>
+        </div>
+        <div style="text-align: center; padding: 1.5rem; border-top: 1px solid rgba(201, 153, 44, 0.2);">
+          <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Every Winner Receives:</p>
+          <p style="color: var(--text-primary); font-weight: 600;">⬡ Crest  ·  ⬡ Medal  ·  ⬡ Certificate</p>
+        </div>
+      </div>
+      <div class="grid grid--col-2 reveal-stagger">
+        <div class="card reveal card--featured">
+          <h4 style="margin-bottom: 1rem;">Top 5 Campus Ambassadors</h4>
+          <p>Leadership recognition and special honors for campus ambassadors who drive the competition forward.</p>
+          <ul style="margin-top: 1.5rem; list-style: none;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>Crest</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>Medal</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>Certificate</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4 style="margin-bottom: 1rem;">All Participants</h4>
+          <p>Every student who competes receives official recognition and a participation certificate from Bangladesh Brain Bee.</p>
+          <ul style="margin-top: 1.5rem; list-style: none;">
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>Participation Certificate</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>Recognition on website</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="color: var(--gold-brush);">⬡</span>
+              <span>International exposure</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- PROCTORING DETAILS SECTION                                    -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: var(--bg-white); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <p class="label-uppercase reveal">How It Works</p>
+        <h2 class="reveal">Proctoring & Exam Setup</h2>
+      </div>
+      <div class="grid grid--col-3 reveal-stagger">
+        <div class="card reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--gold-brush); font-weight: 700;">⬢</div>
+          <h4>System Requirements</h4>
+          <ul style="margin-top: 1rem; list-style: none; color: var(--text-body);">
+            <li style="margin-bottom: 0.75rem;">✓ Desktop or laptop computer</li>
+            <li style="margin-bottom: 0.75rem;">✓ Stable internet (2+ Mbps)</li>
+            <li style="margin-bottom: 0.75rem;">✓ Chrome, Firefox, or Edge</li>
+            <li style="margin-bottom: 0.75rem;">✓ Keyboard and mouse</li>
+            <li>✓ JavaScript enabled</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--gold-brush); font-weight: 700;">⬢</div>
+          <h4>Proctoring Technology</h4>
+          <ul style="margin-top: 1rem; list-style: none; color: var(--text-body);">
+            <li style="margin-bottom: 0.75rem;">✓ Real-time activity monitoring</li>
+            <li style="margin-bottom: 0.75rem;">✓ AI-powered detection system</li>
+            <li style="margin-bottom: 0.75rem;">✓ Tab-switch prevention</li>
+            <li style="margin-bottom: 0.75rem;">✓ Session recording & analysis</li>
+            <li>✓ No webcam required</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--gold-brush); font-weight: 700;">⬢</div>
+          <h4>Your Privacy</h4>
+          <ul style="margin-top: 1rem; list-style: none; color: var(--text-body);">
+            <li style="margin-bottom: 0.75rem;">✓ Data encrypted end-to-end</li>
+            <li style="margin-bottom: 0.75rem;">✓ Used only for exam integrity</li>
+            <li style="margin-bottom: 0.75rem;">✓ Deleted after verification</li>
+            <li style="margin-bottom: 0.75rem;">✓ GDPR compliant</li>
+            <li>✓ See our <a href="privacy.html" style="color: var(--gold-brush); text-decoration: none; font-weight: 600;">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- REGISTRATION CTA SECTION                                      -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background: radial-gradient(ellipse at center, rgba(232, 200, 122, 0.15) 0%, var(--bg-cream) 100%); text-align: center;">
+    <div class="container">
+      <div class="reveal" style="max-width: 600px; margin: 0 auto;">
+        <h2 style="margin-bottom: 1rem;">Ready to Compete?</h2>
+        <p class="text-large" style="margin-bottom: 2rem;">
+          Join 2,000+ students in Bangladesh's first international Brain Bee competition. Challenge yourself. Make it count.
+        </p>
+        <a href="register.html" class="btn btn-primary btn-primary--mega">Register Now →</a>
+        <p style="margin-top: 1.5rem; color: var(--text-light); font-size: 0.9rem;">
+          Registration is live · BDT 50 fee · No experience necessary
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- IN PARTNERSHIP SECTION                                         -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <section style="background-color: var(--bg-cream); padding: 4rem 1.5rem;">
+    <div class="container">
+      <!-- Powered By -->
+      <div class="reveal" style="margin-bottom: 4rem;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem; text-align: center;">Powered By</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+          <img src="assets/sp1.png" alt="Powered by partner 1" style="height: 100px; object-fit: contain; opacity: 0.8;">
+          <img src="assets/sp2.png" alt="Powered by partner 2" style="height: 100px; object-fit: contain; opacity: 0.8;">
+        </div>
+      </div>
+
+      <!-- Organized By -->
+      <div class="reveal" style="margin-bottom: 4rem; text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem;">Organized By</p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="assets/main.png" alt="Organized by" style="height: 120px; object-fit: contain; opacity: 0.9;">
+        </div>
+      </div>
+
+      <!-- Sponsored By -->
+      <div class="reveal" style="text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem;">Sponsored By</p>
+        <p style="color: var(--text-light); font-style: italic;">Coming soon...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                        -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <footer>
+    <div class="hex-watermark" style="right: 10%; top: 50%; transform: translateY(-50%);"></div>
+    <div class="footer-content">
+      <div class="footer-title reveal">⬡ Brain Bee Bangladesh 2026</div>
+      <p class="footer-subtitle reveal">Bangladesh's First International Brain Bee Competition</p>
+      <div class="footer-divider reveal"></div>
+      <p class="reveal" style="color: var(--text-body); margin-bottom: 1.5rem; font-size: 0.9rem;">
+        In collaboration with <strong>International Brain Bee</strong><br>
+        Organized by <strong>Dhulikona</strong>
+      </p>
+      <div class="footer-nav reveal">
+        <a href="about.html" class="footer-link">About</a>
+        <a href="faq.html" class="footer-link">FAQ</a>
+        <a href="#format" class="footer-link">Format</a>
+        <a href="#timeline" class="footer-link">Timeline</a>
+        <a href="register.html" class="footer-link">Register</a>
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+      </div>
+      <p class="reveal" style="color: var(--text-gold); font-weight: 600; margin: 1.5rem 0;">
+        📧 <a href="mailto:brainbee.bd@gmail.com" class="footer-link">brainbee.bd@gmail.com</a><br>
+        <span style="font-size: 0.9rem; color: var(--text-body);">Response time: 24-48 hours</span>
+      </p>
+      <p class="reveal" style="color: var(--text-gold); font-weight: 600;">
+        <a href="https://www.facebook.com/BangladeshBrainBee" target="_blank" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; fill: currentColor;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> BangladeshBrainBee</a>
+      </p>
+      <p class="footer-copyright reveal">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT                                                    -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll Reveal Animation
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // Count-up animation for stats
+    function countUp(el, target, duration = 1600) {
+      const suffix = el.dataset.suffix || '';
+      const startTime = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - (1 - progress) * (1 - progress); // Ease out quad
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    // Trigger count-up when stats section scrolls into view
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stat-number[data-target]').forEach(num => {
+            countUp(num, parseInt(num.dataset.target), 1600);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
