@@ -1,3 +1,42 @@
+// Prevent right-click context menu
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  return false;
+});
+
+// Prevent F12, Ctrl+Shift+I, Ctrl+U, etc.
+document.addEventListener('keydown', function(e) {
+  // Disable F12
+  if (e.keyCode === 123) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Disable Ctrl+Shift+I (DevTools)
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Disable Ctrl+U (View Source)
+  if (e.ctrlKey && e.keyCode === 85) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Disable Ctrl+Shift+C (Inspect Element)
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Disable Ctrl+Shift+J (Console)
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+    e.preventDefault();
+    return false;
+  }
+});
+
 // Navbar scroll effect
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
