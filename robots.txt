@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Disallow any private areas if needed (none currently)
+# Disallow: /private/
