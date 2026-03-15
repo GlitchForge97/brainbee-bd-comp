@@ -69,3 +69,9 @@ build/Release
 
 # dataconnect generated files
 .dataconnect
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
