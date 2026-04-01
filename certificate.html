@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate - Brain Bee Bangladesh 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Dancing+Script:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 16px;
+      gap: 22px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    #certWrapper { width: 100%; max-width: 680px; }
+
+    /* ═══════════════════════════════════
+       CERTIFICATE SHELL  (A4 ratio)
+    ═══════════════════════════════════ */
+    #certEl {
+      width: 100%;
+      aspect-ratio: 210 / 297;
+      position: relative;
+      overflow: hidden;
+      /* marble-ish white */
+      background: #F5F0EA;
+      background-image:
+        radial-gradient(ellipse at 15% 25%, rgba(210,200,185,0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(210,200,185,0.35) 0%, transparent 50%),
+        repeating-linear-gradient(96deg, transparent 0, rgba(170,155,120,0.035) 1px, transparent 2px, transparent 52px),
+        repeating-linear-gradient(174deg, transparent 0, rgba(170,155,120,0.035) 1px, transparent 2px, transparent 68px);
+    }
+
+    /* ── Dark red right bar ── */
+    .red-bar {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 8.5%;
+      background: #8B0000;
+      z-index: 2;
+    }
+
+    /* ── Gold medal — overlaps onto white from bar ── */
+    .medal-wrap {
+      position: absolute;
+      /* sits on the bar, overlapping left */
+      right: 3%;
+      top: 11%;
+      width: 13%;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .medal-body {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(
+        #FFF0A0 0deg,   #F5C832 25deg,
+        #C8860A 70deg,  #FFE566 110deg,
+        #D4980F 150deg, #FFE566 190deg,
+        #C8860A 230deg, #F5C832 280deg,
+        #FFE566 320deg, #FFF0A0 360deg
+      );
+      box-shadow:
+        inset -4px -5px 12px rgba(0,0,0,0.35),
+        inset 3px 3px 10px rgba(255,240,150,0.55),
+        0 8px 28px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .medal-inner {
+      width: 68%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 36% 34%,
+        #FFF5B0 0%, #F5C832 30%, #C8860A 62%, #8A5800 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.35), inset -2px -2px 4px rgba(255,220,80,0.3);
+    }
+
+    .medal-star {
+      font-size: 3vw;
+      color: rgba(255,252,210,0.95);
+      text-shadow: 0 0 10px rgba(255,220,50,0.9), 0 2px 5px rgba(0,0,0,0.5);
+      line-height: 1;
+    }
+
+    /* ribbons */
+    .ribbons {
+      width: 76%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0;
+    }
+    .rib {
+      width: 44%;
+      height: 6vw;
+      max-height: 42px;
+    }
+    .rib-l { background: linear-gradient(180deg,#C8860A,#8A5800); clip-path: polygon(12% 0%,88% 0%,76% 100%,24% 100%); }
+    .rib-r { background: linear-gradient(180deg,#C8860A,#8A5800); clip-path: polygon(12% 0%,88% 0%,76% 100%,24% 100%); }
+
+    /* ── Double border ── */
+    .b-outer {
+      position: absolute;
+      top: 1.8%; left: 1.8%; right: 10.5%; bottom: 1.8%;
+      border: 2px solid #1A1A2E;
+      z-index: 1; pointer-events: none;
+    }
+    .b-inner {
+      position: absolute;
+      top: 2.6%; left: 2.6%; right: 11.3%; bottom: 2.6%;
+      border: 1px solid rgba(26,26,46,0.28);
+      z-index: 1; pointer-events: none;
+    }
+
+    /* ── Corner ornaments ── */
+    .corner { position:absolute; width:5.5%; aspect-ratio:1; z-index:4; }
+    .corner svg { width:100%; height:100%; }
+    .c-tl { top:1.5%;    left:1.5%; }
+    .c-tr { top:1.5%;    right:10%;   transform:scaleX(-1); }
+    .c-bl { bottom:1.5%; left:1.5%;   transform:scaleY(-1); }
+    .c-br { bottom:1.5%; right:10%;   transform:scale(-1,-1); }
+
+    /* ── Content ── */
+    .cert-body {
+      position: absolute;
+      top: 0; left: 0;
+      width: 91.5%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 4.5% 6% 3.5% 5.5%;
+      z-index: 5;
+    }
+
+    /* ── Logo row ── */
+    .logos-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3.5%;
+    }
+
+    .logo-bbb   { height: 8.5vw; max-height: 58px; width: auto; object-fit: contain; }
+    .logo-dhuli { height: 7vw;   max-height: 48px; width: auto; object-fit: contain; }
+
+    .logo-ibb-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6vw;
+    }
+    .logo-ibb  { height: 6vw; max-height: 42px; width: auto; object-fit: contain; }
+    .ibb-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.42rem, 1vw, 0.72rem);
+      font-weight: 600;
+      color: #1C1C1C;
+      line-height: 1.35;
+    }
+
+    /* ── Heading with tilt ── */
+    .top-heading-wrap {
+      width: 100%;
+      margin-bottom: 1.5%;
+      /* slight upward slope: left side lower, right side higher */
+      transform: rotate(-1.5deg);
+      transform-origin: left center;
+      display: inline-block;
+    }
+
+    .top-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.48rem, 1.1vw, 0.78rem);
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #1C1C1C;
+      white-space: nowrap;
+    }
+
+    .x-red {
+      color: #CC0000;
+      font-size: 1.2em;
+      font-weight: 900;
+      display: inline-block;
+      transform: rotate(0deg);
+      margin: 0 0.05em;
+    }
+
+    /* ── Certificate word ── */
+    .cert-title {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: clamp(2rem, 5.8vw, 4.2rem);
+      color: #1C1C1C;
+      line-height: 1.05;
+      margin-bottom: 1.5%;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Badge — plain flat rectangle, monospace font ── */
+    .badge {
+      background: #E8A800;
+      display: inline-block;
+      padding: 0.22em 0.8em;
+      margin-bottom: 3%;
+      align-self: flex-start;
+    }
+
+    .badge-txt {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.6rem, 1.3vw, 0.92rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #1C1C1C;
+    }
+
+    /* ── This is certify to ── */
+    .certify-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(0.85rem, 1.9vw, 1.35rem);
+      color: #1C1C1C;
+      margin-bottom: 1%;
+      font-weight: 600;
+    }
+
+    /* ── Participant name ── */
+    .p-name-wrap {
+      border-bottom: 1.5px solid #1C1C1C;
+      padding-bottom: 0.3em;
+      margin-bottom: 3%;
+      align-self: stretch;
+    }
+
+    .p-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.1rem, 2.6vw, 2rem);
+      color: #1C1C1C;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.3;
+      min-height: 1.4em;
+    }
+
+    /* ── Award text — larger, as in the image ── */
+    .award-body {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.72rem, 1.55vw, 1.1rem);
+      font-weight: 700;
+      font-style: italic;
+      color: #1C1C1C;
+      line-height: 1.72;
+      margin-bottom: 0;
+    }
+
+    /* large gap between award text and sigs — matches the image */
+    .sig-spacer { flex: 1; min-height: 8%; }
+
+    /* ── Signature row — left aligned, not full width ── */
+    .sig-row {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-bottom: 3%;
+    }
+
+    .sig-block {
+      width: 42%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .sig-line {
+      width: 100%;
+      height: 1.8px;
+      background: #1C1C1C;
+    }
+
+    .sig-label {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.55rem, 1.15vw, 0.82rem);
+      font-style: italic;
+      font-weight: 700;
+      color: #1C1C1C;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* gap between sigs and sponsored */
+    .sponsor-spacer { flex: 1; min-height: 5%; }
+
+    /* ── Sponsored by — bottom left ── */
+    .sponsored {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.6rem, 1.2vw, 0.88rem);
+      font-weight: 700;
+      color: #1C1C1C;
+    }
+
+    /* ══ BUTTONS ══ */
+    .cert-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dl {
+      padding: 0.85rem 2.4rem;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #C9972C, #E8B84B);
+      color: #1a1a1a;
+      box-shadow: 0 4px 20px rgba(201,151,44,0.4);
+    }
+    .btn-gold:hover    { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,151,44,0.55); }
+    .btn-gold:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+    .btn-outline {
+      background: transparent;
+      color: #C9972C;
+      border: 1.5px solid #C9972C;
+    }
+    .btn-outline:hover    { background: rgba(201,151,44,0.1); transform: translateY(-2px); }
+    .btn-outline:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+  </style>
+</head>
+<body>
+
+<div id="certWrapper">
+  <div id="certEl">
+
+    <div class="red-bar"></div>
+
+    <!-- Medal overlapping from bar onto white area -->
+    <div class="medal-wrap">
+      <div class="medal-body">
+        <div class="medal-inner">
+          <span class="medal-star">★</span>
+        </div>
+      </div>
+      <div class="ribbons">
+        <div class="rib rib-l"></div>
+        <div class="rib rib-r"></div>
+      </div>
+    </div>
+
+    <div class="b-outer"></div>
+    <div class="b-inner"></div>
+
+    <!-- Corners -->
+    <div class="corner c-tl">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="2,2 48,2 48,11 11,11 11,48 2,48" fill="#C9A52C" opacity="0.88"/>
+        <rect x="2" y="2" width="16" height="16" fill="#C9A52C"/>
+        <circle cx="10" cy="10" r="4.5" fill="#F0C030"/>
+        <circle cx="10" cy="10" r="2.2" fill="#fffbe0"/>
+      </svg>
+    </div>
+    <div class="corner c-tr">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="2,2 48,2 48,11 11,11 11,48 2,48" fill="#C9A52C" opacity="0.88"/>
+        <rect x="2" y="2" width="16" height="16" fill="#C9A52C"/>
+        <circle cx="10" cy="10" r="4.5" fill="#F0C030"/>
+        <circle cx="10" cy="10" r="2.2" fill="#fffbe0"/>
+      </svg>
+    </div>
+    <div class="corner c-bl">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="2,2 48,2 48,11 11,11 11,48 2,48" fill="#C9A52C" opacity="0.88"/>
+        <rect x="2" y="2" width="16" height="16" fill="#C9A52C"/>
+        <circle cx="10" cy="10" r="4.5" fill="#F0C030"/>
+        <circle cx="10" cy="10" r="2.2" fill="#fffbe0"/>
+      </svg>
+    </div>
+    <div class="corner c-br">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="2,2 48,2 48,11 11,11 11,48 2,48" fill="#C9A52C" opacity="0.88"/>
+        <rect x="2" y="2" width="16" height="16" fill="#C9A52C"/>
+        <circle cx="10" cy="10" r="4.5" fill="#F0C030"/>
+        <circle cx="10" cy="10" r="2.2" fill="#fffbe0"/>
+      </svg>
+    </div>
+
+    <!-- Main body -->
+    <div class="cert-body">
+
+      <!-- Logos: BBB left, Dhulikona center, IBB right -->
+      <div class="logos-row">
+        <img class="logo-bbb"   src="https://i.ibb.co.com/nMGx4MhG/bbb.png"  alt="BBB"       crossorigin="anonymous">
+        <img class="logo-dhuli" src="https://i.ibb.co.com/DPGxzr1m/logo.png" alt="Dhulikona" crossorigin="anonymous">
+        <div class="logo-ibb-wrap">
+          <img class="logo-ibb" src="https://i.ibb.co.com/DDLpLzmj/sp2.png"  alt="IBB"       crossorigin="anonymous">
+          <div class="ibb-label">International<br>Brain Bee</div>
+        </div>
+      </div>
+
+      <!-- Tilted heading -->
+      <div class="top-heading-wrap">
+        <span class="top-heading">
+          International Brain Bee <span class="x-red">✕</span>Bangladesh Brain Bee
+        </span>
+      </div>
+
+      <!-- Certificate -->
+      <div class="cert-title">Certificate</div>
+
+      <!-- Badge — plain flat gold rectangle, monospace -->
+      <div class="badge">
+        <span class="badge-txt">Of appreciation</span>
+      </div>
+
+      <!-- Certify label -->
+      <div class="certify-label">This is certify to</div>
+
+      <!-- Name -->
+      <div class="p-name-wrap">
+        <div class="p-name" id="certName">Name of the participant</div>
+      </div>
+
+      <!-- Award text -->
+      <div class="award-body">
+        This certificate is awarded in recognition of<br>
+        your valuable contribution, effort, and<br>
+        commitment, which greatly contributed to the<br>
+        success of the event.
+      </div>
+
+      <!-- Big spacer between award text and sigs -->
+      <div class="sig-spacer"></div>
+
+      <!-- Signatures -->
+      <div class="sig-row">
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <div class="sig-label">Convenor</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <div class="sig-label">Chief Executive<br>Coordinator</div>
+        </div>
+      </div>
+
+      <!-- Spacer between sigs and sponsored -->
+      <div class="sponsor-spacer"></div>
+
+      <!-- Sponsored by -->
+      <div class="sponsored">Sponsored by:</div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cert-actions">
+  <button class="btn-dl btn-gold"    id="dlPng">⬇ Download PNG</button>
+  <button class="btn-dl btn-outline" id="dlPdf">📄 Download PDF</button>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    try {
+      const result = JSON.parse(localStorage.getItem('bbbExamResult') || '{}');
+      const reg    = JSON.parse(localStorage.getItem('bbbRegistration') ||
+                     localStorage.getItem('registrationData') || '{}');
+      const name   = result.name || reg.fullName || reg.name || 'Name of the participant';
+      document.getElementById('certName').textContent = name;
+    } catch(e) { console.warn('cert data:', e); }
+  });
+
+  async function captureCard(scale) {
+    const el = document.getElementById('certEl');
+    await document.fonts.ready;
+    await new Promise(r => requestAnimationFrame(r));
+    await new Promise(r => setTimeout(r, 400));
+    const imgs = [...el.querySelectorAll('img')];
+    await Promise.all(imgs.map(img => new Promise(res => {
+      if (img.complete) res();
+      else { img.onload = img.onerror = res; setTimeout(res, 3000); }
+    })));
+    await new Promise(r => setTimeout(r, 250));
+    return await html2canvas(el, {
+      scale, useCORS: true, allowTaint: true,
+      imageTimeout: 15000, backgroundColor: '#F5F0EA', logging: false,
+    });
+  }
+
+  document.getElementById('dlPng').addEventListener('click', async () => {
+    const btn = document.getElementById('dlPng');
+    btn.textContent = 'Generating…'; btn.disabled = true;
+    try {
+      const canvas = await captureCard(2);
+      const name   = document.getElementById('certName').textContent.replace(/\s+/g,'_');
+      const a = document.createElement('a');
+      a.download = `BBB_Certificate_${name}.png`;
+      a.href = canvas.toDataURL('image/png', 1.0);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    } catch(e) { alert('PNG failed: ' + e.message); }
+    finally { btn.textContent = '⬇ Download PNG'; btn.disabled = false; }
+  });
+
+  document.getElementById('dlPdf').addEventListener('click', async () => {
+    const { jsPDF } = window.jspdf;
+    const btn = document.getElementById('dlPdf');
+    btn.textContent = 'Generating PDF…'; btn.disabled = true;
+    try {
+      const canvas  = await captureCard(3);
+      const name    = document.getElementById('certName').textContent.replace(/\s+/g,'_');
+      const imgData = canvas.toDataURL('image/jpeg', 0.97);
+      const pdf     = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+      const pw = pdf.internal.pageSize.getWidth();
+      const ph = pdf.internal.pageSize.getHeight();
+      const cw = pw - 20;
+      const ch = cw * (297/210);
+      pdf.addImage(imgData,'JPEG',10,Math.max(0,(ph-ch)/2),cw,ch);
+      pdf.save(`BBB_Certificate_${name}.pdf`);
+    } catch(e) { alert('PDF failed: ' + e.message); }
+    finally { btn.textContent = '📄 Download PDF'; btn.disabled = false; }
+  });
+</script>
+</body>
+</html>
