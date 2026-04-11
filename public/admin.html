@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Brain Bee Bangladesh 2026</title>
+  <link rel="icon" type="image/png" href="https://brainbeebd.site/assets/favicon-32x32.png" sizes="32x32">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-light: #FAFAF7;
+      --bg-white: #FFFFFF;
+      --bg-card: #F5F3F0;
+      --border-color: rgba(184, 146, 58, 0.2);
+      --gold-brush: #D4A832;
+      --gold-accent: #E8A854;
+      --honey-primary: #B8922A;
+      --text-primary: #2C2C2C;
+      --text-secondary: #6B6258;
+      --success: #3A7D44;
+      --error: #C85C5C;
+      --ca-purple: #6C3BA3;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Sidebar Navigation */
+    .admin-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--bg-white);
+      border-right: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+      z-index: 999;
+    }
+
+    .admin-sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      text-decoration: none;
+      color: var(--gold-brush);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .admin-sidebar-logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .admin-nav-section {
+      margin-bottom: 2rem;
+    }
+
+    .admin-nav-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding-left: 1rem;
+    }
+
+    .admin-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      width: 100%;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .admin-nav-link:hover,
+    .admin-nav-link.active {
+      background: rgba(212, 168, 50, 0.1);
+      color: var(--gold-brush);
+    }
+
+    .admin-nav-link.active {
+      background: linear-gradient(135deg, rgba(201, 153, 44, 0.2), rgba(212, 168, 50, 0.1));
+      color: var(--gold-brush);
+      border-left: 3px solid var(--gold-brush);
+    }
+
+    .admin-nav-link.ca-link {
+      border-left-color: var(--ca-purple);
+    }
+
+    .admin-nav-link.ca-link.active {
+      background: linear-gradient(135deg, rgba(108, 59, 163, 0.2), rgba(157, 95, 214, 0.1));
+      color: var(--ca-purple);
+      border-left: 3px solid var(--ca-purple);
+    }
+
+    /* Main Content */
+    .admin-main {
+      margin-left: 280px;
+      padding: 2rem;
+      min-height: 100vh;
+      background: var(--bg-light);
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .admin-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--text-primary);
+    }
+
+    .admin-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .admin-header-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-brush), var(--gold-accent));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(212, 168, 50, 0.05);
+      border-color: var(--gold-brush);
+    }
+
+    .btn-export {
+      background: linear-gradient(135deg, var(--gold-accent), var(--gold-brush));
+      color: white;
+      box-shadow: 0 4px 15px rgba(212, 168, 50, 0.2);
+      border-radius: 50px;
+    }
+
+    .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 168, 50, 0.3);
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--gold-brush);
+      transform: translateY(-4px);
+    }
+
+    .stat-card.ca {
+      border-color: rgba(108, 59, 163, 0.3);
+    }
+
+    .stat-card.ca:hover {
+      border-color: var(--ca-purple);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold-brush);
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-card.ca .stat-value {
+      color: var(--ca-purple);
+    }
+
+    .stat-detail {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Table Styles */
+    .admin-table-container {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .admin-table thead {
+      background: rgba(212, 168, 50, 0.08);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .admin-table th {
+      padding: 1.25rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .admin-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .admin-table tr:hover {
+      background: rgba(212, 168, 50, 0.03);
+    }
+
+    .admin-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-participant {
+      background: rgba(46, 92, 138, 0.2);
+      color: #5B9FD9;
+    }
+
+    .badge-ca {
+      background: rgba(108, 59, 163, 0.2);
+      color: #9D5FD6;
+    }
+
+    /* Search & Filter */
+    .admin-search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.75rem 1rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--gold-brush);
+      box-shadow: 0 0 0 3px rgba(212, 168, 50, 0.1);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state-text {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Loading State */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(201, 153, 44, 0.3);
+      border-top-color: var(--gold-brush);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Tab Navigation */
+    .admin-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .admin-tab {
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      font-size: 0.95rem;
+    }
+
+    .admin-tab:hover {
+      color: var(--gold-brush);
+    }
+
+    .admin-tab.active {
+      color: var(--gold-brush);
+      border-bottom-color: var(--gold-brush);
+    }
+
+    .admin-tab.ca.active {
+      color: var(--ca-purple);
+      border-bottom-color: var(--ca-purple);
+    }
+
+    /* Admin View Display */
+    .admin-view {
+      display: none;
+    }
+
+    .admin-view.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .admin-sidebar {
+        width: 250px;
+      }
+
+      .admin-main {
+        margin-left: 250px;
+        padding: 1.5rem;
+      }
+
+      .admin-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .admin-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 100%;
+        z-index: 1001;
+      }
+
+      .admin-sidebar.active {
+        transform: translateX(0);
+      }
+
+      .admin-main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+
+      .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .admin-table {
+        font-size: 0.85rem;
+      }
+
+      .admin-table th,
+      .admin-table td {
+        padding: 0.75rem;
+      }
+    }
+
+    /* Login Modal */
+    .login-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .login-modal.hidden {
+      display: none;
+    }
+
+    .login-container {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .login-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .login-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .login-input {
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: var(--bg-light);
+    }
+
+    .login-input:focus {
+      outline: none;
+      border-color: var(--gold-brush);
+      box-shadow: 0 0 0 3px rgba(212, 168, 50, 0.1);
+    }
+
+    .login-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .login-btn {
+      padding: 0.875rem;
+      background: linear-gradient(135deg, var(--gold-accent), var(--gold-brush));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 168, 50, 0.3);
+    }
+
+    .login-error {
+      color: var(--error);
+      font-size: 0.9rem;
+      text-align: center;
+      display: none;
+    }
+
+    .login-error.show {
+      display: block;
+    }
+
+    .logout-btn {
+      background: linear-gradient(135deg, #D4A832, #E8A854);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 168, 50, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Modal -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-container">
+      <div class="login-header">
+        <div class="login-icon">🔐</div>
+        <h1 class="login-title">Brain Bee Admin</h1>
+        <p class="login-subtitle">Enter password to continue</p>
+      </div>
+      <form class="login-form" onsubmit="handleLogin(event)">
+        <input 
+          type="password" 
+          class="login-input" 
+          id="passwordInput" 
+          placeholder="Enter admin password"
+          autocomplete="off"
+        >
+        <div class="login-error" id="loginError">Incorrect password. Try again.</div>
+        <button type="submit" class="login-btn">Unlock Admin Panel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <a href="index.html" class="admin-sidebar-logo">
+      <img src="assets/bbb.png" alt="Brain Bee">
+      Admin
+    </a>
+
+    <div class="admin-nav-section">
+      <div class="admin-nav-title">Registrations</div>
+      <button class="admin-nav-link active" data-view="participants">
+        📋 Participants
+      </button>
+      <button class="admin-nav-link ca-link" data-view="ca">
+        🎓 Class Ambassadors
+      </button>
+    </div>
+
+    <div class="admin-nav-section">
+      <div class="admin-nav-title">Tools</div>
+      <button class="admin-nav-link" onclick="exportParticipants()">
+        📥 Export Participants
+      </button>
+      <button class="admin-nav-link" onclick="exportCA()">
+        📥 Export CA Data
+      </button>
+    </div>
+
+    <div class="admin-nav-section">
+      <div class="admin-nav-title">Account</div>
+      <button class="admin-nav-link" onclick="logout()">
+        🚪 Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Tab Navigation -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('participants')">
+        👥 Participants
+      </button>
+      <button class="admin-tab ca" onclick="switchTab('ca')">
+        🎓 Campus Ambassadors
+      </button>
+    </div>
+
+    <!-- Participants View -->
+    <div id="participantsView" class="admin-view active">
+      <div class="admin-header">
+        <div>
+          <h1 class="admin-title">Participants</h1>
+          <p class="admin-subtitle">Manage all participant registrations</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn btn-export" onclick="exportParticipants()">
+            📥 Export CSV
+          </button>
+          <button class="btn btn-secondary" onclick="refreshData()">
+            🔄 Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats">
+        <div class="stat-card">
+          <div class="stat-label">Total Registrations</div>
+          <div class="stat-value" id="participantTotalCount">0</div>
+          <div class="stat-detail">All participants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">School Category</div>
+          <div class="stat-value" id="schoolCount">0</div>
+          <div class="stat-detail">Classes 9-10</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">College Category</div>
+          <div class="stat-value" id="collegeCount">0</div>
+          <div class="stat-detail">Classes 11-12</div>
+        </div>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="admin-search-bar">
+        <input 
+          type="text" 
+          id="participantSearch" 
+          class="search-input" 
+          placeholder="Search by name, email, or institution..."
+        >
+      </div>
+
+      <!-- Table -->
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Institution</th>
+              <th>Category</th>
+              <th>Segment</th>
+              <th>Registered</th>
+            </tr>
+          </thead>
+          <tbody id="participantsTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 2rem;">
+                <div class="loading"></div> Loading data...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class Ambassadors View -->
+    <div id="caView" class="admin-view">
+      <div class="admin-header">
+        <div>
+          <h1 class="admin-title" style="color: #D4A832;">Class Ambassadors</h1>
+          <p class="admin-subtitle">Manage all Class Ambassador registrations</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn btn-export" onclick="exportCA()">
+            📥 Export CSV
+          </button>
+          <button class="btn btn-secondary" onclick="refreshCAData()">
+            🔄 Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats">
+        <div class="stat-card ca">
+          <div class="stat-label">Total Class Ambassadors</div>
+          <div class="stat-value" id="caTotalCount">0</div>
+          <div class="stat-detail">Active CAs</div>
+        </div>
+        <div class="stat-card ca">
+          <div class="stat-label">Institutions Covered</div>
+          <div class="stat-value" id="caInstitutionCount">0</div>
+          <div class="stat-detail">Unique institutions</div>
+        </div>
+        <div class="stat-card ca">
+          <div class="stat-label">Average Age</div>
+          <div class="stat-value" id="caAverageAge">-</div>
+          <div class="stat-detail">CA age group</div>
+        </div>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="admin-search-bar">
+        <input 
+          type="text" 
+          id="caSearch" 
+          class="search-input" 
+          placeholder="Search by name, email, or institution..."
+        >
+      </div>
+
+      <!-- Table -->
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Institution</th>
+              <th>Age</th>
+              <th>Grade</th>
+              <th>Registered</th>
+            </tr>
+          </thead>
+          <tbody id="caTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 2rem;">
+                <div class="loading"></div> Loading data...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Firebase & Scripts -->
+  <script src="config/firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+    import { getFirestore, collection, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+
+    const firebaseConfig = window.FIREBASE_CONFIG || {
+      apiKey: "AIzaSyCAeRB03-ek3GsJmOgX7tbXDLGj3hunifc",
+      authDomain: "brainbee-bd-2026.firebaseapp.com",
+      projectId: "brainbee-bd-2026",
+      storageBucket: "brainbee-bd-2026.firebasestorage.app",
+      messagingSenderId: "578586136925",
+      appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+      measurementId: "G-BX9NFHSQL2"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    let allParticipants = [];
+    let allCA = [];
+
+    // Load participants data
+    async function loadParticipants() {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'registrations'));
+        allParticipants = [];
+        
+        querySnapshot.forEach((doc) => {
+          allParticipants.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
+
+        displayParticipants(allParticipants);
+        updateParticipantStats();
+      } catch (error) {
+        console.error('Error loading participants:', error);
+        showEmptyState('participantsTableBody', 'Error loading data');
+      }
+    }
+
+    // Load CA data
+    async function loadCA() {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'ca_registrations'));
+        allCA = [];
+        
+        querySnapshot.forEach((doc) => {
+          allCA.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
+
+        displayCA(allCA);
+        updateCAStats();
+      } catch (error) {
+        console.error('Error loading CA data:', error);
+        showEmptyState('caTableBody', 'Error loading data');
+      }
+    }
+
+    // Display participants in table
+    function displayParticipants(participants) {
+      const tbody = document.getElementById('participantsTableBody');
+      
+      if (participants.length === 0) {
+        showEmptyState('participantsTableBody', 'No participants yet');
+        return;
+      }
+
+      tbody.innerHTML = participants.map(p => `
+        <tr>
+          <td><strong>${p.name || 'N/A'}</strong></td>
+          <td>${p.email || 'N/A'}</td>
+          <td>${p.institution || 'N/A'}</td>
+          <td><span class="badge badge-participant">${p.category || 'N/A'}</span></td>
+          <td>${p.segment || 'N/A'}</td>
+          <td>${new Date(p.timestamp?.toDate?.() || Date.now()).toLocaleDateString()}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Display CA in table
+    function displayCA(cas) {
+      const tbody = document.getElementById('caTableBody');
+      
+      if (cas.length === 0) {
+        showEmptyState('caTableBody', 'No Class Ambassadors yet');
+        return;
+      }
+
+      tbody.innerHTML = cas.map(ca => `
+        <tr>
+          <td><strong>${ca.name || 'N/A'}</strong></td>
+          <td>${ca.email || 'N/A'}</td>
+          <td>${ca.institution || 'N/A'}</td>
+          <td>${ca.age || 'N/A'}</td>
+          <td>${ca.grade || 'N/A'}</td>
+          <td>${new Date(ca.timestamp?.toDate?.() || Date.now()).toLocaleDateString()}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Update stats
+    function updateParticipantStats() {
+      document.getElementById('participantTotalCount').textContent = allParticipants.length;
+      const schoolCount = allParticipants.filter(p => p.category === 'school').length;
+      const collegeCount = allParticipants.filter(p => p.category === 'college').length;
+      document.getElementById('schoolCount').textContent = schoolCount;
+      document.getElementById('collegeCount').textContent = collegeCount;
+    }
+
+    function updateCAStats() {
+      document.getElementById('caTotalCount').textContent = allCA.length;
+      const uniqueInstitutions = new Set(allCA.map(ca => ca.institution));
+      document.getElementById('caInstitutionCount').textContent = uniqueInstitutions.size;
+      
+      if (allCA.length > 0) {
+        const avgAge = (allCA.reduce((sum, ca) => sum + (parseInt(ca.age) || 0), 0) / allCA.length).toFixed(1);
+        document.getElementById('caAverageAge').textContent = avgAge;
+      }
+    }
+
+    // Search functionality
+    document.getElementById('participantSearch').addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filtered = allParticipants.filter(p => 
+        (p.name || '').toLowerCase().includes(searchTerm) ||
+        (p.email || '').toLowerCase().includes(searchTerm) ||
+        (p.institution || '').toLowerCase().includes(searchTerm)
+      );
+      displayParticipants(filtered);
+    });
+
+    document.getElementById('caSearch').addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filtered = allCA.filter(ca => 
+        (ca.name || '').toLowerCase().includes(searchTerm) ||
+        (ca.email || '').toLowerCase().includes(searchTerm) ||
+        (ca.institution || '').toLowerCase().includes(searchTerm)
+      );
+      displayCA(filtered);
+    });
+
+    // Tab switching
+    document.querySelectorAll('.admin-nav-link[data-view]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const view = e.target.closest('[data-view]').dataset.view;
+        switchView(view);
+      });
+    });
+
+    function switchView(view) {
+      document.querySelectorAll('.admin-view').forEach(v => v.style.display = 'none');
+      document.querySelectorAll('.admin-nav-link').forEach(b => b.classList.remove('active'));
+      
+      if (view === 'participants') {
+        document.getElementById('participantsView').style.display = 'block';
+        document.querySelector('[data-view="participants"]').classList.add('active');
+      } else if (view === 'ca') {
+        document.getElementById('caView').style.display = 'block';
+        document.querySelector('[data-view="ca"]').classList.add('active');
+      }
+    }
+
+    // Export functions
+    window.exportParticipants = function() {
+      const csv = [
+        ['Name', 'Email', 'Phone', 'Institution', 'District', 'Category', 'Segment', 'Registered'],
+        ...allParticipants.map(p => [
+          p.name || '',
+          p.email || '',
+          p.phone || '',
+          p.institution || '',
+          p.district || '',
+          p.category || '',
+          p.segment || '',
+          new Date(p.timestamp?.toDate?.() || Date.now()).toLocaleString()
+        ])
+      ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+
+      downloadCSV(csv, `participants_${new Date().toISOString().split('T')[0]}.csv`);
+    };
+
+    window.exportCA = function() {
+      const csv = [
+        ['Name', 'Email', 'Age', 'Grade', 'Institution', 'CA ID', 'Registered'],
+        ...allCA.map(ca => [
+          ca.name || '',
+          ca.email || '',
+          ca.age || '',
+          ca.grade || '',
+          ca.institution || '',
+          ca.registrationId || '',
+          new Date(ca.timestamp?.toDate?.() || Date.now()).toLocaleString()
+        ])
+      ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+
+      downloadCSV(csv, `class_ambassadors_${new Date().toISOString().split('T')[0]}.csv`);
+    };
+
+    function downloadCSV(csv, filename) {
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    }
+
+    // Refresh data
+    window.refreshData = loadParticipants;
+    window.refreshCAData = loadCA;
+
+    // Switch tabs
+    window.switchTab = function(tab) {
+      // Hide all views
+      document.getElementById('participantsView').classList.remove('active');
+      document.getElementById('caView').classList.remove('active');
+      
+      // Remove active from all tabs
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      
+      // Show selected view
+      if (tab === 'participants') {
+        document.getElementById('participantsView').classList.add('active');
+        document.querySelectorAll('.admin-tab')[0].classList.add('active');
+        loadParticipants();
+      } else if (tab === 'ca') {
+        document.getElementById('caView').classList.add('active');
+        document.querySelectorAll('.admin-tab')[1].classList.add('active');
+        loadCA();
+      }
+    };
+
+    // Logout
+    window.logout = function() {
+      if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('adminAuth');
+        localStorage.removeItem('adminAuthenticated');
+        window.location.href = 'index.html';
+      }
+    };
+
+    // Empty state
+    function showEmptyState(elementId, message) {
+      const element = document.getElementById(elementId);
+      element.innerHTML = `
+        <tr>
+          <td colspan="100%" style="text-align: center; padding: 3rem;">
+            <div class="empty-state-icon">📭</div>
+            <div class="empty-state-text">${message}</div>
+          </td>
+        </tr>
+      `;
+    }
+
+    // Password Protection
+    const ADMIN_PASSWORD = '@BrainBee_229260';
+    
+    window.handleLogin = function(event) {
+      event.preventDefault();
+      const password = document.getElementById('passwordInput').value;
+      const errorMsg = document.getElementById('loginError');
+      
+      if (password === ADMIN_PASSWORD) {
+        localStorage.setItem('adminAuthenticated', 'true');
+        document.getElementById('loginModal').classList.add('hidden');
+        loadParticipants();
+        loadCA();
+      } else {
+        errorMsg.classList.add('show');
+        document.getElementById('passwordInput').value = '';
+      }
+    };
+
+    // Check authentication on page load
+    if (localStorage.getItem('adminAuthenticated') === 'true') {
+      document.getElementById('loginModal').classList.add('hidden');
+      loadParticipants();
+      loadCA();
+    }
+  </script>
+</body>
+</html>

@@ -1053,7 +1053,7 @@
 <script type="module">
   // Firebase initialization for registration form
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
-  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+  import { getFirestore, collection, addDoc, serverTimestamp, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
 
   let firebaseConfig = window.FIREBASE_CONFIG || {
     apiKey: "REPLACE_WITH_YOUR_API_KEY",
@@ -1098,6 +1098,23 @@
       throw error;
     }
   };
+
+  // Check for duplicate email
+  window.checkParticipantDuplicateEmail = async function(email) {
+    if (!db) {
+      throw new Error('Firebase not initialized. Please check your configuration.');
+    }
+    
+    try {
+      const existingQuery = await getDocs(
+        query(collection(db, 'registrations'), where('email', '==', email))
+      );
+      return !existingQuery.empty;
+    } catch (error) {
+      console.error('Error checking duplicate email:', error);
+      throw error;
+    }
+  };
 </script>
 
 <body>
@@ -1124,7 +1141,7 @@
 
   <!-- Main Content -->
   <main>
-    <div id="registrationClosedSection" style="text-align: center; padding: 5rem 2rem; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div id="registrationClosedSection" style="text-align: center; padding: 5rem 2rem; min-height: 70vh; display: none; flex-direction: column; justify-content: center; align-items: center;">
       <div style="margin-bottom: 3rem;">
         <p style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); margin-bottom: 0.5rem;">Registration Currently Off</p>
         <div style="width: 120px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-brush), transparent); margin: 0 auto 1.5rem;"></div>
@@ -1217,7 +1234,21 @@
       </div>
     </div>
 
-    <!-- Main Registration Form -->
+    <!-- Registration Not Started Message -->
+    <div id="registrationNotStartedOverlay" style="position: relative; max-width: 700px; margin: -2rem auto 4rem; padding: 0 2rem; z-index: 100;">
+      <div style="background: linear-gradient(135deg, #1B3A6B 0%, #2E5C8A 100%); border-radius: 16px; padding: 4rem 2rem; text-align: center; box-shadow: 0 8px 32px rgba(46, 92, 138, 0.15); border: 2px solid rgba(75, 127, 188, 0.2);">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">⏳</div>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: white; margin-bottom: 0.75rem;">Registration Coming Soon</h2>
+        <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">
+          Participant registration hasn't started yet. We'll notify you as soon as registration opens!
+        </p>
+        <a href="index.html" style="display: inline-block; background: white; color: #2E5C8A; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
+          ← Back Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Registration Form (Hidden) -->
     <div id="formContainer" class="form-card" style="display: none;">
       <form id="registrationForm">
         <div id="formMessage" class="form-message"></div>
@@ -1674,6 +1705,13 @@
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
           throw new Error('Please enter a valid email address.');
+        }
+
+        // Check for duplicate email registration
+        const isDuplicate = await window.checkParticipantDuplicateEmail(data.email);
+        
+        if (isDuplicate) {
+          throw new Error('❌ This email is already registered! Please use a different email.');
         }
 
         // Save to Firestore

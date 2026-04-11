@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Ambassador Registration — Brain Bee Bangladesh 2026</title>
+  <meta property="og:url" content="https://brainbeebd.site/register-ca.html"/>
+  <meta property="og:site_name" content="Brain Bee Bangladesh"/>
+  <link rel="canonical" href="https://brainbeebd.site/register-ca.html" />
+  <link rel="icon" type="image/png" href="https://brainbeebd.site/assets/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://brainbeebd.site/assets/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-white: #FFFFFF;
+      --gold-brush: #C9972C;
+      --gold-amber: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+      --text-light: #8A8078;
+      --ca-color: #D4A832;
+      --ca-secondary: #E8A854;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 153, 44, 0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      height: 60px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .logo-small {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-brush);
+    }
+
+    /* Page header */
+    .page-header {
+      background: linear-gradient(135deg, #fef5e6 0%, #fffbf0 100%);
+      padding: 140px 2rem 4rem;
+      text-align: center;
+      margin-top: 72px;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--ca-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--text-body);
+    }
+
+    /* Main content */
+    main {
+      max-width: 700px;
+      margin: -2rem auto 4rem;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 3.5rem;
+      box-shadow: 0 8px 32px rgba(212, 168, 50, 0.12);
+      border: 2px solid rgba(212, 168, 50, 0.15);
+    }
+
+    .form-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      border: 1.5px solid rgba(212, 168, 50, 0.2);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--ca-color);
+      background: var(--bg-white);
+      box-shadow: 0 0 0 3px rgba(212, 168, 50, 0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ca-color), var(--ca-secondary));
+      color: white;
+      box-shadow: 0 4px 16px rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212, 168, 50, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.96);
+    }
+
+    .btn-secondary {
+      background: var(--bg-cream);
+      color: var(--text-primary);
+      border: 1.5px solid rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ca-color);
+      color: var(--ca-color);
+    }
+
+    /* Messages */
+    .form-message {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(58, 125, 68, 0.1);
+      border: 1px solid #3A7D44;
+      color: #3A7D44;
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(200, 92, 92, 0.1);
+      border: 1px solid #C85C5C;
+      color: #C85C5C;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid rgba(201, 153, 44, 0.2);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-text {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: var(--gold-brush);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-copyright {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 64px;
+      }
+
+      .page-header {
+        padding: 100px 1.5rem 2rem;
+      }
+
+      main {
+        margin: -1rem auto 2rem;
+        padding: 0 1rem;
+      }
+
+      .form-card {
+        padding: 2rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+        Brain Bee BD
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#format" class="nav-link">Format</a></li>
+        <li><a href="register.html" class="nav-link">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Campus Ambassador Registration</h1>
+    <p>Become a Campus Ambassador for Brain Bee Bangladesh 2026 — Spread neuroscience awareness in your institution</p>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="form-card">
+      <form id="caRegistrationForm">
+        <div id="formMessage" class="form-message"></div>
+
+        <!-- Personal Information -->
+        <div class="form-section">
+          <label class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            name="fullName" 
+            class="form-input" 
+            placeholder="Your full name"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="your.email@example.com"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">Phone Number</label>
+          <input 
+            type="tel" 
+            name="phone" 
+            class="form-input" 
+            placeholder="Your phone number"
+            required
+          >
+        </div>
+
+        <!-- Age & Grade -->
+        <div class="form-row">
+          <div class="form-section">
+            <label class="form-label">Age</label>
+            <input 
+              type="number" 
+              name="age" 
+              class="form-input" 
+              placeholder="Your age"
+              min="16"
+              max="25"
+              required
+            >
+          </div>
+          <div class="form-section">
+            <label class="form-label">Current Grade/Class</label>
+            <input 
+              type="text" 
+              name="grade" 
+              class="form-input" 
+              placeholder="e.g., 10, 12, 1st Year"
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Institution -->
+        <div class="form-section">
+          <label class="form-label">Institution Name</label>
+          <input 
+            type="text" 
+            name="institution" 
+            class="form-input" 
+            placeholder="Your school or college name"
+            required
+          >
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="form-section">
+          <label class="form-label">Profile Photo (For ID Card)</label>
+          <div style="background: linear-gradient(135deg, rgba(212,168,50,0.15), rgba(232,168,84,0.08)); border-left: 4px solid #D4A832; border-radius: 8px; padding: 12px 14px; margin-bottom: 1rem; margin-top: 0.5rem;">
+            <p style="font-size: 0.88rem; font-weight: 600; color: #D4A832; margin: 0; line-height: 1.5;">⚠️ FOR THE BEST RESULT, PLEASE UPLOAD A PHOTO OF YOURSELF WITH A TRANSPARENT BACKGROUND (NO BACKGROUND) — JUST YOU!</p>
+          </div>
+          <input 
+            type="file" 
+            name="photo" 
+            id="caPhotoInput" 
+            class="form-input" 
+            accept="image/jpeg,image/png"
+            required
+          >
+          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">JPG or PNG, max 2 MB.</p>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="form-section" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(212, 168, 50, 0.15);">
+          <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+            <input 
+              type="checkbox" 
+              name="agreeTerms" 
+              style="margin-top: 0.25rem;"
+              required
+            >
+            <span style="font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              I agree to promote Brain Bee Bangladesh 2026 at my institution and uphold the values of neuroscience education.
+            </span>
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Register as CA →</button>
+          <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">Back</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-title">⬡ Brain Bee Bangladesh 2026</div>
+      <p class="footer-text">Campus Ambassador Program</p>
+      <p class="footer-text">
+        Questions? Contact us at <a href="mailto:brainbee.bd@gmail.com" class="footer-link">brainbee.bd@gmail.com</a>
+      </p>
+      <p class="footer-copyright">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="config/firebase-config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+    
+    const firebaseConfig = window.FIREBASE_CONFIG || {
+      apiKey: "AIzaSyCAeRB03-ek3GsJmOgX7tbXDLGj3hunifc",
+      authDomain: "brainbee-bd-2026.firebaseapp.com",
+      projectId: "brainbee-bd-2026",
+      storageBucket: "brainbee-bd-2026.firebasestorage.app",
+      messagingSenderId: "578586136925",
+      appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+      measurementId: "G-BX9NFHSQL2"
+    };
+
+    let db;
+    try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+    } catch (error) {
+      console.error('Firebase initialization error:', error);
+    }
+
+    // Save CA registration
+    window.saveCARegistration = async function(formData) {
+      if (!db) throw new Error('Firebase not initialized.');
+      try {
+        const docRef = await addDoc(collection(db, 'ca_registrations'), {
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          age: formData.age,
+          grade: formData.grade,
+          institution: formData.institution,
+          registrationId: formData.registrationId,
+          timestamp: serverTimestamp()
+        });
+        return docRef.id;
+      } catch (error) {
+        console.error('Error saving CA registration:', error);
+        throw error;
+      }
+    };
+
+    // Check duplicate email
+    window.checkCADuplicateEmail = async function(email) {
+      if (!db) throw new Error('Firebase not initialized.');
+      try {
+        const existingQuery = await getDocs(
+          query(collection(db, 'ca_registrations'), where('email', '==', email))
+        );
+        return !existingQuery.empty;
+      } catch (error) {
+        console.error('Error checking duplicate email:', error);
+        throw error;
+      }
+    };
+
+    // Form submission
+    document.getElementById('caRegistrationForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      const messageDiv = document.getElementById('formMessage');
+      const photoInput = document.getElementById('caPhotoInput');
+
+      try {
+        // Check duplicate email
+        const isDuplicate = await window.checkCADuplicateEmail(data.email);
+        if (isDuplicate) {
+          messageDiv.className = 'form-message error';
+          messageDiv.textContent = '❌ This email is already registered!';
+          return;
+        }
+
+        // Generate CA ID
+        const timestamp = Date.now();
+        const caId = `CA-${String(timestamp).slice(-6)}`;
+
+        // Save to Firebase
+        await window.saveCARegistration({
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          age: data.age,
+          grade: data.grade,
+          institution: data.institution,
+          registrationId: caId
+        });
+
+        // Get photo data if uploaded
+        let photoData = null;
+        if (photoInput.files && photoInput.files[0]) {
+          const reader = new FileReader();
+          reader.onload = async (event) => {
+            photoData = event.target.result;
+            
+            // Store data for congrats page
+            localStorage.setItem('caRegistrationData', JSON.stringify({
+              fullName: data.fullName,
+              email: data.email,
+              caId: caId,
+              phone: data.phone,
+              age: data.age,
+              grade: data.grade,
+              institution: data.institution
+            }));
+
+            if (photoData) {
+              localStorage.setItem('caPhotoData', photoData);
+            }
+
+            messageDiv.textContent = '✓ Registration successful! Redirecting...';
+            messageDiv.className = 'form-message success';
+            
+            setTimeout(() => {
+              window.location.href = 'congrats-ca.html';
+            }, 1500);
+          };
+          reader.readAsDataURL(photoInput.files[0]);
+        } else {
+          // Store data without photo
+          localStorage.setItem('caRegistrationData', JSON.stringify({
+            fullName: data.fullName,
+            email: data.email,
+            caId: caId,
+            phone: data.phone,
+            age: data.age,
+            grade: data.grade,
+            institution: data.institution
+          }));
+
+          messageDiv.textContent = '✓ Registration successful! Redirecting...';
+          messageDiv.className = 'form-message success';
+          
+          setTimeout(() => {
+            window.location.href = 'congrats-ca.html';
+          }, 1500);
+        }
+
+      } catch (error) {
+        console.error('Registration error:', error);
+        messageDiv.className = 'form-message error';
+        messageDiv.textContent = '❌ Registration failed. Please try again.';
+      }
+    });
+
+    // Photo preview handler
+    const photoInput = document.getElementById('caPhotoInput');
+    if (photoInput) {
+      photoInput.addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (file && file.type.startsWith('image/')) {
+          if (file.size > 2 * 1024 * 1024) {
+            alert('Photo size must be less than 2 MB');
+            e.target.value = '';
+          }
+        }
+      });
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
+  <meta property="og:url" content="https://brainbeebd.site/register-ca.html"/>
+  <meta property="og:site_name" content="Brain Bee Bangladesh"/>
+  <link rel="canonical" href="https://brainbeebd.site/register-ca.html" />
+  <link rel="icon" type="image/png" href="https://brainbeebd.site/assets/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://brainbeebd.site/assets/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization", 
+  "name": "Brain Bee Bangladesh",
+  "alternateName": "International Brain Bee Bangladesh",
+  "url": "https://brainbeebd.site",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "International Brain Bee",
+    "url": "https://thebrainbee.org"
+  },
+  "areaServed": "BD",
+  "description": "Class Ambassador registration for Brain Bee Bangladesh 2026"
+}
+</script>
+ 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-warm-white: #FAFAF7;
+      --bg-cream: #F5F0E8;
+      --bg-white: #FFFFFF;
+      --gold-brush: #C9972C;
+      --gold-amber: #D4A832;
+      --text-primary: #2C2C2C;
+      --text-body: #6B6258;
+      --text-light: #8A8078;
+      /* CA Card Palette - Golden Bee Theme */
+      --ca-card-purple: #D4A832;
+      --ca-card-indigo: #E8A854;
+      --ca-card-violet: #F0B860;
+      --ca-card-light: #FFF8F0;
+      --ca-card-accent: #C9972C;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 153, 44, 0.15);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      height: 60px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .logo-small {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold-brush);
+    }
+
+    /* Page header */
+    .page-header {
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFFBF7 100%);
+      padding: 140px 2rem 4rem;
+      text-align: center;
+      margin-top: 72px;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--ca-card-purple);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--text-body);
+    }
+
+    /* Main content */
+    main {
+      max-width: 700px;
+      margin: -2rem auto 4rem;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 3.5rem;
+      box-shadow: 0 8px 32px rgba(212, 168, 50, 0.12);
+      border: 2px solid rgba(212, 168, 50, 0.15);
+    }
+
+    .form-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.9rem 1.1rem;
+      border: 1.5px solid rgba(212, 168, 50, 0.2);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: var(--bg-warm-white);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--ca-card-purple);
+      background: var(--bg-white);
+      box-shadow: 0 0 0 3px rgba(212, 168, 50, 0.12);
+    }
+
+    .form-input::placeholder {
+      color: #999;
+    }
+
+    /* Form row for side-by-side fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      color: white;
+      box-shadow: 0 4px 16px rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212, 168, 50, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.96);
+    }
+
+    .btn-secondary {
+      background: var(--bg-cream);
+      color: var(--text-primary);
+      border: 1.5px solid rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ca-card-purple);
+      color: var(--ca-card-purple);
+    }
+
+    /* Success/Error messages */
+    .form-message {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(58, 125, 68, 0.1);
+      border: 1px solid #3A7D44;
+      color: #3A7D44;
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(200, 92, 92, 0.1);
+      border: 1px solid #C85C5C;
+      color: #C85C5C;
+      display: block;
+    }
+
+    /* CA ID Card System */
+    :root {
+      --ca-navy: #5A2D82;
+      --ca-sky: #7E3FA3;
+      --ca-light: #F3E9FF;
+      --ca-white: #FFFFFF;
+      --ca-text-dark: #1A1A1A;
+      --ca-text-light: #4A4A4A;
+    }
+
+    .card-generator-section {
+      position: relative;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 2px solid rgba(212, 168, 50, 0.2);
+    }
+
+    .card-generator-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3ClinearGradient id='caGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgba(108,59,163,0.08)'/%3E%3Cstop offset='100%25' style='stop-color:rgba(157,95,214,0.04)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg opacity='0.5'%3E%3Ccircle cx='30' cy='50' r='1.8' fill='rgba(157,95,214,0.25)' opacity='0.3'/%3E%3Ccircle cx='70' cy='80' r='1.5' fill='rgba(108,59,163,0.2)' opacity='0.25'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 400px 400px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card-generator-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--ca-card-purple);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .card-upload-area {
+      border: 2px dashed var(--ca-card-accent);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(157, 95, 214, 0.05), rgba(243, 233, 255, 0.1));
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .card-upload-area:hover {
+      border-color: var(--ca-card-purple);
+      background: linear-gradient(135deg, rgba(157, 95, 214, 0.12), rgba(243, 233, 255, 0.15));
+    }
+
+    .card-upload-area.dragover {
+      border-color: var(--ca-card-purple);
+      background: linear-gradient(135deg, rgba(212, 168, 50, 0.1), rgba(243, 233, 255, 0.2));
+    }
+
+    .card-upload-input {
+      display: none;
+    }
+
+    .card-upload-label {
+      display: block;
+      font-weight: 600;
+      color: var(--ca-card-purple);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .card-upload-hint {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    #caIdCard {
+      width: 100%;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(212, 168, 50, 0.2);
+      background: white;
+    }
+
+    .ca-id-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 8.5/11;
+      background: linear-gradient(135deg, #FFFFFF 0%, #f3e9ff 50%, #f5f0ff 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background gradients */
+    .ca-id-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 15% 30%, rgba(212, 168, 50, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(232, 168, 84, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated particles */
+    .ca-id-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cg opacity='0.6'%3E%3Cpath d='M60 100 L85 85 L110 100 L95 125 L70 125 Z' fill='none' stroke='rgba(157,95,214,0.18)' stroke-width='1.5'/%3E%3Cpath d='M330 80 L365 55 L400 80 L375 115 L340 115 Z' fill='none' stroke='rgba(108,59,163,0.12)' stroke-width='1.4'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 500px 500px;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 1;
+      animation: caParticleFloat 30s ease-in-out infinite;
+    }
+
+    @keyframes caParticleFloat {
+      0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.8; }
+      50% { transform: translateY(-15px) translateX(-6px); opacity: 0.9; }
+    }
+
+    .ca-id-card-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.5rem;
+    }
+
+    /* Corner decorations */
+    .ca-id-card-inner::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 30px;
+      border-top: 2px solid rgba(157, 95, 214, 0.2);
+      border-right: 2px solid rgba(157, 95, 214, 0.2);
+      border-radius: 0 8px 0 0;
+      z-index: 3;
+    }
+
+    .ca-id-card-inner::after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      width: 30px;
+      height: 30px;
+      border-bottom: 2px solid rgba(157, 95, 214, 0.2);
+      border-left: 2px solid rgba(157, 95, 214, 0.2);
+      border-radius: 0 0 0 8px;
+      z-index: 3;
+    }
+
+    /* Photo section */
+    .ca-id-card-photo-section {
+      position: relative;
+      width: 100%;
+      height: 48%;
+      margin-bottom: 0.5rem;
+      border-radius: 0 0 35% 0 / 0 0 45% 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      box-shadow: 0 12px 30px rgba(212, 168, 50, 0.2), inset 0 -3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .ca-id-card-photo-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.05) 25%, transparent 50%, rgba(0, 0, 0, 0.03) 75%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+      animation: shimmerSlide 3s infinite;
+    }
+
+    @keyframes shimmerSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .ca-id-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      image-rendering: crisp-edges;
+    }
+
+    .ca-id-card-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      color: var(--ca-card-light);
+      font-size: 3rem;
+    }
+
+    /* Information section */
+    .ca-id-card-info-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .ca-id-card-info-section::before {
+      content: 'CA 2026';
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(157, 95, 214, 0.08);
+      transform: translateY(-50%) rotate(-15deg);
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.05em;
+    }
+
+    .ca-id-card-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      color: white;
+      padding: 0.35rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      width: fit-content;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ca-id-card-info-header {
+      border-top: 2px solid rgba(212, 168, 50, 0.3);
+      padding-top: 1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ca-id-card-name {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ca-card-purple);
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+      word-break: break-word;
+      letter-spacing: 0.3px;
+    }
+
+    .ca-id-card-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.9rem 0;
+      font-size: 0.75rem;
+    }
+
+    .ca-id-card-detail-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ca-id-card-detail-label {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      margin-bottom: 0.35rem;
+      position: relative;
+    }
+
+    .ca-id-card-detail-label::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(157, 95, 214, 0.4), transparent);
+    }
+
+    .ca-id-card-detail-value {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--ca-card-purple);
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Footer */
+    .ca-id-card-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.2rem 0.5rem;
+      border-top: 1.5px solid rgba(212, 168, 50, 0.3);
+      margin-top: auto;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 2;
+      justify-items: center;
+    }
+
+    .ca-id-card-footer::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(157, 95, 214, 0.4) 25%, rgba(157, 95, 214, 0.6) 50%, rgba(157, 95, 214, 0.4) 75%, transparent 100%);
+    }
+
+    .ca-id-card-logo {
+      height: 100px;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .ca-id-card-qr-section {
+      background: var(--ca-white);
+      padding: 0.3rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+    }
+
+    .ca-id-card-qr-section img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      border-radius: 3px;
+    }
+
+    /* Card action buttons */
+    .ca-card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-download-ca-card {
+      background: linear-gradient(135deg, var(--ca-card-purple), var(--ca-card-indigo));
+      color: white;
+      padding: 0.85rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-download-ca-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 168, 50, 0.3);
+    }
+
+    .btn-print-ca-card {
+      background: var(--ca-card-light);
+      color: var(--ca-card-purple);
+      padding: 0.85rem 1.8rem;
+      border: 2px solid var(--ca-card-accent);
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-print-ca-card:hover {
+      background: var(--ca-card-accent);
+      color: white;
+    }
+
+    .card-generator-hidden {
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid rgba(108, 59, 163, 0.2);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-text {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: var(--gold-brush);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-copyright {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        height: 64px;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-header {
+        padding: 100px 1.5rem 2rem;
+      }
+
+      main {
+        margin: -1rem auto 2rem;
+        padding: 0 1rem;
+      }
+
+      .form-card {
+        padding: 2rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .ca-id-card-name {
+        font-size: 1.1rem;
+      }
+
+      .ca-id-card-details {
+        gap: 0.75rem;
+        margin: 0.5rem 0;
+      }
+
+      .ca-card-actions {
+        flex-direction: column;
+      }
+
+      .btn-download-ca-card,
+      .btn-print-ca-card {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ID Card Styling for Campus Ambassador */
+    .id-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 8.5/11;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .id-card-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.5rem;
+    }
+
+    /* Corner decorations */
+    .id-card-inner::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 30px;
+      border-top: 2px solid rgba(212, 168, 50, 0.2);
+      border-right: 2px solid rgba(212, 168, 50, 0.2);
+      border-radius: 0 8px 0 0;
+      z-index: 3;
+    }
+
+    .id-card-inner::after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      width: 30px;
+      height: 30px;
+      border-bottom: 2px solid rgba(212, 168, 50, 0.2);
+      border-left: 2px solid rgba(212, 168, 50, 0.2);
+      border-radius: 0 0 0 8px;
+      z-index: 3;
+    }
+
+    /* Photo section with organic crop */
+    .id-card-photo-section {
+      position: relative;
+      width: 100%;
+      height: 48%;
+      margin-bottom: 0.5rem;
+      border-radius: 0 0 35% 0 / 0 0 45% 0;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(212, 168, 50, 0.2), inset 0 -3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Decorative overlay on photo section */
+    .id-card-photo-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.03) 75%, 
+        transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+      animation: shimmerSlide 3s infinite;
+    }
+
+    @keyframes shimmerSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .id-card-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      image-rendering: crisp-edges;
+    }
+
+    .id-card-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    /* Information section */
+    .id-card-info-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Decorative watermark in info section */
+    .id-card-info-section::before {
+      content: '2026';
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: rgba(212, 168, 50, 0.08);
+      transform: translateY(-50%) rotate(-15deg);
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.05em;
+    }
+
+    /* Subtle border/divider */
+    .id-card-info-header {
+      padding-top: 1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .id-card-name {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+      word-break: break-word;
+      letter-spacing: 0.3px;
+    }
+
+    .id-card-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.9rem 0;
+      font-size: 0.75rem;
+    }
+
+    .id-card-detail-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .id-card-detail-label {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 600;
+      color: #8A8078;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      margin-bottom: 0.35rem;
+      position: relative;
+    }
+
+    .id-card-detail-label::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212, 168, 50, 0.4), transparent);
+    }
+
+    .id-card-detail-value {
+      font-family: 'Comfortaa', 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Footer */
+    .id-card-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.2rem 0.5rem;
+      margin-top: auto;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 2;
+      justify-items: center;
+    }
+
+    .id-card-footer::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 50, 0.4) 25%, rgba(212, 168, 50, 0.6) 50%, rgba(212, 168, 50, 0.4) 75%, transparent 100%);
+    }
+
+    .id-card-logo {
+      height: 100px;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .id-card-qr-section {
+      background: white;
+      padding: 0.3rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+    }
+
+    .id-card-qr-section img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      border-radius: 3px;
+    }
+
+    @media print {
+      .id-card {
+        aspect-ratio: 8.5/11 !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+    }
+
+    @media print {
+      * {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      body {
+        background: white !important;
+      }
+
+      body > * {
+        display: none !important;
+      }
+
+      #caIdCard {
+        display: block !important;
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        padding: 0;
+        position: static !important;
+      }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ca-card-purple);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<!-- Firebase Configuration -->
+<script>
+  if (typeof window.FIREBASE_CONFIG === 'undefined') {
+    window.FIREBASE_CONFIG = {
+      apiKey: "AIzaSyCAeRB03-ek3GsJmOgX7tbXDLGj3hunifc",
+      authDomain: "brainbee-bd-2026.firebaseapp.com",
+      projectId: "brainbee-bd-2026",
+      storageBucket: "brainbee-bd-2026.firebasestorage.app",
+      messagingSenderId: "578586136925",
+      appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+      measurementId: "G-BX9NFHSQL2"
+    };
+  }
+</script>
+
+<script src="config/firebase-config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+  
+  const firebaseConfig = window.FIREBASE_CONFIG || {
+    apiKey: "AIzaSyCAeRB03-ek3GsJmOgX7tbXDLGj3hunifc",
+    authDomain: "brainbee-bd-2026.firebaseapp.com",
+    projectId: "brainbee-bd-2026",
+    storageBucket: "brainbee-bd-2026.firebasestorage.app",
+    messagingSenderId: "578586136925",
+    appId: "1:578586136925:web:3cfcc790c99c0b990218b4",
+    measurementId: "G-BX9NFHSQL2"
+  };
+
+  let db;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  } catch (error) {
+    console.error('Firebase initialization error:', error);
+  }
+
+  // Save CA registration to separate collection
+  window.saveCARegistration = async function(formData) {
+    if (!db) {
+      throw new Error('Firebase not initialized. Please check your configuration.');
+    }
+
+    try {
+      const docRef = await addDoc(collection(db, 'ca_registrations'), {
+        name: formData.fullName,
+        email: formData.email,
+        age: formData.age,
+        grade: formData.grade,
+        institution: formData.institution,
+        registrationId: formData.registrationId,
+        timestamp: serverTimestamp()
+      });
+
+      console.log('CA Registration saved with ID:', docRef.id);
+      return docRef.id;
+    } catch (error) {
+      console.error('Error saving CA registration:', error);
+      throw error;
+    }
+  };
+
+  // Check for duplicate email
+  window.checkCADuplicateEmail = async function(email) {
+    if (!db) {
+      throw new Error('Firebase not initialized. Please check your configuration.');
+    }
+    
+    try {
+      const existingQuery = await getDocs(
+        query(collection(db, 'ca_registrations'), where('email', '==', email))
+      );
+      return !existingQuery.empty;
+    } catch (error) {
+      console.error('Error checking duplicate email:', error);
+      throw error;
+    }
+  };
+</script>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/bbb.png" alt="Brain Bee Bangladesh" class="logo-small">
+        Brain Bee BD
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#format" class="nav-link">Format</a></li>
+        <li><a href="register.html" class="nav-link">Participant</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="badge">Campus Ambassador Program</div>
+    <h1>Campus Ambassador Registration</h1>
+    <p>Become a Campus Ambassador for Brain Bee Bangladesh 2026 — Spread neuroscience awareness in your institution</p>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div id="registrationClosedSection" style="text-align: center; padding: 5rem 2rem; min-height: 70vh; display: none; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(135deg, #FFF8F0 0%, #FFFBF7 100%);">
+      <div style="margin-bottom: 3rem;">
+        <p style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: #D4A832; margin-bottom: 0.5rem;">Campus Ambassador Registration Currently Off</p>
+        <div style="width: 120px; height: 3px; background: linear-gradient(90deg, transparent, #D4A832, transparent); margin: 0 auto 1.5rem;"></div>
+      </div>
+      
+      <p style="color: var(--text-body); font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin-bottom: 2rem;">
+        Campus Ambassador registration will start soon. Stay tuned for updates!
+      </p>
+      
+      <div style="background: linear-gradient(135deg, var(--bg-white) 0%, rgba(255, 248, 240, 0.8) 100%); padding: 2rem; border-radius: 16px; border: 2px solid #D4A832; box-shadow: 0 4px 20px rgba(212, 168, 50, 0.15); max-width: 550px;">
+        <p style="color: var(--text-primary); font-size: 1rem; margin: 0; line-height: 1.8;">
+          <strong>Program Benefits:</strong><br>
+          ✓ Exclusive Campus Ambassador ID Card<br>
+          ✓ Network with neuroscience enthusiasts<br>
+          ✓ Promote Brain Bee at your institution<br>
+          ✓ Early access to competition details
+        </p>
+      </div>
+    </div>
+
+    <!-- CA ID Card Generator (Shown after successful registration) -->
+    <div id="cardGeneratorContainer" class="form-card card-generator-hidden" style="display: none;">
+      <h2 class="card-generator-title">Your Campus Ambassador ID Card</h2>
+      
+      <div class="card-upload-area" id="photoUploadArea">
+        <input type="file" id="caPhotoInput" class="card-upload-input" accept="image/*">
+        <label for="caPhotoInput" class="card-upload-label">📸 Upload Your Photo</label>
+        <p class="card-upload-hint">Drag and drop or click to browse. ⚠️ UPLOAD WITHOUT BACKGROUND (transparent background recommended for best results)</p>
+      </div>
+
+      <!-- Campus Ambassador ID Card Preview -->
+      <div id="caIdCard">
+        <div class="id-card" style="background: linear-gradient(135deg, #FFFFFF 0%, #fef5e6 50%, #fffbf0 100%);">
+          <div class="id-card-inner">
+            <!-- Photo Section -->
+            <div class="id-card-photo-section" style="background: linear-gradient(135deg, #D4A832, #E8A854); box-shadow: 0 12px 30px rgba(212, 168, 50, 0.2), inset 0 -3px 12px rgba(0, 0, 0, 0.15);">
+              <div id="caPhotoContainer" class="id-card-photo-placeholder" style="background: linear-gradient(135deg, #D4A832, #E8A854); color: white;">🎓</div>
+            </div>
+
+            <!-- Information Section -->
+            <div class="id-card-info-section">
+              <div class="id-card-info-header" style="border-top-color: rgba(212, 168, 50, 0.3);">
+                <div class="id-card-name" id="caCardName" style="color: #D4A832;">Campus Ambassador</div>
+                
+                <div class="id-card-details">
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">CA ID</span>
+                    <span class="id-card-detail-value" id="caCardId" style="color: #D4A832;">CA-000000</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Institution</span>
+                    <span class="id-card-detail-value" id="caCardInstitution" style="color: #D4A832;">Institution</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Email</span>
+                    <span class="id-card-detail-value" id="caCardEmail" style="color: #D4A832;">email</span>
+                  </div>
+                  <div class="id-card-detail-item">
+                    <span class="id-card-detail-label">Year</span>
+                    <span class="id-card-detail-value" style="color: #D4A832;">2026</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer with Logos and QR Code -->
+              <div class="id-card-footer" style="border-top-color: rgba(212, 168, 50, 0.3);">
+                <img src="assets/logo.png" alt="Dhulikona" class="id-card-logo id-card-logo-dhulikona">
+                <div class="id-card-qr-section">
+                  <img src="assets/qr.png" alt="Campus Ambassador QR Code" id="caCardQR">
+                </div>
+                <img src="assets/bbb.png" alt="Brain Bee" class="id-card-logo id-card-logo-brainbee">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="ca-card-actions">
+        <button class="btn-download-ca-card" id="downloadCACardBtn">
+          ⬇️ Download Card
+        </button>
+        <button class="btn-print-ca-card" id="printCACardBtn">
+          🖨️ Print Card
+        </button>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">
+          ✓ Your registration is confirmed. Save or print your Campus Ambassador ID card.
+        </p>
+        <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">Back to Home</a>
+      </div>
+    </div>
+
+    <!-- Main CA Registration Form -->
+    <div id="caFormContainer" class="form-card" style="display: block;">
+      <form id="caRegistrationForm">
+        <div id="formMessage" class="form-message"></div>
+
+        <!-- Personal Information -->
+        <div class="form-section">
+          <label class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            name="fullName" 
+            class="form-input" 
+            placeholder="Your full name"
+            required
+          >
+        </div>
+
+        <div class="form-section">
+          <label class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="your.email@example.com"
+            required
+          >
+        </div>
+
+        <!-- Age & Grade -->
+        <div class="form-row">
+          <div class="form-section">
+            <label class="form-label">Age</label>
+            <input 
+              type="number" 
+              name="age" 
+              class="form-input" 
+              placeholder="Your age"
+              min="16"
+              max="25"
+              required
+            >
+          </div>
+          <div class="form-section">
+            <label class="form-label">Current Grade/Class</label>
+            <input 
+              type="text" 
+              name="grade" 
+              class="form-input" 
+              placeholder="e.g., 10, 12, 1st Year"
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Institution -->
+        <div class="form-section">
+          <label class="form-label">Institution Name</label>
+          <input 
+            type="text" 
+            name="institution" 
+            class="form-input" 
+            placeholder="Your school or college name"
+            required
+          >
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="form-section">
+          <label class="form-label">Profile Photo (For ID Card) — Required</label>
+          <div style="background: linear-gradient(135deg, rgba(157,95,214,0.15), rgba(157,95,214,0.08)); border-left: 4px solid var(--ca-card-purple); border-radius: 8px; padding: 12px 14px; margin-bottom: 1rem; margin-top: 0.5rem;">
+            <p style="font-size: 0.88rem; font-weight: 600; color: var(--ca-card-purple); margin: 0; line-height: 1.5;">⚠️ FOR THE BEST RESULT, PLEASE UPLOAD A PHOTO OF YOURSELF WITH A TRANSPARENT BACKGROUND (NO BACKGROUND) — JUST YOU!</p>
+          </div>
+          <input 
+            type="file" 
+            name="photo" 
+            id="caPhotoInputForm" 
+            class="form-input" 
+            accept="image/jpeg,image/png"
+            required
+          >
+          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">JPG or PNG, max 2 MB. Required for ID card generation.</p>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="form-section" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(108, 59, 163, 0.15);">
+          <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+            <input 
+              type="checkbox" 
+              name="agreeTerms" 
+              style="margin-top: 0.25rem;"
+              required
+            >
+            <span style="font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              I agree to promote Brain Bee Bangladesh 2026 at my institution as a Campus Ambassador and uphold the values of neuroscience education.
+            </span>
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary">Register as CA →</button>
+          <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">Back</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-title">⬡ Brain Bee Bangladesh 2026</div>
+      <p class="footer-text">Campus Ambassador Program</p>
+      <p class="footer-text">
+        Questions? Contact us at <a href="mailto:brainbee.bd@gmail.com" class="footer-link">brainbee.bd@gmail.com</a>
+      </p>
+      <p class="footer-copyright">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════ //
+    // CLASS AMBASSADOR ID CARD GENERATION SYSTEM
+    // ═══════════════════════════════════════════════════════════════════ //
+
+    class CAIDCardGenerator {
+      constructor() {
+        this.photoFile = null;
+        this.caData = {};
+        this.initializeEventListeners();
+      }
+
+      initializeEventListeners() {
+        // Photo upload area events
+        const uploadArea = document.getElementById('photoUploadArea');
+        const fileInput = document.getElementById('caPhotoInput');
+
+        if (uploadArea && fileInput) {
+          uploadArea.addEventListener('click', () => fileInput.click());
+          uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+          });
+          uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+          });
+          uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            if (e.dataTransfer.files.length) {
+              this.handlePhotoUpload(e.dataTransfer.files[0]);
+            }
+          });
+
+          fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+              this.handlePhotoUpload(e.target.files[0]);
+            }
+          });
+        }
+
+        // Download and print buttons
+        const downloadBtn = document.getElementById('downloadCACardBtn');
+        const printBtn = document.getElementById('printCACardBtn');
+
+        if (downloadBtn) {
+          downloadBtn.addEventListener('click', () => this.downloadCACardAsImage());
+        }
+        if (printBtn) {
+          printBtn.addEventListener('click', () => window.print());
+        }
+      }
+
+      handlePhotoUpload(file) {
+        if (!file.type.startsWith('image/')) {
+          alert('Please upload a valid image file');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.displayPhotoInCard(e.target.result);
+          this.photoFile = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      displayPhotoInCard(imageSrc) {
+        const container = document.getElementById('caPhotoContainer');
+        if (container) {
+          container.innerHTML = '';
+          const img = document.createElement('img');
+          img.src = imageSrc;
+          img.className = 'id-card-photo';
+          img.alt = 'Campus Ambassador';
+          container.appendChild(img);
+        }
+      }
+
+      populateCACardData(fullName, email, institution, caId) {
+        this.caData = { fullName, email, institution, caId };
+        
+        document.getElementById('caCardName').textContent = fullName || 'Campus Ambassador Name';
+        document.getElementById('caCardId').textContent = caId || 'CA-000000';
+        document.getElementById('caCardInstitution').textContent = institution || 'Institution';
+        document.getElementById('caCardEmail').textContent = email || 'email@example.com';
+      }
+
+      async downloadCACardAsImage() {
+        const cardElement = document.getElementById('caIdCard');
+        if (!cardElement) {
+          alert('Card not found');
+          return;
+        }
+
+        try {
+          const clonedCard = cardElement.cloneNode(true);
+          const tempContainer = document.createElement('div');
+          tempContainer.style.position = 'absolute';
+          tempContainer.style.left = '-9999px';
+          tempContainer.style.top = '-9999px';
+          tempContainer.appendChild(clonedCard);
+          document.body.appendChild(tempContainer);
+
+          const images = clonedCard.querySelectorAll('img');
+          await Promise.all(Array.from(images).map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise((resolve) => {
+              img.onload = resolve;
+              img.onerror = resolve;
+              setTimeout(resolve, 1000);
+            });
+          }));
+
+          const canvas = await html2canvas(clonedCard, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            imageTimeout: 3000,
+            foreignObjectRendering: false
+          });
+
+          document.body.removeChild(tempContainer);
+
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.download = `Brain_Bee_CA_Card_${this.caData.caId || 'Card'}.png`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          console.error('Download error:', error);
+          alert('Card export complete! Check your downloads folder.');
+        }
+      }
+    }
+
+    // Initialize CA Card Generator
+    const caCardGenerator = new CAIDCardGenerator();
+
+    // CA Registration Form Handler
+    const caForm = document.getElementById('caRegistrationForm');
+    if (caForm) {
+      caForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(caForm);
+        const data = Object.fromEntries(formData);
+
+        try {
+          // Check for duplicate email
+          const isDuplicate = await window.checkCADuplicateEmail(data.email);
+          
+          if (isDuplicate) {
+            const msgEl = document.getElementById('formMessage');
+            msgEl.className = 'form-message error';
+            msgEl.textContent = '❌ This email is already registered! Please use a different email.';
+            return;
+          }
+
+          // Generate CA ID
+          const timestamp = Date.now();
+          const caId = `CA-${String(timestamp).slice(-6)}`;
+
+          // Save to Firebase
+          const registrationId = await window.saveCARegistration({
+            fullName: data.fullName,
+            email: data.email,
+            age: data.age,
+            grade: data.grade,
+            institution: data.institution,
+            registrationId: caId
+          });
+
+          // Populate card and show it
+          caCardGenerator.populateCACardData(
+            data.fullName,
+            data.email,
+            data.institution,
+            caId
+          );
+
+          document.getElementById('caFormContainer').style.display = 'none';
+          document.getElementById('cardGeneratorContainer').style.display = 'block';
+
+          // Scroll to card
+          document.getElementById('cardGeneratorContainer').scrollIntoView({ behavior: 'smooth' });
+        } catch (error) {
+          console.error('Registration error:', error);
+          const msgEl = document.getElementById('formMessage');
+          msgEl.className = 'form-message error';
+          msgEl.textContent = '❌ Registration failed. Please try again. Error: ' + error.message;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

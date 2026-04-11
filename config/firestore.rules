@@ -1,9 +1,17 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow anyone to CREATE and READ registrations
+    // Allow anyone to CREATE and READ participant registrations
     match /registrations/{document=**} {
-      allow create, read;
+      allow create: if true;
+      allow read: if true;
+      allow update, delete: if false;
+    }
+
+    // Allow anyone to CREATE and READ Campus Ambassador registrations
+    match /ca_registrations/{document=**} {
+      allow create: if true;
+      allow read: if true;
       allow update, delete: if false;
     }
 

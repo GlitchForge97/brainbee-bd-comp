@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Judges Panel — Brain Bee Bangladesh 2026</title>
+  <meta property="og:url" content="https://brainbeebd.site/judges.html"/>
+  <meta property="og:site_name" content="Brain Bee Bangladesh"/>
+  <link rel="canonical" href="https://brainbeebd.site/judges.html" />
+  <link rel="icon" type="image/png" href="https://brainbeebd.site/assets/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://brainbeebd.site/assets/favicon-32x32.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* BASE STYLES                                                      */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-dark: #0F1419;
+      --bg-darker: #0A0E13;
+      --bg-white: #FFFFFF;
+      --bg-light: #F8FAFB;
+      --bg-cream: #FFF8F0;
+      --bg-warm-white: #FFFBF7;
+      --text-primary: #1a1a1a;
+      --text-body: #4a4a4a;
+      --text-light: #6B6258;
+      --text-gold: #C9972C;
+      --gold-brush: #b8923a;
+      --amber-glow: #e8a854;
+      --alert-amber: #D99F4C;
+      --alert-bg: #FDF6EC;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      background-color: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .label-uppercase {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0.75;
+      color: var(--gold-brush);
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: reveal 0.8s ease-out forwards;
+    }
+
+    .revealed {
+      opacity: 1;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* NAVIGATION                                                       */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    nav {
+      background: var(--bg-white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(184, 146, 58, 0.1);
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--gold-brush);
+    }
+
+    nav a.active {
+      color: var(--gold-brush);
+      border-bottom: 2px solid var(--gold-brush);
+      padding-bottom: 4px;
+    }
+
+    nav > div {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* JUDGES SECTION                                                   */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    .judges-showcase {
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFFBF7 100%);
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .judges-timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* JUDGE CARD STYLING (ALTERNATING LAYOUT)                          */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    .judge-card {
+      display: grid;
+      direction: ltr;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      animation: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .judge-card:nth-child(even) {
+      direction: rtl;
+    }
+
+    .judge-card:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .judge-portrait-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1;
+    }
+
+    .judge-portrait-frame {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #fff5e6, #ffe8cc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Organic blob clip-paths for each judge */
+    .judge-card:nth-child(1) .judge-portrait-frame {
+      clip-path: polygon(
+        30% 0%, 100% 0%,
+        100% 70%, 95% 95%,
+        60% 100%, 20% 95%,
+        0% 75%, 0% 25%
+      );
+    }
+
+    .judge-card:nth-child(2) .judge-portrait-frame {
+      clip-path: polygon(
+        0% 30%, 0% 0%,
+        70% 0%, 100% 25%,
+        100% 100%, 70% 100%,
+        25% 95%
+      );
+    }
+
+    .judge-card:nth-child(3) .judge-portrait-frame {
+      clip-path: polygon(
+        25% 0%, 100% 5%,
+        100% 85%, 90% 100%,
+        0% 100%, 0% 30%
+      );
+    }
+
+    .judge-card:nth-child(4) .judge-portrait-frame {
+      clip-path: polygon(
+        0% 20%, 0% 0%,
+        80% 0%, 100% 40%,
+        100% 100%, 30% 100%,
+        10% 80%
+      );
+    }
+
+    .judge-card:nth-child(5) .judge-portrait-frame {
+      clip-path: polygon(
+        35% 0%, 100% 0%,
+        100% 75%, 85% 100%,
+        5% 100%, 0% 50%,
+        10% 10%
+      );
+    }
+
+    .judge-card:nth-child(6) .judge-portrait-frame {
+      clip-path: polygon(
+        0% 35%, 10% 5%,
+        100% 0%, 100% 95%,
+        80% 100%, 0% 85%
+      );
+    }
+
+    .judge-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .judge-card:hover .judge-portrait-frame {
+      transform: scale(1.08) rotateY(5deg);
+      box-shadow: 0 20px 60px rgba(184, 146, 58, 0.2);
+    }
+
+    .judge-card:hover .judge-portrait-frame img {
+      transform: scale(1.05);
+    }
+
+    .judge-content {
+      direction: ltr;
+      padding: 1rem;
+    }
+
+    .judge-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .judge-role {
+      color: var(--gold-brush);
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .judge-role::before {
+      content: '⬡';
+      font-size: 0.8rem;
+    }
+
+    .judge-title {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .judge-qualifications {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      padding: 1.5rem;
+      background: rgba(232, 168, 84, 0.08);
+      border-left: 4px solid var(--gold-brush);
+      border-radius: 8px;
+    }
+
+    .judge-qualifications-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .judge-qualifications-list li {
+      color: var(--text-body);
+      font-weight: 500;
+      font-style: normal;
+      font-size: 1rem;
+    }
+
+    .judge-qualifications-list li::before {
+      content: '• ';
+      color: var(--gold-brush);
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* MOBILE WARNING BANNER                                            */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    .mobile-warning-banner {
+      display: none;
+      background: linear-gradient(135deg, #D99F4C 0%, #e8a854 100%);
+      color: white;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .mobile-warning-banner.active {
+      display: block;
+    }
+
+    .mobile-warning-banner button {
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid white;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .mobile-warning-banner button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* FOOTER                                                           */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    footer {
+      background: var(--bg-cream);
+      border-top: 1px solid rgba(184, 146, 58, 0.15);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .footer-subtitle {
+      color: var(--gold-brush);
+      margin-bottom: 2rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 600;
+    }
+
+    .footer-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-brush), transparent);
+      margin: 2rem auto;
+    }
+
+    .footer-copyright {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════ */
+    /* RESPONSIVE DESIGN                                                */
+    /* ═══════════════════════════════════════════════════════════════ */
+    
+    @media (max-width: 768px) {
+      body {
+        padding-top: 60px;
+      }
+
+      .mobile-warning-banner.active {
+        display: block;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem;
+      }
+
+      nav > div {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0;
+        padding: 0.6rem;
+        font-size: 1rem;
+      }
+
+      .judge-card,
+      .judge-card:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 2.5rem;
+      }
+
+      .judge-card:nth-child(even) > * {
+        direction: ltr;
+      }
+
+      .judges-showcase {
+        padding: 5rem 1.5rem;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+      }
+
+      .judge-portrait-frame {
+        max-width: 260px;
+      }
+
+      .judge-name {
+        font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      }
+
+      .section-header {
+        margin-bottom: 3.5rem;
+      }
+
+      .footer-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-top: 70px;
+      }
+
+      .mobile-warning-banner.active {
+        display: block;
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .mobile-warning-banner button {
+        margin-left: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+      }
+
+      .judges-showcase {
+        padding: 3rem 1rem;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+      }
+
+      .judge-portrait-frame {
+        max-width: 200px;
+      }
+
+      .judge-card {
+        gap: 1.5rem;
+      }
+
+      .judge-name {
+        font-size: 1.3rem;
+      }
+
+      .judge-title {
+        font-size: 1rem;
+      }
+
+      .judge-qualifications {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+
+      nav {
+        gap: 1rem;
+        padding: 0.8rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+      }
+
+      .label-uppercase {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .footer-title {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Warning Banner -->
+  <div class="mobile-warning-banner" id="mobileWarning">
+    📱 For best viewing experience, please switch to <strong>Desktop Mode</strong> or use a larger screen
+    <button onclick="closeMobileWarning()">✕ Dismiss</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav style="padding: 0.75rem 2rem;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: var(--gold-brush); font-weight: 700; font-size: 1rem;">
+      <img src="assets/bbb.png" alt="Brain Bee Bangladesh" style="height: 45px; width: auto;">
+      <span>Brain Bee Bangladesh</span>
+    </a>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
+      <a href="index.html">Home</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="judges.html" class="active">Judges</a>
+      <a href="index.html#format">Format</a>
+      <a href="register.html">Register</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- Judges Showcase Section -->
+  <section class="judges-showcase">
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="section-header">
+        <p class="label-uppercase reveal" style="color: var(--gold-brush);">Expert Panel</p>
+        <h2 class="reveal" style="color: var(--text-primary);">Meet Our Judges</h2>
+        <p style="max-width: 700px; margin: 1.5rem auto 0; color: var(--text-light); font-size: 1.02rem; letter-spacing: 0.3px; font-weight: 400;">Experienced specialists and academic experts ensuring fair evaluation and maintaining the highest standards of excellence in neuroscience education and competition integrity.</p>
+      </div>
+
+      <div class="judges-timeline reveal-stagger">
+
+        <!-- Judge 1: Dr. Nazmul Haque -->
+        <div class="judge-card reveal">
+          <div class="judge-portrait-section">
+            <div class="judge-portrait-frame">
+              <img src="assets/judge1.jpeg" alt="Assoc. Prof. Dr. Nazmul Haque">
+            </div>
+          </div>
+          <div class="judge-content">
+            <div class="judge-name">Assoc. Prof. Dr. Nazmul Haque</div>
+            <div class="judge-role">Final Round Judge</div>
+            <div class="judge-title">Pediatrician with specialization in pediatric neurology.</div>
+            <div class="judge-qualifications">
+              <strong>Qualifications:</strong>
+              <ul class="judge-qualifications-list">
+                <li>MBBS</li>
+                <li>BCS (Health)</li>
+                <li>FCPS (Pediatric Neurology)</li>
+                <li>FCPS (Pediatrics)</li>
+                <li>MD (Pediatrics)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more judges here following the same pattern -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-title reveal">⬡ Brain Bee Bangladesh 2026</div>
+      <p class="footer-subtitle reveal">Bangladesh's First International Brain Bee Competition</p>
+      <div class="footer-divider reveal"></div>
+      <p class="reveal" style="color: var(--text-body); margin-bottom: 1.5rem; font-size: 0.9rem;">
+        In collaboration with <strong>International Brain Bee</strong><br>
+        Organized by <strong>Dhulikona</strong>
+      </p>
+      <p class="reveal" style="color: var(--text-gold); font-weight: 600; margin: 1.5rem 0;">
+        📧 <a href="mailto:brainbee.bd@gmail.com" style="color: var(--text-gold); text-decoration: none;">brainbee.bd@gmail.com</a><br>
+        <span style="font-size: 0.9rem; color: var(--text-body);">Response time: 24-48 hours</span>
+      </p>
+      <p class="footer-copyright reveal">
+        © 2026 Brain Bee Bangladesh. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Active Navigation Link Handler
+    function setActiveNavLink() {
+      const currentPage = window.location.pathname;
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        
+        // Check if current page matches the link
+        if (currentPage.endsWith('index.html') || currentPage === '/' || currentPage === '') {
+          if (href === 'index.html' || href.includes('index.html')) {
+            link.classList.add('active');
+          }
+        } else if (currentPage.endsWith('judges.html')) {
+          if (href === 'judges.html') {
+            link.classList.add('active');
+          }
+        } else if (currentPage.endsWith('leadership.html')) {
+          if (href === 'leadership.html') {
+            link.classList.add('active');
+          }
+        } else if (currentPage.endsWith('register.html')) {
+          if (href === 'register.html') {
+            link.classList.add('active');
+          }
+        } else if (currentPage.endsWith('faq.html')) {
+          if (href === 'faq.html') {
+            link.classList.add('active');
+          }
+        }
+      });
+    }
+    
+    setActiveNavLink();
+
+    // Scroll Reveal Animation
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    // Mobile Warning Banner - Device Detection
+    function detectMobileDevice() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // Check for common mobile/tablet user agents
+      const mobilePattern = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet|samsung|htc|nexus|xoom/i;
+      const isMobile = mobilePattern.test(userAgent);
+      
+      // Also check screen width as fallback
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      return isMobile || isSmallScreen;
+    }
+
+    // Show/Hide Mobile Warning Banner
+    function updateMobileWarning() {
+      const warningBanner = document.getElementById('mobileWarning');
+      const dismissedBefore = localStorage.getItem('mobileWarningDismissed');
+      
+      if (detectMobileDevice() && !dismissedBefore) {
+        warningBanner.classList.add('active');
+      } else {
+        warningBanner.classList.remove('active');
+      }
+    }
+
+    // Close Mobile Warning Banner
+    function closeMobileWarning() {
+      const warningBanner = document.getElementById('mobileWarning');
+      warningBanner.classList.remove('active');
+      // Store dismissal in localStorage (1 hour expiry)
+      const expiryTime = new Date().getTime() + (1 * 60 * 60 * 1000);
+      localStorage.setItem('mobileWarningDismissed', expiryTime);
+    }
+
+    // Initialize mobile warning on page load
+    document.addEventListener('DOMContentLoaded', updateMobileWarning);
+
+    // Re-check on resize (in case user rotates device or resizes window)
+    window.addEventListener('resize', () => {
+      const dismissedBefore = localStorage.getItem('mobileWarningDismissed');
+      if (!dismissedBefore) {
+        updateMobileWarning();
+      }
+    });
+  </script>
+</body>
+</html>

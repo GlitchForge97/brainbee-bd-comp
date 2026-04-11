@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations - Brain Bee Bangladesh 2026</title>
+  <link rel="canonical" href="https://brainbeebd.site/" />
+  <link rel="icon" type="image/png" href="https://brainbeebd.site/assets/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://brainbeebd.site/assets/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&family=Montserrat:wght@700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Rock+Salt&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization", 
+  "name": "National Brain Bee Bangladesh",
+  "alternateName": "International Brain Bee Bangladesh",
+  "url": "https://brainbeebd.site",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "International Brain Bee",
+    "url": "https://thebrainbee.org"
+  },
+  "areaServed": "BD",
+  "description": "The official national chapter of the International Brain Bee in Bangladesh, dedicated to neuroscience education for high school students."
+}
+</script>
+  
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    :root {
+      --deep-navy: #0D1B35;
+      --rich-navy: #162444;
+      --mid-blue: #1E3A6E;
+      --accent-gold: #C9A84C;
+      --light-gold: #E8C97A;
+      --off-white: #F4F1EA;
+      --muted-text: #6B7A99;
+      --text-dark: #1A1F35;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #080E1D 0%, #0D1B35 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1, h2 { font-family: 'DM Serif Display', serif; }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .celebration-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .card {
+      background: var(--off-white);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 12px 48px rgba(13, 27, 53, 0.25);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      color: var(--accent-gold);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .details {
+      background: rgba(13, 27, 53, 0.04);
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .details h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .details ol {
+      list-style: decimal;
+      margin-left: 1.5rem;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+      color: var(--deep-navy);
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(201, 168, 76, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-gold);
+      border: 1.5px solid var(--accent-gold);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(201, 168, 76, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .next-steps {
+      text-align: left;
+      background: rgba(13, 27, 53, 0.04);
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .next-steps h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .next-steps ol {
+      list-style: decimal;
+      margin-left: 1.5rem;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ═════════════════════════════════════════════════════════════════ */
+    /* NEW ID CARD STYLES                                              */
+    /* ═════════════════════════════════════════════════════════════════ */
+
+    #participantIdCard {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .id-card {
+      width: 100%;
+      background: #070707;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      box-shadow:
+        0 0 0 1px rgba(232,120,0,0.12),
+        0 28px 80px rgba(0,0,0,0.95);
+      overflow: hidden;
+    }
+
+    /* ── Photo Section ── */
+    .s-photo {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #000000;
+    }
+
+    .bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+
+    .bg-css {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #000000;
+    }
+
+    .orange-pillar {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42%;
+      background: transparent;
+      z-index: 0;
+    }
+
+    .side-vig {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        linear-gradient(to right,
+          rgba(0,0,0,0.80) 0%,
+          rgba(0,0,0,0.15) 20%,
+          transparent 32%,
+          transparent 68%,
+          rgba(0,0,0,0.15) 80%,
+          rgba(0,0,0,0.80) 100%);
+    }
+
+    .bottom-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 22%;
+      background: linear-gradient(to top, #070707 0%, rgba(7,7,7,0.4) 70%, transparent 100%);
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .logo-b3c {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+      height: 70px;
+      width: auto;
+      filter: drop-shadow(0 2px 14px rgba(0,0,0,0.95));
+    }
+
+    .person-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 62%;
+      height: 100%;
+      z-index: 5;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .person-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      image-rendering: crisp-edges;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 70%,
+        rgba(255,255,255,0.9) 80%,
+        rgba(255,255,255,0.4) 90%,
+        rgba(255,255,255,0) 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 70%,
+        rgba(255,255,255,0.9) 80%,
+        rgba(255,255,255,0.4) 90%,
+        rgba(255,255,255,0) 100%
+      );
+    }
+
+    .person-placeholder {
+      width: 100%;
+      height: 85%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    /* ── Name Section ── */
+    .s-name {
+      background: #070707;
+      padding: 16px 12px 20px 10px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 6;
+      text-align: center;
+      min-height: auto;
+    }
+
+    .big-name {
+      font-family: "Rock Salt", cursive;
+      font-weight: 400;
+      font-style: normal;
+      font-size: clamp(1.4rem, 6vw, 2.8rem);
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      white-space: normal;
+      word-break: break-word;
+      overflow: visible;
+      text-shadow:
+        3px  3px  0px rgba(0,0,0,0.9),
+        -1px -1px 0px rgba(0,0,0,0.5),
+        -2px -1px 0px rgba(255,255,255,0.12),
+         1px -2px 0px rgba(255,255,255,0.08),
+         0px  6px 20px rgba(232,120,0,0.1),
+         4px  4px 8px rgba(0,0,0,0.7);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── QR + Info Section ── */
+    .s-info {
+      background: #070707;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 14px 14px 12px;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .qr-frame {
+      background: #fff;
+      border-radius: 6px;
+      padding: 5px;
+      width: 118px;
+      height: 118px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-frame img.qr-main {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .qr-frame img.qr-logo-inside {
+      position: absolute;
+      bottom: 6px;
+      right: 5px;
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      z-index: 2;
+      background: white;
+      border-radius: 2px;
+      padding: 1px;
+    }
+
+    .scan-label {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      color: #fff;
+      text-align: center;
+    }
+
+    .info-box {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 35%, rgba(232,120,0,0.3) 65%, #D97706 100%);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 10px 10px;
+      align-self: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .info-label {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #bbb;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .info-value {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #f0e5d0;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+
+    /* ── Footer / Contact ── */
+    .s-footer {
+      background: #f0ebe0;
+      border-top: 3.5px solid #E87800;
+      padding: 12px 16px 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #cc3a00;
+      text-align: center;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 10px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+      }
+
+      .fc-left, .fc-mid, .fc-right {
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .fc-right .frow,
+      .fc-mid .frow {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .scan-label {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+      }
+
+      #participantIdCard {
+        max-width: 100%;
+      }
+
+      .s-photo {
+        height: clamp(280px, 60vw, 380px);
+      }
+
+      .big-name {
+        font-size: clamp(2rem, 10vw, 4.8rem);
+      }
+
+      .s-info {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .qr-frame {
+        width: clamp(100px, 25vw, 118px);
+        height: clamp(100px, 25vw, 118px);
+      }
+
+      .info-box {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-title {
+        font-size: clamp(0.85rem, 2.5vw, 1.08rem);
+      }
+
+      .s-footer {
+        padding: 10px 12px 12px;
+      }
+
+      .logo-b3c {
+        height: clamp(50px, 12vw, 70px);
+      }
+
+      .btn-png, .btn-pdf {
+        padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 3vw, 2.2rem);
+        font-size: clamp(0.65rem, 2vw, 0.78rem);
+      }
+    }
+
+    .fc { display: flex; flex-direction: column; gap: 4px; }
+    .fc-left  { align-items: flex-start; }
+    .fc-mid   { align-items: center; text-align: center; }
+    .fc-right { align-items: flex-end; text-align: right; }
+
+    .frow {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: clamp(0.55rem, 2vw, 0.68rem);
+      font-weight: 400;
+      color: #1a1a1a;
+      line-height: 1.4;
+      text-decoration: none;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .fc-right .frow { flex-direction: row-reverse; }
+    .fc-mid   .frow { flex-direction: row; justify-content: center; font-size: 0.58rem; }
+
+    .ico-fb {
+      width: 14px; height: 14px;
+      background: #1877F2;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 0.62rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .ico-globe { width: 14px; height: 14px; flex-shrink: 0; display: inline-block; }
+    .ico-mail  { width: 14px; height: 11px; flex-shrink: 0; display: inline-block; }
+
+    /* ── Download Buttons ── */
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    .btn-png {
+      background: linear-gradient(135deg, #E87800, #FF9520);
+      color: #000;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 22px rgba(232,120,0,0.45);
+    }
+    .btn-png:hover    { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,120,0,0.6); }
+    .btn-png:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .btn-pdf {
+      background: transparent;
+      color: #E87800;
+      border: 1.5px solid #E87800;
+      padding: 0.8rem 2.2rem;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-pdf:hover    { background: rgba(232,120,0,0.1); transform: translateY(-2px); }
+    .btn-pdf:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="celebration-icon">🎉</div>
+    
+    <div class="card">
+      <h1>Registration Successful!</h1>
+      <p class="subtitle">
+        Welcome to Brain Bee Bangladesh 2026. Your registration has been confirmed and you're all set to compete!
+      </p>
+
+      <div class="details">
+        <h3>📋 What's Next?</h3>
+        <ol>
+          <li>Check your email for confirmation and login details</li>
+          <li>Log in to your dashboard and review the competition guidelines</li>
+          <li>On February 22, come back to take the 20-minute exam</li>
+          <li>Get instant results and check the leaderboard</li>
+          <li>Top 3 winners in each segment will be crowned champions!</li>
+        </ol>
+      </div>
+
+      <div class="buttons">
+        <a href="dashboard.html" class="btn btn-primary">Go to Dashboard →</a>
+        <a href="index.html" class="btn btn-secondary">Back to Home</a>
+      </div>
+
+      <!-- ══════════════════ NEW ID CARD ══════════════════ -->
+      <div id="participantIdCard">
+        <div class="id-card" id="idCardEl">
+
+          <!-- Photo + Background -->
+          <div class="s-photo">
+            <div class="bg-css"></div>
+            <img class="bg-img" src="https://i.ibb.co.com/zVmYhBPL/image-2026-02-23-160906353.png" alt="" crossorigin="anonymous" onerror="this.style.display='none'">
+            <div class="orange-pillar"></div>
+            <div class="side-vig"></div>
+            <div class="bottom-fade"></div>
+
+            <img class="logo-b3c" src="assets/bbb.png" alt="B3C" crossorigin="anonymous" onerror="this.style.display='none'">
+
+            <!-- Person photo — populated from localStorage by JS below -->
+            <div class="person-wrap" id="personWrap">
+              <div class="person-placeholder">🧑</div>
+            </div>
+          </div>
+
+          <!-- Name Section -->
+          <div class="s-name">
+            <div class="big-name" id="cardName">Participant Name</div>
+          </div>
+
+          <!-- QR + Info -->
+          <div class="s-info">
+            <div class="qr-block">
+              <div class="qr-frame">
+                <img class="qr-main" src="assets/qr.png" alt="QR Code" crossorigin="anonymous" id="cardQRCode">
+                <img class="qr-logo-inside" src="assets/bbb.png" alt="" crossorigin="anonymous" onerror="this.style.display='none'">
+              </div>
+              <div class="scan-label">Scan Now</div>
+            </div>
+
+            <div class="info-box">
+              <div class="info-item">
+                <span class="info-label">Reg Id:</span>
+                <span class="info-value" id="cardRegId">BBB-00000</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Category:</span>
+                <span class="info-value" id="cardCategory">—</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Segment:</span>
+                <span class="info-value" id="cardSegment">—</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Year:</span>
+                <span class="info-value">2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="s-footer">
+            <div class="contact-title">Contact us:</div>
+            <div class="footer-grid">
+
+              <div class="fc fc-left">
+                <div class="frow"><span class="ico-fb">f</span>Facebook.com/Dhulikona</div>
+                <div class="frow">
+                  <svg class="ico-mail" viewBox="0 0 16 11" fill="none"><rect x="0.5" y="0.5" width="15" height="10" rx="1.2" stroke="#333" stroke-width="1.1" fill="none"/><polyline points="0.5,0.5 8,6.5 15.5,0.5" stroke="#333" stroke-width="1.1" fill="none"/></svg>
+                  dhulikona.bangladesh@gmail.com
+                </div>
+              </div>
+
+              <div class="fc fc-mid">
+                <div class="frow">https://glitchforge97.github.io/<br>brainbee-bd-comp/index.html</div>
+                <div class="frow" style="margin-top:2px;">
+                  <svg class="ico-globe" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#555" stroke-width="1.2"/><ellipse cx="8" cy="8" rx="3.2" ry="7" stroke="#555" stroke-width="1.2"/><line x1="1" y1="6" x2="15" y2="6" stroke="#555" stroke-width="1.2"/><line x1="1" y1="10" x2="15" y2="10" stroke="#555" stroke-width="1.2"/></svg>
+                </div>
+              </div>
+
+              <div class="fc fc-right">
+                <div class="frow">Facebook.com/Bangladesh brain bee<span class="ico-fb">f</span></div>
+                <div class="frow">
+                  brainbee.bd@gmail.com
+                  <svg class="ico-mail" viewBox="0 0 16 11" fill="none"><rect x="0.5" y="0.5" width="15" height="10" rx="1.2" stroke="#333" stroke-width="1.1" fill="none"/><polyline points="0.5,0.5 8,6.5 15.5,0.5" stroke="#333" stroke-width="1.1" fill="none"/></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Download Buttons -->
+      <div class="card-actions">
+        <button class="btn-png" id="dlPng">⬇ Download PNG</button>
+        <button class="btn-pdf" id="dlPdf">📄 Download PDF</button>
+      </div>
+      <!-- ══════════════════ END NEW ID CARD ══════════════════ -->
+    </div>
+  </div>
+
+  <!-- Load required libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    // ── ID Card: Read from localStorage and populate ──────────────
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const d = JSON.parse(localStorage.getItem('registrationData') || '{}');
+
+        // Map the correct localStorage keys from register.html
+        if (d.fullName)      document.getElementById('cardName').textContent     = d.fullName;
+        if (d.registrationId) document.getElementById('cardRegId').textContent   = d.registrationId;
+        if (d.categoryDisplay) document.getElementById('cardCategory').textContent = d.categoryDisplay;
+        if (d.segment)       document.getElementById('cardSegment').textContent  = d.segment;
+
+        // Participant photo — loaded from base64 stored in localStorage
+        if (d.photoData) {
+          const wrap = document.getElementById('personWrap');
+          const img  = document.createElement('img');
+          img.src    = d.photoData;
+          img.alt    = 'Participant';
+          img.style.cssText = [
+            'width:100%', 'height:100%',
+            'object-fit:contain', 'object-position:bottom center', 'display:block',
+            'image-rendering:crisp-edges',
+            '-webkit-mask-image:linear-gradient(to bottom,rgba(255,255,255,1) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,0.9) 80%,rgba(255,255,255,0.4) 90%,rgba(255,255,255,0) 100%)',
+            'mask-image:linear-gradient(to bottom,rgba(255,255,255,1) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,0.9) 80%,rgba(255,255,255,0.4) 90%,rgba(255,255,255,0) 100%)'
+          ].join(';');
+          wrap.innerHTML = '';
+          wrap.appendChild(img);
+        }
+      } catch(e) { console.warn('ID card data not found:', e); }
+    });
+
+    // ── Capture helper (shared by PNG + PDF) ─────────────────────
+    async function captureCard(scale) {
+      const element = document.getElementById('idCardEl');
+      
+      // Show loading overlay to hide glitches
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        backdrop-filter: blur(4px);
+      `;
+      const loader = document.createElement('div');
+      loader.style.cssText = `
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        font-family: 'Outfit', sans-serif;
+      `;
+      loader.innerHTML = `
+        <div style="font-size: 2rem; margin-bottom: 1rem;">⏳</div>
+        <div style="font-size: 1rem; color: #070707; font-weight: 600;">Generating ID Card...</div>
+      `;
+      overlay.appendChild(loader);
+      document.body.appendChild(overlay);
+
+      try {
+        // Clone element but keep styling
+        const clone = element.cloneNode(true);
+        
+        // Position off-screen
+        clone.style.position = 'absolute';
+        clone.style.left = '-9999px';
+        clone.style.top = '-9999px';
+        clone.style.visibility = 'visible';
+        clone.style.display = 'block';
+        
+        // Remove only mask-image that breaks html2canvas
+        const removeCSS = (el) => {
+          el.style.maskImage = 'none';
+          el.style.webkitMaskImage = 'none';
+          el.style.mask = 'none';
+          el.style.webkitMask = 'none';
+          Array.from(el.children).forEach(removeCSS);
+        };
+        removeCSS(clone);
+        
+        document.body.appendChild(clone);
+
+        // Wait for images
+        const images = clone.querySelectorAll('img');
+        await Promise.all(Array.from(images).map(img => {
+          return new Promise((resolve) => {
+            if (img.complete) resolve();
+            else {
+              img.onload = resolve;
+              img.onerror = resolve;
+              setTimeout(resolve, 2000);
+            }
+          });
+        }));
+
+        await new Promise(r => setTimeout(r, 300));
+
+        const canvas = await html2canvas(clone, {
+          scale: scale,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#070707',
+          imageTimeout: 0,
+          logging: false,
+          windowWidth: 560,
+          windowHeight: 700,
+          width: 560,
+          height: 700
+        });
+
+        document.body.removeChild(clone);
+        return canvas;
+      } finally {
+        document.body.removeChild(overlay);
+      }
+    }
+
+    // ── PNG Download ──────────────────────────────────────────────
+    document.getElementById('dlPng').addEventListener('click', async () => {
+      const btn = document.getElementById('dlPng');
+      btn.textContent = 'Generating…'; btn.disabled = true;
+      try {
+        const canvas = await captureCard(2);
+        const regId  = document.getElementById('cardRegId').textContent || 'BrainBee';
+        const a = document.createElement('a');
+        a.download = `BrainBee_ID_${regId}.png`;
+        a.href     = canvas.toDataURL('image/png', 1.0);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch(e) { console.error(e); alert('PNG export failed: ' + e.message); }
+      finally { btn.textContent = '⬇ Download PNG'; btn.disabled = false; }
+    });
+
+    // ── PDF Download ──────────────────────────────────────────────
+    document.getElementById('dlPdf').addEventListener('click', async () => {
+      const { jsPDF } = window.jspdf;
+      const btn = document.getElementById('dlPdf');
+      btn.textContent = 'Generating PDF…'; btn.disabled = true;
+      try {
+        const canvas  = await captureCard(3);
+        const regId   = document.getElementById('cardRegId').textContent || 'BrainBee';
+        const imgData = canvas.toDataURL('image/jpeg', 0.97);
+        const pdf     = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        const pageW   = pdf.internal.pageSize.getWidth();
+        const pageH   = pdf.internal.pageSize.getHeight();
+        const cardEl  = document.getElementById('idCardEl');
+        const cardW   = 145;
+        const cardH   = cardW * (cardEl.scrollHeight / cardEl.offsetWidth);
+        pdf.addImage(imgData, 'JPEG', (pageW - cardW) / 2, (pageH - cardH) / 2, cardW, cardH);
+        pdf.save(`BrainBee_ID_${regId}.pdf`);
+      } catch(e) { alert('PDF export failed: ' + e.message); }
+      finally { btn.textContent = '📄 Download PDF'; btn.disabled = false; }
+    });
+  </script>
+</body>
+</html>
