@@ -27,3 +27,5 @@ Notes for reviewers
 
 
 CI re-run trigger: updated to re-run workflow
+
+CI re-run triggered by GitHub Copilot at 2026-08-30T14:56:00Z to attempt to clear transient failures. If this run still fails, I will try one more rerun; after two failed reruns I will move on to the next repository and leave this PR for manual merge.
